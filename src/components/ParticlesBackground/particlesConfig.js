@@ -11,7 +11,7 @@ export default {
         "value": "#ffffff"
         },
         "shape": {
-        "type": "circle",
+        "type": "star",
         "stroke": {
             "width": 0,
             "color": "#000000"
@@ -54,7 +54,7 @@ export default {
         },
         "move": {
         "enable": true,
-        "speed": 0.2,
+        "speed": .4,
         "direction": "none",
         "random": true,
         "straight": false,
@@ -71,11 +71,11 @@ export default {
         "detect_on": "canvas",
         "events": {
         "onhover": {
-            "enable": false,
+            "enable": true,
             "mode": "repulse"
         },
         "onclick": {
-            "enable": false,
+            "enable": true,
             "mode": "push"
         },
         "resize": true
