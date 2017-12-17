@@ -4,9 +4,8 @@ import "particles.js"
 import particlesConfig from "./particlesConfig"
 
 const Background = styled.div`
-    height: 300px;
+    height: 100%;
     width: 100%;
-    background-color: violet;
 `
 
 export default class ParticlesBackground extends React.Component {
@@ -15,7 +14,7 @@ export default class ParticlesBackground extends React.Component {
     }
     render() {
         return (
-            <Background id="bg" />
+            <Background id="bg" { ...this.props } />
         )
     }
 }
