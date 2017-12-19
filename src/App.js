@@ -3,7 +3,11 @@ import styled from "styled-components"
 import './App.css'
 
 import ParticlesBackground from "./components/ParticlesBackground"
+import About from "./components/About"
 
+const Container = styled.div`
+
+`
 const Header = styled.header`
 	align-items: center;
 	display: flex;
@@ -55,22 +59,25 @@ const List = styled.div`
 class App extends Component {
   render() {
     return (
-		<Header>
-			<_ParticlesBackground />
-			<Navbar>
-				<p>Gabe West</p>
-				<List>
-					<li><a href="#">About</a></li>
-					<li><a href="#">Projects</a></li>
-					<li><a href="#">Contact</a></li>
-				</List>
-			</Navbar>
-			<Quote>
-				Imagination is more important the knowledge
-				<br/> For knowledge is <Underline>limited,</Underline>
-				<br/> whereas imagination embraces the entire world, stimulating progress, giving birth to evolution.
-			</Quote>
-		</Header>
+		<Container>
+			<Header>
+				<_ParticlesBackground />
+				<Navbar>
+					<p>Gabe West</p>
+					<List>
+						<li><a href="#">About</a></li>
+						<li><a href="#">Projects</a></li>
+						<li><a href="#">Contact</a></li>
+					</List>
+				</Navbar>
+				<Quote>
+					Imagination is more important the knowledge
+					<br/> For knowledge is <Underline>limited,</Underline>
+					<br/> whereas imagination embraces the entire world, stimulating progress, giving birth to evolution.
+				</Quote>
+			</Header>
+			<About />
+		</Container>
     )
   }
 }
