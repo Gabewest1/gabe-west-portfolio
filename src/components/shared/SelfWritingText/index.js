@@ -59,8 +59,11 @@ export default class SelfWritingText extends React.Component {
                 currentAdjectiveIndex: nextAdjectiveIndex,
                 isWritingAdjective: true
             }
+            const adjectiveEqualsThinker = currentAdjective.toLowerCase() === "thinker"
 
-            setTimeout(() => this.setState(nextState), 1000)
+            const timeout = adjectiveEqualsThinker ? 3000 : 1000
+
+            setTimeout(() => this.setState(nextState), timeout)
             return currentAdjective
         } else {
             setTimeout(() => this.setState({ currentAdjectiveChar: currentAdjectiveChar + 1 }), 100)
