@@ -1,139 +1,97 @@
 import React from "react"
 import styled from "styled-components"
+import randomColor from "random-color"
 
-const ProjectsView = styled.div`
-    padding: 1em 0;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+import projectData from "./projectData"
 
-    > * {
-        margin: 1em;
-    }
-
-    > *:last {
-        margin-bottom: 1em;
-    }
-`
-
-const Title = styled.h3``
-const Description = styled.p`
-    font-size: .5em;
-    transform: translateX(130%);
-    transition: all .4s ease-in-out;    
-`
-
-const Card = styled.div`
-    display: inline-block;
-	background-color: #112128;
-    box-shadow: 0px 35px 77px -17px rgba(0,0,0,0.44);
-    overflow: hidden;
-    padding: 0 .7em;
-    transition: all .4s ease-in-out;
-    width: 10em;
-
-    &:hover {
-        box-shadow: 0px 35px 77px -17px rgba(0,0,0,0.64);
-        transform: scale(1.07);
-    }
-
-    &:hover ${Description} {
-        transform: translateX(0);
-    }
-`
+import {
+    ProjectsView,
+    Overlay,
+    Title,
+    Description,
+    ProjectImage,
+    CardView
+} from "./styles"
 
 export default class Projects extends React.Component {
     render() {
+        const projects = projectData.map(project => <Card project={ project } />)
+
         return (
             <ProjectsView>
-                <Card>
-                    <Title>Simon Says Mobile App</Title>
-                    <Description>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis illo veritatis consectetur alias quod,
-                        placeat incidunt architecto quae quasi rem, magnam quidem sapiente autem suscipit. Harum eveniet quibusdam aut ex!
-                    </Description>
-                </Card>
-
-                <Card>
-                    <Title>Calculator</Title>
-                    <Description>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis illo veritatis consectetur alias quod,
-                        placeat incidunt architecto quae quasi rem, magnam quidem sapiente autem suscipit. Harum eveniet quibusdam aut ex!
-                    </Description>
-                </Card>
-
-                <Card>
-                    <Title>Weather Forecast</Title>
-                    <Description>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis illo veritatis consectetur alias quod,
-                        placeat incidunt architecto quae quasi rem, magnam quidem sapiente autem suscipit. Harum eveniet quibusdam aut ex!
-                    </Description>
-                </Card>
-
-                <Card>
-                    <Title>Wikipedia Viewer</Title>
-                    <Description>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis illo veritatis consectetur alias quod,
-                        placeat incidunt architecto quae quasi rem, magnam quidem sapiente autem suscipit. Harum eveniet quibusdam aut ex!
-                    </Description>
-                </Card>
-
-                <Card>
-                    <Title>Tic-Tac-Toe</Title>
-                    <Description>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis illo veritatis consectetur alias quod,
-                        placeat incidunt architecto quae quasi rem, magnam quidem sapiente autem suscipit. Harum eveniet quibusdam aut ex!
-                    </Description>
-                </Card>
-
-                <Card>
-                    <Title>Batman Tribute Page</Title>
-                    <Description>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis illo veritatis consectetur alias quod,
-                        placeat incidunt architecto quae quasi rem, magnam quidem sapiente autem suscipit. Harum eveniet quibusdam aut ex!
-                    </Description>
-                </Card>
-
-                <Card>
-                    <Title>Twitch TV</Title>
-                    <Description>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis illo veritatis consectetur alias quod,
-                        placeat incidunt architecto quae quasi rem, magnam quidem sapiente autem suscipit. Harum eveniet quibusdam aut ex!
-                    </Description>
-                </Card>
-
-                <Card>
-                    <Title>Random Quote Generator</Title>
-                    <Description>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis illo veritatis consectetur alias quod,
-                        placeat incidunt architecto quae quasi rem, magnam quidem sapiente autem suscipit. Harum eveniet quibusdam aut ex!
-                    </Description>
-                </Card>
-
-                <Card>
-                    <Title>Pomodoro Clock</Title>
-                    <Description>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis illo veritatis consectetur alias quod,
-                        placeat incidunt architecto quae quasi rem, magnam quidem sapiente autem suscipit. Harum eveniet quibusdam aut ex!
-                    </Description>
-                </Card>
-
-                <Card>
-                    <Title>Youtube</Title>
-                    <Description>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis illo veritatis consectetur alias quod,
-                        placeat incidunt architecto quae quasi rem, magnam quidem sapiente autem suscipit. Harum eveniet quibusdam aut ex!
-                    </Description>
-                </Card>
-
-                <Card>
-                    <Title>Dell</Title>
-                    <Description>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis illo veritatis consectetur alias quod,
-                        placeat incidunt architecto quae quasi rem, magnam quidem sapiente autem suscipit. Harum eveniet quibusdam aut ex!
-                    </Description>
-                </Card>
+                { projects }
             </ProjectsView>
         )
+    }
+}
+
+class Card extends React.Component {
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            active: false,
+            arrows: false,
+            bars: true,
+            color: randomColor(0.99, 0.99).hexString()
+        }
+    }
+    render() {
+        const { color } = this.state
+        const { title, description, src, subTitle } = this.props.project
+
+        return (
+            <CardView
+                key={ title }
+                className={ `material-card ${this.state.active ? "mc-active" : "" }`}
+                color={ color }
+            >
+                <h2>
+                    <span>{ title }</span>
+                    <strong>
+                        <i class="fa fa-fw fa-star"></i>
+                        { subTitle }
+                    </strong>
+                </h2>
+                <div className="mc-content">
+                    <div className="img-container">
+                        <img className="img-responsive" src={ src } />
+                    </div>
+                    <div className="mc-description">
+                        { description }
+                    </div>
+                </div>
+                <a className={ `mc-btn-action` } onClick={ this._handleCTAClick }>
+                    <i className={ this._getCTAIcon() }></i>
+                </a>
+                <div className="mc-footer">
+                    <h4>
+                        Social
+                    </h4>
+                    <a className="fa fa-fw fa-facebook"></a>
+                    <a className="fa fa-fw fa-twitter"></a>
+                    <a className="fa fa-fw fa-linkedin"></a>
+                    <a className="fa fa-fw fa-google-plus"></a>
+                </div>
+            </CardView>
+        )
+    }
+    _getCTAIcon = () => {
+        const { active, arrows, bars } = this.state
+
+        if (active && !arrows || !active && arrows) {
+            setTimeout(() => this.setState({ arrows: !arrows }), 800)
+
+            return `fa fa-star fa-spin-fast`
+        } else if (active && arrows) {
+            return `fa fa-arrow-left`            
+        } else {
+            return `fa fa-bars`
+        }
+    }
+    _handleCTAClick = () => {
+        const arrows = this.state.active
+
+        this.setState({ active: !this.state.active })
     }
 }
