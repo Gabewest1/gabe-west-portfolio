@@ -10,10 +10,18 @@ const Hi = styled.p`
 
 `
 const MyPassions = styled.div`
-    height: 250px;
+    height: 200px;
     position: relative;
-    max-width: 200px;
+    max-width: 175px;
     margin: 0 auto;
+
+    @media (min-width: 992px) {
+        max-width: 200px;
+    }
+
+    @media (min-width: 1200px) {
+        max-width: 220px;
+    }
 `
 const Heart = styled.img`
     max-width: 100%;
@@ -28,6 +36,11 @@ const _SelfWritingText = styled(SelfWritingText)`
     top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
+    font-weight: bolder;
+
+    @media (min-width: 768px) {
+        font-size: .8em;
+    }
 `
 export default class About extends React.Component {
     render() {
@@ -35,12 +48,12 @@ export default class About extends React.Component {
             <Container>
                 <h1>Hi!</h1>
                 <Hi>
-                    I'm Gabe West and I'm a passionate
-                    <MyPassions>
-                        <Heart src="/assets/images/heart.svg" />
-                        <_SelfWritingText />.
-                    </MyPassions>
+                    I'm Gabe West and I'm a passionate:
                 </Hi>
+                <MyPassions>
+                    <Heart src="/assets/images/heart.svg" />
+                    <_SelfWritingText color={ "white" }/>
+                </MyPassions>
             </Container>
         )
     }
