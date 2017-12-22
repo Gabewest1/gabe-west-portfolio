@@ -9,10 +9,11 @@ const CursorAnimation = keyframes`
 const Adjectives = styled.span`
     position: relative;
     white-space: nowrap;
-
+    color: ${({ color }) => color || "inherit"};
+    
     &:after {
         animation: ${ CursorAnimation } .4s ease-in-out infinite;
-        background-color: black;
+        background-color: ${({ color }) => color || "inherit"};
         content: "";
         position: absolute;
         right: 0px;
