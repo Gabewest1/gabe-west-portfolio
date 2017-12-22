@@ -5,6 +5,8 @@ import SelfWritingText from "../shared/SelfWritingText"
 const Container = styled.div`
     color: black;
     text-align: center;    
+    border-top: solid #848484 30px;
+    border-bottom: solid #848484 30px;
 `
 const Hi = styled.p`
 
@@ -42,7 +44,7 @@ const _SelfWritingText = styled(SelfWritingText)`
         font-size: .8em;
     }
 `
-export default class About extends React.Component {
+export default class About extends React.PureComponent {
     render() {
         return (
             <Container>
