@@ -42,7 +42,7 @@ export const CardView = styled.article`
     position: relative;
     width: 80%;
     max-width: 230px;
-    height: 200px;
+    height: 300px;
     margin-bottom: 95px;
 
     @media (min-width: 768px) {
@@ -99,7 +99,6 @@ export const CardView = styled.article`
     &.mc-active {
         @media screen and (max-width: 767px) {
             padding-bottom: 0;
-            height: auto;
         }
         h2 {
             top: 0;
@@ -122,6 +121,8 @@ export const CardView = styled.article`
         }
     }
     .mc-content {
+        color: #37474F;
+        font-size: 14px;
         position: absolute;
         right: 0;
         top: 0;
@@ -153,19 +154,26 @@ export const CardView = styled.article`
     }
     .mc-description {
         position: absolute;
+        height: 0%;
         top: 100%;
         right: 30px;
         left: 30px;
+        overflow: hidden;
         bottom: 54px;
         overflow: hidden;
         .opacity(0);
         ${ getTransition(1.2) };
     }
     .mc-footer {
+        display: flex;
+        justify-content: space-between;
         height: 0;
         overflow: hidden;
+        background-color: ${({ color }) => color};
         ${ getTransition() };
+
         h4 {
+            color: ${({ color }) => color};
             position: absolute;
             top: 200px;
             left: 30px;
@@ -181,28 +189,27 @@ export const CardView = styled.article`
             position: relative;
             width: 52px;
             height: 52px;
-            margin-left: 5px;
-            margin-bottom: 15px;
-            font-size: 28px;
+            font-size: 20px;
             color: #fff;
             line-height: 52px;
             text-decoration: none;
             top: 200px;
+
             &:nth-child(1) {
                 ${ getTransition(.5) }
-        }
+            }
             &:nth-child(2) {
                 ${ getTransition(.6) }
-        }
+            }
             &:nth-child(3) {
                 ${ getTransition(.7) }
-        }
+            }
             &:nth-child(4) {
                 ${ getTransition(.8) }
-        }
+            }
             &:nth-child(5) {
                 ${ getTransition(.9) }
-        }
+            }
         }
     }
     .img-container {
@@ -233,34 +240,26 @@ export const CardView = styled.article`
             z-index: 20;
         }
         .mc-content {
-            padding-top: 5.6em;
+            height: 100%;
+
             @media screen and (max-width: 767px) {
                 position: relative;
                 margin-right: 16px;
             }
         }
         .mc-description {
-            top: 50px;
-            padding-top: 5.6em;
+            top: 122px;
+            height: 100%;
             .opacity(1);
-            @media screen and (max-width: 767px) {
-                position: relative;
-                top: auto;
-                right: auto;
-                left: auto;
-                padding: 50px 30px 70px 30px;
-                bottom: 0;
-            }
         }
         .mc-footer {
             overflow: visible;
+            height: 50px;
             position: absolute;
             top: calc(100% - 16px);
             left: 16px;
             right: 0;
-            height: 82px;
-            padding-top: 15px;
-            padding-left: 25px;
+
             a {
                 top: 0;
             }

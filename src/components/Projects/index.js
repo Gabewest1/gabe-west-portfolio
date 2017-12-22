@@ -25,7 +25,7 @@ export default class Projects extends React.Component {
     }
 }
 
-class Card extends React.Component {
+class Card extends React.PureComponent {
     constructor(props) {
         super(props)
 
