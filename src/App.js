@@ -3,11 +3,8 @@ import styled from "styled-components"
 import './App.css'
 
 import ParticlesBackground from "./components/ParticlesBackground"
-<<<<<<< HEAD
 import Projects from "./components/Projects"
-=======
 import About from "./components/About"
->>>>>>> about
 
 const Container = styled.div`
 
@@ -80,12 +77,8 @@ class App extends Component {
 					<br/> whereas imagination embraces the entire world, stimulating progress, giving birth to evolution.
 				</Quote>
 			</Header>
-<<<<<<< HEAD
-			
-			<Projects />
-=======
 			<About />
->>>>>>> about
+			<Projects />
 		</Container>
     )
   }
