@@ -15,11 +15,12 @@ const Header = styled.header`
 	display: flex;
 	flex-direction: column;
 	height: 100vh;
-	justify-content: center;
 	position: relative;
 `
 const Quote = styled.p`
 	text-align: center;
+	position: relative;
+	margin-top: 55px;
 `
 const _ParticlesBackground = styled(ParticlesBackground)`
 	background-color: #112128;
@@ -79,8 +80,8 @@ class App extends Component {
 					</List>
 				</Navbar>
 				<Quote>
-					Imagination is more important then knowledge
-					<br/> For knowledge is <Underline>limited,</Underline>
+					<h1>Imagination</h1> is <Underline>more important</Underline> then <em>knowledge</em>
+					<br/> For <em>knowledge</em> is <Underline>limited,</Underline>
 				</Quote>	
 				<_Earth />
 			</Header>
@@ -88,6 +89,12 @@ class App extends Component {
 			<Projects />
 		</Container>
     )
+  }
+  _moveBackground = () => {
+	  const scrollTop = window.scrollY + "px"
+	  console.log("SCROLLTOP:", scrollTop)
+
+	  this.setState({ top: scrollTop })
   }
 }
 
