@@ -7,18 +7,24 @@ const Spin = keyframes`
 `
 const EarthView = styled.div`
     position: relative;
+
+    @media (max-width: 480px) {
+		width: 200px;
+		height: 200px;
+    }
 `
 const EarthImage = styled.img`
     position: relative;
     width: 300px;
     height: 300px;
+    max-width: 100%;
+    max-height: 100%;
     background: url(/assets/images/earthmap.png) 0 0 repeat;
     border-radius: 50%;
     background-size: 630px;
     animation: ${ Spin } 20s linear infinite;
     transition: transform 200ms linear;
     transform-style: preserve-3d;
-    // border: solid thick white;
     color: #000;
     transform: rotate(5.4deg);
 
@@ -51,6 +57,10 @@ const BoxShadow = styled.div`
     height: 100%;
     width: 100%;
     z-index: 10;
+
+    @media (max-width: 480px) {
+		top: 0px !important;
+    }
 `
 const LeftBoxShadow = styled(BoxShadow)`
     top: -5px;
