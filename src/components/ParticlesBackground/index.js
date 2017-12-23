@@ -6,6 +6,7 @@ import particlesConfig from "./particlesConfig"
 const Background = styled.div`
     height: 100%;
     width: 100%;
+    background-color: black;
 `
 
 export default class ParticlesBackground extends React.Component {
@@ -14,7 +15,7 @@ export default class ParticlesBackground extends React.Component {
     }
     render() {
         return (
-            <Background id="bg" { ...this.props } />
+            <Background id="bg" style={{ background: "rgb(8, 6, 6)" }} { ...this.props } />
         )
     }
 }
