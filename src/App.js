@@ -5,6 +5,7 @@ import './App.css'
 import ParticlesBackground from "./components/ParticlesBackground"
 import Projects from "./components/Projects"
 import About from "./components/About"
+import Earth from "./components/shared/Earth"
 
 const Container = styled.div`
 
@@ -58,8 +59,8 @@ const List = styled.div`
 		margin-right: 0;
 	}
 `
-const Earth = styled.img`
-	max-width: 250px;
+const _Earth = styled(Earth)`
+	max-width: 400px;
 	margin: 0 auto;
 `
 class App extends Component {
@@ -80,7 +81,7 @@ class App extends Component {
 					Imagination is more important the knowledge
 					<br/> For knowledge is <Underline>limited,</Underline>
 				</Quote>	
-				<Earth src="/assets/images/world.png" />
+				<_Earth />
 			</Header>
 			<About />
 			<Projects />
