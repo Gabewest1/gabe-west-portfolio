@@ -8,7 +8,7 @@ const Spin = keyframes`
 const EarthView = styled.div`
     position: relative;
 
-    @media (max-width: 480px) {
+    @media (max-width: 767px) {
 		width: 200px;
 		height: 200px;
     }
@@ -58,7 +58,7 @@ const BoxShadow = styled.div`
     width: 100%;
     z-index: 10;
 
-    @media (max-width: 480px) {
+    @media (max-width: 767px) {
 		top: 0px !important;
     }
 `
