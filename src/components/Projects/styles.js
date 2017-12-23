@@ -161,7 +161,7 @@ export const CardView = styled.article`
         overflow: hidden;
         bottom: 54px;
         overflow: hidden;
-        .opacity(0);
+        opacity: 0;
         ${ getTransition(1.2) };
     }
     .mc-footer {
@@ -250,7 +250,7 @@ export const CardView = styled.article`
         .mc-description {
             top: 122px;
             height: 100%;
-            .opacity(1);
+            opacity: 1;
         }
         .mc-footer {
             overflow: visible;
