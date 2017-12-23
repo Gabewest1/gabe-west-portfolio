@@ -62,6 +62,7 @@ const List = styled.div`
 const _Earth = styled(Earth)`
 	max-width: 400px;
 	margin: 0 auto;
+	top: 30px;
 `
 class App extends Component {
   render() {
@@ -78,7 +79,7 @@ class App extends Component {
 					</List>
 				</Navbar>
 				<Quote>
-					Imagination is more important the knowledge
+					Imagination is more important then knowledge
 					<br/> For knowledge is <Underline>limited,</Underline>
 				</Quote>	
 				<_Earth />
