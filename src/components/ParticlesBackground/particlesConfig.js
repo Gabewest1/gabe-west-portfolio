@@ -54,8 +54,8 @@ export default {
         },
         "move": {
         "enable": true,
-        "speed": .4,
-        "direction": "none",
+        "speed": 1,
+        "direction": "right",
         "random": true,
         "straight": false,
         "out_mode": "out",
