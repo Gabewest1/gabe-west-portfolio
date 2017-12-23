@@ -12,7 +12,8 @@ const Container = styled.div`
 const Header = styled.header`
 	align-items: center;
 	display: flex;
-	height: 350px;
+	flex-direction: column;
+	height: 100vh;
 	justify-content: center;
 	position: relative;
 `
@@ -57,6 +58,10 @@ const List = styled.div`
 		margin-right: 0;
 	}
 `
+const Earth = styled.img`
+	max-width: 250px;
+	margin: 0 auto;
+`
 class App extends Component {
   render() {
     return (
@@ -74,8 +79,8 @@ class App extends Component {
 				<Quote>
 					Imagination is more important the knowledge
 					<br/> For knowledge is <Underline>limited,</Underline>
-					<br/> whereas imagination embraces the entire world, stimulating progress, giving birth to evolution.
-				</Quote>
+				</Quote>	
+				<Earth src="/assets/images/world.png" />
 			</Header>
 			<About />
 			<Projects />
