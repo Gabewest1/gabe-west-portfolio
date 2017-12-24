@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import styled from "styled-components"
 
-import ParticlesBackground from "../shared/ParticlesBackground"
 import Earth from "../shared/Earth"
 
 const HeaderView = styled.header`
@@ -15,11 +14,6 @@ const Quote = styled.p`
 	text-align: center;
 	position: relative;
 	margin-top: 55px;
-`
-const _ParticlesBackground = styled(ParticlesBackground)`
-	background-color: #112128;
-	position: absolute;
-	z-index: -1;	//Lets the quote hover above
 `
 const Underline = styled.span`
 	text-decoration: underline;
@@ -63,7 +57,6 @@ export default class Header extends Component {
   render() {
     return (
         <HeaderView>
-            <_ParticlesBackground />
             <Navbar>
                 <p>Gabe West</p>
                 <List>
