@@ -3,7 +3,6 @@ import styled, { keyframes } from "styled-components"
 import SelfWritingText from "../shared/SelfWritingText"
 
 const Container = styled.div`
-    color: black;
     text-align: center;    
     border-top: solid #848484 30px;
     border-bottom: solid #848484 30px;
