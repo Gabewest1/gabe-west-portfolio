@@ -38,7 +38,7 @@ class Card extends React.PureComponent {
             active: false,
             arrows: false,
             bars: true,
-            color: "rgb(128, 128, 128)"
+            color: randomColor(0.99, 0.99).hexString()
         }
     }
     render() {
