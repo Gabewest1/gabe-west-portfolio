@@ -4,8 +4,9 @@ import SelfWritingText from "../shared/SelfWritingText"
 
 const Container = styled.div`
     text-align: center;    
-    border-top: solid #848484 30px;
-    border-bottom: solid #848484 30px;
+    padding: 30px 0px;
+    border-top: solid 3px white;
+    border-bottom: solid 3px white;
 `
 const Hi = styled.p`
 
@@ -32,12 +33,7 @@ const Heart = styled.img`
     transform: translate(-50%, -50%);
 `
 const _SelfWritingText = styled(SelfWritingText)`
-    color: white;
-    position: absolute;
-    top: 45%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-weight: bolder;
+    text-decoration: underline;
 
     @media (min-width: 768px) {
         font-size: .8em;
@@ -47,14 +43,10 @@ export default class About extends React.PureComponent {
     render() {
         return (
             <Container>
-                <h1>Hi!</h1>
+                <h1>Hello, I'm Gabe!</h1>
                 <Hi>
-                    I'm Gabe West and I'm a passionate:
+                    And you can catch me <_SelfWritingText color={ "white" } /> 
                 </Hi>
-                <MyPassions>
-                    <Heart src="/assets/images/heart.svg" />
-                    <_SelfWritingText color={ "white" }/>
-                </MyPassions>
             </Container>
         )
     }
