@@ -1,6 +1,6 @@
 const adjectives = [
     "Whipping up some Javascript.",
-    "Learning new technologies.",
+    "Playing with new technologies.",
     "Designing interfaces.",
     "Thinking."
 ]
