@@ -1,26 +1,42 @@
 import React, { Component } from 'react'
 import styled from "styled-components"
 
-import Earth from "../shared/Earth"
+import SelfWritingText from "../shared/SelfWritingText"
 
 const HeaderView = styled.header`
 	align-items: center;
+	background: url(/assets/images/hero.jpg) no-repeat;
+	background-position: center center;
+	background-size: cover;
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
 	height: 100vh;
 	position: relative;
+
+	&:before {
+		content: "";
+		display: block;
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		background: rgba(0,0,0,.9);
+	}
 `
-const Quote = styled.div`
+const HeroText = styled.h1`
+	margin: 0;
 	text-align: center;
-	position: relative;
-	margin-top: 55px;
+	font-family: 'Bungee', cursive;
+	z-index: 1;
+`
+const _HeroText = styled(HeroText)`
+	font-weight: 100;
 `
 const Underline = styled.span`
 	text-decoration: underline;
 `
 const Navbar = styled.nav`
 	display: flex;
-	font-size: .75em;
 	justify-content: space-between;
 	padding: 0 1em;
 	position: absolute;
@@ -36,6 +52,10 @@ const List = styled.div`
 		text-decoration: none;
 	}
 
+	a:hover {
+		text-decoration: underline;
+	}
+	
 	* {
 		align-items: center;
 		display: flex;
@@ -48,11 +68,10 @@ const List = styled.div`
 		margin-right: 0;
 	}
 `
-const _Earth = styled(Earth)`
-	max-width: 400px;
-	margin: 0 auto;
-	top: 30px;
+const _SelfWritingText = styled(SelfWritingText)`
+	min-height: 28px;
 `
+
 export default class Header extends Component {
   render() {
     return (
@@ -65,14 +84,10 @@ export default class Header extends Component {
                     <li><a href="#">Contact</a></li>
                 </List>
             </Navbar>
-            <Quote>
-				<h2 style={{textAlign: "center" }}>Imagination is more important then knowledge</h2>
-                For knowledge is limited,
-            </Quote>	
-
-			<br/> 
-
-            <_Earth />
+            
+			<HeroText>Hello, I'm Gabe West!</HeroText>
+			<_HeroText style={{ fontSize: "1em", margin: 0 }}>You can catch me:</_HeroText>
+			<_SelfWritingText />
         </HeaderView>
     )
   }
