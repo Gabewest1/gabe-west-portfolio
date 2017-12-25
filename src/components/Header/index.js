@@ -10,7 +10,7 @@ const HeaderView = styled.header`
 	height: 100vh;
 	position: relative;
 `
-const Quote = styled.p`
+const Quote = styled.div`
 	text-align: center;
 	position: relative;
 	margin-top: 55px;
@@ -66,9 +66,12 @@ export default class Header extends Component {
                 </List>
             </Navbar>
             <Quote>
-                <h1>Imagination</h1> is <Underline>more important</Underline> then <em>knowledge</em>
-                <br/> For <em>knowledge</em> is <Underline>limited,</Underline>
+				<h2 style={{textAlign: "center" }}>Imagination is more important then knowledge</h2>
+                For knowledge is limited,
             </Quote>	
+
+			<br/> 
+
             <_Earth />
         </HeaderView>
     )
