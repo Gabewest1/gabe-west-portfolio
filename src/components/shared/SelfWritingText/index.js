@@ -52,19 +52,10 @@ export default class SelfWritingText extends React.Component {
         const chunks = currentAdjective.split("")
 
         if (isWordFinished) {
-            const nextAdjectiveIndex = (currentAdjectiveIndex + 1) % adjectives.length
-            const nextAdjective = adjectives[nextAdjectiveIndex]
-            const nextState = {
-                currentAdjective: nextAdjective,
-                currentAdjectiveChar: 0,
-                currentAdjectiveIndex: nextAdjectiveIndex,
-                isWritingAdjective: true
-            }
-            const adjectiveEqualsThinker = currentAdjective.toLowerCase() === "thinker"
-
+            const adjectiveEqualsThinker = currentAdjective.toLowerCase().includes("think")
             const timeout = adjectiveEqualsThinker ? 3000 : 1000
 
-            setTimeout(() => this.setState(nextState), timeout)
+            setTimeout(() => this.setState({ isWritingAdjective: false }), timeout)
             return currentAdjective
         } else {
             setTimeout(() => this.setState({ currentAdjectiveChar: currentAdjectiveChar + 1 }), 100)
@@ -73,6 +64,27 @@ export default class SelfWritingText extends React.Component {
         }
     }
     _eraseAdjective = () => {
+        const { currentAdjective, currentAdjectiveChar, currentAdjectiveIndex } = this.state
+        const chunks = currentAdjective.split("")
+        
+        if (currentAdjectiveChar > 0) {
+            setTimeout(() => this.setState({ currentAdjectiveChar: currentAdjectiveChar - 1 }), 50)
 
+            return chunks.slice(0, currentAdjectiveChar - 1)            
+        } else {
+            const nextAdjectiveIndex = (currentAdjectiveIndex + 1) % adjectives.length            
+            const nextAdjective = adjectives[nextAdjectiveIndex]
+            const nextState = {
+                currentAdjective: nextAdjective,
+                currentAdjectiveChar: 0,
+                currentAdjectiveIndex: nextAdjectiveIndex,
+                isWritingAdjective: true
+            }
+
+            setTimeout(() => this.setState(nextState), 100)            
+
+            return chunks.slice(0, currentAdjectiveChar)            
+        }
+        
     }
 }
