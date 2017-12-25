@@ -1,6 +1,9 @@
 import styled from "styled-components"
 import colorer from "colorer"
 
+export const Container = styled.div`
+    
+`
 export const ProjectsView = styled.div`
     padding: 1em 0;
     display: flex;
@@ -31,9 +34,8 @@ export const Description = styled.p`
 `
 export const ProjectImage = styled.img`
     position: absolute;
-    height: 100%;
-    width: 100%;
-    z-index: 1;
+    max-height: 100%;
+    max-width: 100%;
     top: 0;
     left: 0;
 `
@@ -53,7 +55,7 @@ export const CardView = styled.article`
         background-color: ${({ color }) => color };
         box-sizing: border-box;
         position: absolute;
-        top: calc(100% - 16px);
+        top: calc(100% - 40px);
         left: 0;
         width: 100%;
         padding: 10px 16px;
@@ -168,6 +170,7 @@ export const CardView = styled.article`
         display: flex;
         justify-content: space-between;
         height: 0;
+        opacity: 0;
         overflow: hidden;
         background-color: ${({ color }) => color};
         ${ getTransition() };
@@ -213,6 +216,11 @@ export const CardView = styled.article`
         }
     }
     .img-container {
+        background: white;
+        border-radius: 10%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         overflow: hidden;
         position: absolute;
         left: 0;
@@ -223,11 +231,11 @@ export const CardView = styled.article`
         ${ getTransition() };
         
         .img-responsive {
-            width: 100%;
-            height: 100%;
+            max-height: 100%;
         }
     }
     &.mc-active {
+
         .img-container {
             display: flex;
             -webkit-border-radius: 50%;
@@ -253,6 +261,7 @@ export const CardView = styled.article`
             opacity: 1;
         }
         .mc-footer {
+            opacity: 1;
             overflow: visible;
             height: 50px;
             position: absolute;
