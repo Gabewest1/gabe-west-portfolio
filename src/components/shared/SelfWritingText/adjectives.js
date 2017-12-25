@@ -1,8 +1,8 @@
 const adjectives = [
-    "Software Engineer.",
-    "Mobile Developer.",
-    "Fullstack Developer.",
-    "Thinker."
+    "Whipping up some Javascript.",
+    "Learning new technologies.",
+    "Designing interfaces.",
+    "Thinking."
 ]
 
 export default adjectives
