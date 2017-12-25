@@ -2,7 +2,7 @@ const projectData = [
     { 
         title: "Simon Says",
         description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis illo veritatis consectetur alias quod!",
-        src: "/assets/images/calculator.jpg",
+        src: "/assets/images/simon_says.png",
         subTitle: "This is the subtitle"
     },
     { 
@@ -14,7 +14,7 @@ const projectData = [
     { 
         title: "Weather Forecast",
         description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis illo veritatis consectetur alias quod!",
-        src: "/assets/images/calculator.jpg",
+        src: "/assets/images/pomodoro.png",
         subTitle: "This is the subtitle"
     },
     { 
@@ -26,13 +26,13 @@ const projectData = [
     { 
         title: "Tic-Tac-Toe",
         description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis illo veritatis consectetur alias quod!",
-        src: "/assets/images/calculator.jpg",
+        src: "/assets/images/tic_tac_toe.png",
         subTitle: "This is the subtitle"
     },
     { 
-        title: "Batman Tribute Page",
+        title: "Quote Generator",
         description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis illo veritatis consectetur alias quod!",
-        src: "/assets/images/calculator.jpg",
+        src: "/assets/images/quote_generator.png",
         subTitle: "This is the subtitle"
     },
     { 
@@ -50,7 +50,7 @@ const projectData = [
     { 
         title: "Dell",
         description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis illo veritatis consectetur alias quod!",
-        src: "/assets/images/calculator.jpg",
+        src: "/assets/images/dell.png",
         subTitle: "This is the subtitle"
     },
 ]
