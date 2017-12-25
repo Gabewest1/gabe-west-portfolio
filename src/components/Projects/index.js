@@ -5,6 +5,7 @@ import randomColor from "random-color"
 import projectData from "./projectData"
 
 import {
+    Container,
     ProjectsView,
     Overlay,
     Title,
@@ -15,12 +16,16 @@ import {
 
 export default class Projects extends React.Component {
     render() {
-        const projects = projectData.map(project => <Card project={ project } />)
+        const projects = projectData.map((project, i) => <Card key={ i } project={ project } />)
 
         return (
-            <ProjectsView>
-                { projects }
-            </ProjectsView>
+            <Container>
+                <h1 style={{ textAlign: "center" }}>My Latest Work</h1>
+
+                <ProjectsView>
+                    { projects }
+                </ProjectsView>
+            </Container>
         )
     }
 }
@@ -33,7 +38,7 @@ class Card extends React.PureComponent {
             active: false,
             arrows: false,
             bars: true,
-            color: randomColor(0.99, 0.99).hexString()
+            color: "rgb(128, 128, 128)"
         }
     }
     render() {
@@ -68,10 +73,6 @@ class Card extends React.PureComponent {
                     <h4>
                         Social
                     </h4>
-                    <a className="fa fa-fw fa-facebook"></a>
-                    <a className="fa fa-fw fa-twitter"></a>
-                    <a className="fa fa-fw fa-linkedin"></a>
-                    <a className="fa fa-fw fa-google-plus"></a>
                 </div>
             </CardView>
         )
