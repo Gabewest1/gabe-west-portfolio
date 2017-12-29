@@ -17,13 +17,12 @@ const Intro = styled.h3`
 `
 const AboutMe = styled.div`
     align-items: center;
-    background: url(/assets/images/self_taught.jpg) no-repeat;
     background-attachment: fixed;
     background-position: center center;
     background-size: cover;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    height: 100vh;
     position: relative;
 
     &:before {
@@ -35,18 +34,15 @@ const AboutMe = styled.div`
         background: rgba(0,0,0,.8);
         z-index: 0;
     }
-    &: after {
-        content: "";
-        border: solid thin white;
-        display: block;
-        position: absolute;
-        height: 90%;
-        width: 90%;
-        z-index: 0;
-    }
 
     > * {
         z-index: 1;
+        flex: 0 1 50%;
+    }
+
+    @media (min-width: 768px) {
+        flex-direction: row-reverse;
+
     }
 `
 const AboutMeText = styled.h3`
@@ -63,13 +59,21 @@ export default class About extends React.PureComponent {
                 <Intro>Who Is Gabe West?</Intro>
             
                 <AboutMe>
-                    <AboutMeText>
-                        I'm a
-                        <ColoredText> self-taught </ColoredText>
-                        developer whose
-                        <ColoredText> inspired everyday </ColoredText>
-                        to build badass creations.
-                    </AboutMeText>
+
+                    <div>
+                        <AboutMeImg src="/assets/images/self_taught.jpg" />
+                    </div>
+
+                    <div>
+                        <AboutMeText>
+                            I'm a
+                            <ColoredText> self-taught </ColoredText>
+                            developer whose
+                            <ColoredText> inspired everyday </ColoredText>
+                            to build badass creations.
+                        </AboutMeText>
+                    </div>
+
                 </AboutMe>
 
             </Container>
