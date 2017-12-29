@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import styled from "styled-components"
+import ReactFitText from "react-fittext"
 
 import SelfWritingText from "../shared/SelfWritingText"
 
 const HeaderView = styled.header`
 	align-items: center;
-	background: url(/assets/images/hero.jpg) no-repeat;
-	background-position: center center;
+	background: url(/assets/images/hero/img7.jpg) no-repeat;
+	background-position: center right;
 	background-size: cover;
 	display: flex;
 	flex-direction: column;
@@ -20,14 +21,15 @@ const HeaderView = styled.header`
 		position: absolute;
 		height: 100%;
 		width: 100%;
-		background: rgba(0,0,0,.9);
+		background: rgba(0,0,0,.8);
 	}
 `
-const HeroText = styled.h1`
+const HeroText = styled.h3`
 	margin: 0;
 	text-align: center;
 	font-family: 'Bungee', cursive;
 	z-index: 1;
+	line-height: 2em;
 `
 const _HeroText = styled(HeroText)`
 	font-weight: 100;
@@ -69,13 +71,14 @@ const List = styled.div`
 	}
 `
 const _SelfWritingText = styled(SelfWritingText)`
-	min-height: 28px;
+	min-height: 32px;
 `
 
-export default class Header extends Component {
+class Header extends Component {
   render() {
     return (
         <HeaderView>
+
             <Navbar>
                 <p>Gabe West</p>
                 <List>
@@ -85,10 +88,16 @@ export default class Header extends Component {
                 </List>
             </Navbar>
             
-			<HeroText>Hello, I'm Gabe West!</HeroText>
-			<_HeroText style={{ fontSize: "1em", margin: 0 }}>You can catch me:</_HeroText>
-			<_SelfWritingText />
+			<ReactFitText>
+				<HeroText>Hello, I'm Gabe West!</HeroText>
+			</ReactFitText>		
+			
+			<_HeroText style={{ margin: 0 }}>You can catch me:</_HeroText>
+			<_SelfWritingText color="white" />
+
         </HeaderView>
     )
   }
 }
+
+export default Header
