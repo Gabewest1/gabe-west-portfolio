@@ -1,8 +1,9 @@
 body, html {
+  background: #525252;
   color: white;
   margin: 0;
   padding: 0;
-  font-family: 'Roboto Slab', serif;
+  font-family: 'Berkshire Swash', cursive;
   height: 100%;
 }
 
