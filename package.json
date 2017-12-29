@@ -11,6 +11,7 @@
     "random-color": "^1.0.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-fittext": "^1.0.0",
     "styled-components": "^2.3.0"
   },
   "scripts": {
