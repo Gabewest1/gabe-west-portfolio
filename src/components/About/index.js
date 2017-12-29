@@ -1,52 +1,78 @@
 import React from "react"
 import styled, { keyframes } from "styled-components"
-import SelfWritingText from "../shared/SelfWritingText"
+import { SECONDARY_COLOR } from "../../constants"
+
+import ColoredText from "../shared/ColoredText"
 
 const Container = styled.div`
     text-align: center;    
-    padding: 30px 0px;
-    border-top: solid 3px white;
-    border-bottom: solid 3px white;
-`
-const Hi = styled.p`
-
-`
-const MyPassions = styled.div`
-    height: 200px;
     position: relative;
-    max-width: 175px;
-    margin: 0 auto;
+`
+const Intro = styled.h3`
+    font-family: 'Berkshire Swash', cursive;
+    font-size: 7vw;
+    height: 25vmax;
+    line-height: 25vmax;
+    margin: 0;
+    padding: 30px;    
+`
+const AboutMe = styled.div`
+    align-items: center;
+    background: url(/assets/images/self_taught.jpg) no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    position: relative;
 
-    @media (min-width: 992px) {
-        max-width: 200px;
+    &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: rgba(0,0,0,.8);
+        z-index: 0;
+    }
+    &: after {
+        content: "";
+        border: solid thin white;
+        display: block;
+        position: absolute;
+        height: 90%;
+        width: 90%;
+        z-index: 0;
     }
 
-    @media (min-width: 1200px) {
-        max-width: 220px;
+    > * {
+        z-index: 1;
     }
 `
-const Heart = styled.img`
-    max-width: 100%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+const AboutMeText = styled.p`
+    font-size: 2.5vw;
+    max-width: 90%;
 `
-const _SelfWritingText = styled(SelfWritingText)`
-    text-decoration: underline;
-
-    @media (min-width: 768px) {
-        font-size: .8em;
-    }
+const AboutMeImg = styled.img`
+    width: 100%;
 `
 export default class About extends React.PureComponent {
     render() {
         return (
             <Container>
-                <h1>Hello, I'm Gabe!</h1>
-                <Hi>
-                    And you can catch me <_SelfWritingText color={ "white" } /> 
-                </Hi>
+                <Intro>Who Is Gabe West?</Intro>
+            
+                <AboutMe>
+                    <AboutMeText>
+                        I'm a
+                        <ColoredText> self-taught </ColoredText>
+                        developer whose
+                        <ColoredText> inspired everyday </ColoredText>
+                        to build badass creations.
+                    </AboutMeText>
+                </AboutMe>
+
             </Container>
         )
     }
