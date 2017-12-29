@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
 import styled from "styled-components"
 import ReactFitText from "react-fittext"
+import { SECONDARY_COLOR } from "../../constants"
 
 import SelfWritingText from "../shared/SelfWritingText"
+import ColoredText from "../shared/ColoredText"
 
 const HeaderView = styled.header`
 	align-items: center;
 	background: url(/assets/images/hero/img7.jpg) no-repeat;
+	background-attachment: fixed;
 	background-position: center right;
 	background-size: cover;
 	display: flex;
@@ -30,9 +33,15 @@ const HeroText = styled.h3`
 	font-family: 'Bungee', cursive;
 	z-index: 1;
 	line-height: 2em;
+	font-size: 1em;
+
+	@media (min-width: 480px) {
+		font-size: 2em;
+	}
 `
 const _HeroText = styled(HeroText)`
 	font-weight: 100;
+	font-size: 1em;
 `
 const Underline = styled.span`
 	text-decoration: underline;
@@ -55,6 +64,7 @@ const List = styled.div`
 	}
 
 	a:hover {
+		color: ${ SECONDARY_COLOR };
 		text-decoration: underline;
 	}
 	
@@ -88,11 +98,11 @@ class Header extends Component {
                 </List>
             </Navbar>
             
-			<ReactFitText>
-				<HeroText>Hello, I'm Gabe West!</HeroText>
-			</ReactFitText>		
+			<HeroText style={{ fontSize: "7vw" }}>
+				<ColoredText>Hello,</ColoredText> I'm Gabe West!
+			</HeroText>
 			
-			<_HeroText style={{ margin: 0 }}>You can catch me:</_HeroText>
+			<_HeroText style={{ margin: 0 }}><ColoredText>You can catch me:</ColoredText></_HeroText>
 			<_SelfWritingText color="white" />
 
         </HeaderView>
