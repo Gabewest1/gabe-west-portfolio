@@ -30,7 +30,6 @@ const HeaderView = styled.header`
 const HeroText = styled.h3`
 	margin: 0;
 	text-align: center;
-	font-family: 'Bungee', cursive;
 	z-index: 1;
 	line-height: 2em;
 	font-size: 1em;

@@ -123,7 +123,6 @@ export const CardView = styled.article`
         }
     }
     .mc-content {
-        color: #37474F;
         font-size: 14px;
         position: absolute;
         right: 0;

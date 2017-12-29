@@ -9,7 +9,6 @@ const Container = styled.div`
     position: relative;
 `
 const Intro = styled.h3`
-    font-family: 'Berkshire Swash', cursive;
     font-size: 7vw;
     height: 25vmax;
     line-height: 25vmax;
@@ -50,7 +49,7 @@ const AboutMe = styled.div`
         z-index: 1;
     }
 `
-const AboutMeText = styled.p`
+const AboutMeText = styled.h3`
     font-size: 2.5vw;
     max-width: 90%;
 `
