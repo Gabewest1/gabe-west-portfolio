@@ -31,7 +31,7 @@ export const Overlay = styled.div`
 `
 export const Title = styled.h3`
     line-height: 20vmax;
-    font-size: 7vw;
+    font-size: 11vw;
     margin: 0;
 `
 export const Description = styled.p`

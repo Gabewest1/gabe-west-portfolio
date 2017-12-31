@@ -16,7 +16,7 @@ const Header = styled.div`
     height: 20vmax;
 `
 const Intro = styled.h3`
-    font-size: 7vw;
+    font-size: 11vw;
     margin: 0;
 `
 const SelfTaughtView = styled.div`
@@ -64,7 +64,7 @@ export default class About extends React.PureComponent {
             <Container>
                 <Header>
                     <Intro>Who Is Gabe West?</Intro>
-                    <div style={{ fontSize: "1vw" }}>(Pro Tip: He's Pretty Awesome :D)</div>
+                    <div style={{ fontSize: "2vw" }}>(Pro Tip: He's Pretty Awesome :D)</div>
                 </Header>
                 
                 <SelfTaughtView>
