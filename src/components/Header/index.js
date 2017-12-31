@@ -28,6 +28,7 @@ const HeaderView = styled.header`
 	}
 `
 const HeroText = styled.h3`
+	color: tan;
 	margin: 0;
 	text-align: center;
 	z-index: 1;
@@ -81,6 +82,8 @@ const List = styled.div`
 `
 const _SelfWritingText = styled(SelfWritingText)`
 	min-height: 32px;
+	color: #efefef;
+	font-family: 'Pacifico', cursive;
 `
 
 class Header extends Component {
