@@ -1,10 +1,13 @@
 import styled from "styled-components"
 import colorer from "colorer"
+import { SECONDARY_COLOR } from "../../constants"
+
 
 export const Container = styled.div`
     
 `
 export const ProjectsView = styled.div`
+    background: ${ SECONDARY_COLOR };
     padding: 1em 0;
     display: flex;
     justify-content: center;
@@ -26,7 +29,11 @@ export const Overlay = styled.div`
     left: 0;
     transform: translateX(100%);
 `
-export const Title = styled.h3``
+export const Title = styled.h3`
+    line-height: 20vmax;
+    font-size: 7vw;
+    margin: 0;
+`
 export const Description = styled.p`
     font-size: .5em;
     transform: translateX(130%);
@@ -41,6 +48,7 @@ export const ProjectImage = styled.img`
 `
 
 export const CardView = styled.article`
+    overflow: hidden;
     position: relative;
     width: 80%;
     max-width: 230px;
@@ -55,7 +63,7 @@ export const CardView = styled.article`
         background-color: ${({ color }) => color };
         box-sizing: border-box;
         position: absolute;
-        top: calc(100% - 40px);
+        top: calc(100% - 48px);
         left: 0;
         width: 100%;
         padding: 10px 16px;
@@ -133,7 +141,7 @@ export const CardView = styled.article`
     }
     .mc-btn-action {
         background: ${({ color }) => color };
-        font-size: 18px;
+        font-size: 16px;
         position: absolute;
         right: 0px;
         top: 5px;
@@ -141,9 +149,9 @@ export const CardView = styled.article`
         -moz-border-radius: 50%;
         border-radius: 50%;
         border: 5px solid;
-        width: 43px;
-        height: 43px;
-        line-height: 44px;
+        width: 34px;
+        height: 34px;
+        line-height: 34px;
         text-align: center;
         color: #fff;
         cursor: pointer;
@@ -151,7 +159,7 @@ export const CardView = styled.article`
         ${ getTransition() };
     }
     &.mc-active .mc-btn-action {
-        top: 62px;
+        top: 25px;
     }
     .mc-description {
         position: absolute;
@@ -240,10 +248,10 @@ export const CardView = styled.article`
             -webkit-border-radius: 50%;
             -moz-border-radius: 50%;
             border-radius: 50%;
-            left: -12px;
-            top: 8px;
-            width: 60px;
-            height: 60px;
+            left: -6px;
+            top: 2px;
+            width: 45px;
+            height: 45px;
             z-index: 20;
         }
         .mc-content {
@@ -255,7 +263,7 @@ export const CardView = styled.article`
             }
         }
         .mc-description {
-            top: 122px;
+            top: 87px;
             height: 100%;
             opacity: 1;
         }
@@ -264,7 +272,7 @@ export const CardView = styled.article`
             overflow: visible;
             height: 50px;
             position: absolute;
-            top: calc(100% - 16px);
+            top: calc(100% - 46px);
             left: 16px;
             right: 0;
 
