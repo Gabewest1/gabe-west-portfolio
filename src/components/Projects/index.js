@@ -20,7 +20,7 @@ export default class Projects extends React.Component {
 
         return (
             <Container>
-                <h1 style={{ textAlign: "center" }}>My Latest Work</h1>
+                <Title style={{ textAlign: "center" }}>My Latest Work</Title>
 
                 <ProjectsView>
                     { projects }
@@ -38,7 +38,7 @@ class Card extends React.PureComponent {
             active: false,
             arrows: false,
             bars: true,
-            color: randomColor(0.99, 0.99).hexString()
+            color: "#d2b48c"
         }
     }
     render() {
@@ -53,10 +53,6 @@ class Card extends React.PureComponent {
             >
                 <h2>
                     <span>{ title }</span>
-                    <strong>
-                        <i class="fa fa-fw fa-star"></i>
-                        { subTitle }
-                    </strong>
                 </h2>
                 <div className="mc-content">
                     <div className="img-container">
