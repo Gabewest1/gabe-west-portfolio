@@ -7,11 +7,13 @@ export const Container = styled.div`
     
 `
 export const ProjectsView = styled.div`
-    background: ${ SECONDARY_COLOR };
-    padding: 1em 0;
+    background: url(/assets/images/self_taught.jpg);
+    background-attachment: fixed;
+    background-size: cover;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    position: relative;
 
     > * {
         margin: 1em;
@@ -20,6 +22,15 @@ export const ProjectsView = styled.div`
     > *:last {
         margin-bottom: 1em;
     }
+
+    &:before {
+		content: "";
+		display: block;
+        position: absolute;
+		height: 100%;
+		width: 100%;
+		background: rgba(0,0,0,.8);
+	}
 `
 export const Overlay = styled.div`
     height: 100%;
