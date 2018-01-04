@@ -4,6 +4,37 @@ import { SECONDARY_COLOR } from "../../constants"
 
 import ColoredText from "../shared/ColoredText"
 
+export default class About extends React.PureComponent {
+    render() {
+        return (
+            <Container>
+                
+                <Header>
+                    <Intro>Who Is Gabe West?</Intro>
+                    <AboutMeText>
+                        I'm a
+                        self-taught
+                        developer whose
+                        inspired everyday 
+                        to build badass creations.
+                    </AboutMeText>
+                </Header>
+                
+                <AboutMe>
+                    <TintedBackground />
+                    <AboutMeText>
+                        I love everything about the web from designing database schemas to perfecting animations.
+                        I'm truely passionate about taking ideas in my head and bringing them to reality through
+                        web technoligies. I don't believe there is an artistic medium that allows an individual to 
+                        express their inner thoughts and emotions comprable to programming. 
+                    </AboutMeText>
+                </AboutMe>
+
+            </Container>
+        )
+    }
+}
+
 const Container = styled.div`
     text-align: center;    
     position: relative;
@@ -41,33 +72,3 @@ const TintedBackground = styled.div`
     width: 100%;
     z-index: 0;
 `
-export default class About extends React.PureComponent {
-    render() {
-        return (
-            <Container>
-                
-                <Header>
-                    <Intro>Who Is Gabe West?</Intro>
-                    <AboutMeText>
-                        I'm a
-                        self-taught
-                        developer whose
-                        inspired everyday 
-                        to build badass creations.
-                    </AboutMeText>
-                </Header>
-                
-                <AboutMe>
-                    <TintedBackground />
-                    <AboutMeText>
-                        I love everything about the web from designing database schemas to perfecting animations.
-                        I'm truely passionate about taking ideas in my head and bringing them to reality through
-                        web technoligies. I don't believe there is an artistic medium that allows an individual to 
-                        express their inner thoughts and emotions comprable to programming. 
-                    </AboutMeText>
-                </AboutMe>
-
-            </Container>
-        )
-    }
-}

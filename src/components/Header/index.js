@@ -6,6 +6,32 @@ import { SECONDARY_COLOR } from "../../constants"
 import SelfWritingText from "../shared/SelfWritingText"
 import ColoredText from "../shared/ColoredText"
 
+class Header extends Component {
+	render() {
+	  	return (
+			<HeaderView>
+	
+				<Navbar>
+					<p>Gabe West</p>
+					<List>
+						<li><a href="#">About</a></li>
+						<li><a href="#">Projects</a></li>
+						<li><a href="#">Contact</a></li>
+					</List>
+				</Navbar>
+				
+				<HeroText style={{ fontSize: "7vw" }}>
+					<ColoredText>Hello,</ColoredText> I'm Gabe West!
+				</HeroText>
+				
+				<_HeroText style={{ margin: 0 }}><ColoredText>You can catch me:</ColoredText></_HeroText>
+				<_SelfWritingText color="white" />
+	
+			</HeaderView>
+	  	)
+	}
+}
+
 const HeaderView = styled.header`
 	align-items: center;
 	background: url(/assets/images/hero/img7.jpg) no-repeat;
@@ -85,31 +111,5 @@ const _SelfWritingText = styled(SelfWritingText)`
 	color: #efefef;
 	font-family: 'Pacifico', cursive;
 `
-
-class Header extends Component {
-  render() {
-    return (
-        <HeaderView>
-
-            <Navbar>
-                <p>Gabe West</p>
-                <List>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Projects</a></li>
-                    <li><a href="#">Contact</a></li>
-                </List>
-            </Navbar>
-            
-			<HeroText style={{ fontSize: "7vw" }}>
-				<ColoredText>Hello,</ColoredText> I'm Gabe West!
-			</HeroText>
-			
-			<_HeroText style={{ margin: 0 }}><ColoredText>You can catch me:</ColoredText></_HeroText>
-			<_SelfWritingText color="white" />
-
-        </HeaderView>
-    )
-  }
-}
 
 export default Header
