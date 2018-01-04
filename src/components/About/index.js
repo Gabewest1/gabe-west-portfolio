@@ -13,85 +13,58 @@ const Header = styled.div`
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    height: 20vmax;
 `
 const Intro = styled.h3`
-    font-size: 11vw;
+    font-size: 4vw;
     margin: 0;
 `
-const SelfTaughtView = styled.div`
-    align-items: center;
-    background-attachment: fixed;
-    background-position: center center;
-    background-size: cover;
-    background-color: #efefef;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+const AboutMeText = styled.p`
+    color: #efefef;
     position: relative;
-
-    > * {
-        z-index: 1;
-        flex: 0 1 50%;
-    }
-
-    @media (min-width: 768px) {
-        flex-direction: row-reverse;
-
-    }
-`
-const AboutMeText = styled.h3`
-    color: tan;
-    font-size: 2.5vw;
-    max-width: 90%;
 `
 const AboutMeImg = styled.img`
     width: 100%;
 `
 const AboutMe = styled.div`
-    background: ${ SECONDARY_COLOR };
-    padding: 4em;
-    line-height: 2.3;
-    text-align: left;
-
-    p { 
-        margin: 0;
-    }
+    background: url(/assets/images/self_taught.jpg) no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    height: 100vh;
+`
+const TintedBackground = styled.div`
+    background: rgba(0, 0, 0, .8);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 0;
 `
 export default class About extends React.PureComponent {
     render() {
         return (
             <Container>
+                
                 <Header>
                     <Intro>Who Is Gabe West?</Intro>
-                    <div style={{ fontSize: "2vw" }}>(Pro Tip: He's Pretty Awesome :D)</div>
+                    <AboutMeText>
+                        I'm a
+                        self-taught
+                        developer whose
+                        inspired everyday 
+                        to build badass creations.
+                    </AboutMeText>
                 </Header>
                 
-                <SelfTaughtView>
-
-                    <div style={{ lineHeight: 0 }}>
-                        <AboutMeImg src="/assets/images/self_taught.jpg" />
-                    </div>
-
-                    <div>
-                        <AboutMeText>
-                            I'm a
-                            <ColoredText> self-taught </ColoredText>
-                            developer whose
-                            <ColoredText> inspired everyday </ColoredText>
-                            to build <ColoredText> badass </ColoredText> creations.
-                        </AboutMeText>
-                    </div>
-
-                </SelfTaughtView>
-
                 <AboutMe>
-                    <p>
+                    <TintedBackground />
+                    <AboutMeText>
                         I love everything about the web from designing database schemas to perfecting animations.
                         I'm truely passionate about taking ideas in my head and bringing them to reality through
                         web technoligies. I don't believe there is an artistic medium that allows an individual to 
                         express their inner thoughts and emotions comprable to programming. 
-                    </p>
+                    </AboutMeText>
                 </AboutMe>
 
             </Container>
