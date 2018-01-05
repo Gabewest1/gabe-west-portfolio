@@ -55,6 +55,7 @@ const Header = styled.div`
     min-height: 120px;
     padding: 2em;
     text-align: center;
+    overflow: hidden;
 `
 const Intro = styled.h3`
     background-color: ${ PRIMARY_COLOR };
