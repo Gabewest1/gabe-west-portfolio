@@ -2,9 +2,11 @@ import React from "react"
 import styled from "styled-components"
 import randomColor from "random-color"
 
+import { SECONDARY_COLOR } from "../../constants"
 import projectData from "./projectData"
 
 import {
+    Background,
     Container,
     ProjectsView,
     Overlay,
@@ -22,9 +24,11 @@ export default class Projects extends React.Component {
             <Container>
                 <Title style={{ textAlign: "center" }}>My Latest Work</Title>
 
-                <ProjectsView>
-                    { projects }
-                </ProjectsView>
+                <Background>
+                    <ProjectsView>
+                        { projects }
+                    </ProjectsView>
+                </Background>
             </Container>
         )
     }
@@ -38,7 +42,7 @@ class Card extends React.PureComponent {
             active: false,
             arrows: false,
             bars: true,
-            color: "#d2b48c"
+            color: SECONDARY_COLOR
         }
     }
     render() {

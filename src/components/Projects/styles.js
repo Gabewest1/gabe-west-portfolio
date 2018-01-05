@@ -1,15 +1,19 @@
 import styled from "styled-components"
 import colorer from "colorer"
-import { SECONDARY_COLOR } from "../../constants"
+import { PRIMARY_COLOR, SECONDARY_COLOR } from "../../constants"
 
-
+export const Background = styled.div`
+    background: ${ SECONDARY_COLOR };
+    padding: 0 2em;
+`
 export const Container = styled.div`
     
 `
 export const ProjectsView = styled.div`
-    background: url(/assets/images/skills.jpg) no-repeat center center;
+    // background: url(/assets/images/skills.jpg) no-repeat center center;
     background-attachment: fixed;
     background-size: cover;
+    background-color: ${ PRIMARY_COLOR };
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -29,7 +33,7 @@ export const ProjectsView = styled.div`
         position: absolute;
 		height: 100%;
 		width: 100%;
-		background: rgba(0,0,0,.8);
+		// background: rgba(0,0,0,.8);
 	}
 `
 export const Overlay = styled.div`
@@ -41,8 +45,10 @@ export const Overlay = styled.div`
     transform: translateX(100%);
 `
 export const Title = styled.h3`
-    line-height: 20vmax;
-    font-size: 11vw;
+    background: ${ PRIMARY_COLOR };
+    color: ${ SECONDARY_COLOR };
+    line-height: 12vmax;
+    font-size: 5vw;
     margin: 0;
 `
 export const Description = styled.p`
