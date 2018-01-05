@@ -7,7 +7,7 @@ export const Container = styled.div`
     
 `
 export const ProjectsView = styled.div`
-    background: url(/assets/images/self_taught.jpg);
+    background: url(/assets/images/skills.jpg) no-repeat center center;
     background-attachment: fixed;
     background-size: cover;
     display: flex;
