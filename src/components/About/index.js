@@ -6,25 +6,37 @@ import ColoredText from "../shared/ColoredText"
 
 export default class About extends React.PureComponent {
     render() {
+        const center = {
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            width: "100%"
+        }
+
         return (
             <Container>
                 
                 <Header>
                     <Border>
                         <Intro>Who Is Gabe West?</Intro>
-                        <AboutMeText>
-                            I'm a
-                            self-taught
-                            developer whose
-                            inspired everyday 
-                            to build badass creations.
-                        </AboutMeText>
-                        <AboutMeText>
-                            I love everything about the web from designing database schemas to perfecting animations.
-                            <br/><br/>I'm passionate about taking ideas in my head and bringing them to reality through
-                            web technoligies. I don't believe there is an artistic medium that allows an individual to 
-                            express their inner thoughts and emotions comprable to programming. 
-                        </AboutMeText>
+                        <div style={ center }>
+                            <AboutMeText>
+                                I'm a
+                                self-taught
+                                developer whose
+                                inspired everyday 
+                                to build badass creations.
+                            </AboutMeText>
+                            <AboutMeText>
+                                I love everything about the web from designing database schemas to perfecting animations. 
+                            </AboutMeText>
+                            <AboutMeText>
+                            I'm passionate about taking ideas in my head and bringing them to reality through
+                                web technoligies. I don't believe there is an artistic medium that allows an individual to 
+                                express their inner thoughts and emotions comprable to programming.
+                            </AboutMeText>
+                        </div>
                     </Border>
                 </Header>
                 
@@ -41,6 +53,8 @@ export default class About extends React.PureComponent {
 const Border = styled.div`
     border: solid 2px ${ SECONDARY_COLOR };
     padding-bottom: 2em;
+    height: 100%;
+    position: relative;
 `
 const Container = styled.div`
     text-align: center;    
@@ -52,7 +66,7 @@ const Header = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: 120px;
+    height: 300px;
     padding: 2em;
     text-align: center;
     overflow: hidden;
@@ -69,7 +83,7 @@ const Intro = styled.h3`
     }
 `
 const AboutMeText = styled.p`
-    margin: 0;
+    // margin: 0;
 `
 const AboutMeImg = styled.img`
     width: 100%;
