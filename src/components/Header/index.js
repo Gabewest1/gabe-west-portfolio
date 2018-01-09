@@ -12,7 +12,6 @@ class Header extends Component {
 			<HeaderView>
 	
 				<Navbar>
-					<p>Gabe West</p>
 					<List>
 						<li><a href="#">About</a></li>
 						<li><a href="#">Projects</a></li>
@@ -24,8 +23,8 @@ class Header extends Component {
 					<ColoredText>Hello,</ColoredText> I'm Gabe West!
 				</HeroText>
 				
-				<_HeroText style={{ margin: 0 }}><ColoredText>You can catch me:</ColoredText></_HeroText>
-				<_SelfWritingText color="white" />
+				{/* <_HeroText style={{ margin: 0 }}><ColoredText>You can catch me:</ColoredText></_HeroText>
+				<_SelfWritingText color="white" /> */}
 	
 			</HeaderView>
 	  	)
@@ -54,7 +53,6 @@ const HeaderView = styled.header`
 	}
 `
 const HeroText = styled.h3`
-	color: tan;
 	margin: 0;
 	text-align: center;
 	z-index: 1;
@@ -75,7 +73,7 @@ const Underline = styled.span`
 const Navbar = styled.nav`
 	display: flex;
 	justify-content: space-between;
-	padding: 0 1em;
+	padding: 1em;
 	position: absolute;
 	top: 0;
 	width: 100%;
@@ -94,7 +92,7 @@ const List = styled.div`
 		text-decoration: underline;
 	}
 	
-	* {
+	> * {
 		align-items: center;
 		display: flex;
 		list-style: none;
@@ -102,7 +100,7 @@ const List = styled.div`
 		margin-right: 1em;
 	}
 
-	*:last-child {
+	> *:last-child {
 		margin-right: 0;
 	}
 `

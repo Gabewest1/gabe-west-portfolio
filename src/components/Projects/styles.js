@@ -4,7 +4,6 @@ import { PRIMARY_COLOR, SECONDARY_COLOR } from "../../constants"
 
 export const Background = styled.div`
     background: ${ SECONDARY_COLOR };
-    padding: 0 2em;
 `
 export const Container = styled.div`
     

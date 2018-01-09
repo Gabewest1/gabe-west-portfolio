@@ -7,20 +7,25 @@ import ColoredText from "../shared/ColoredText"
 export default class About extends React.PureComponent {
     render() {
         const center = {
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            width: "100%"
+           
         }
 
         return (
             <Container>
-                
-                <Header>
-                    <Border>
-                        <Intro>Who Is Gabe West?</Intro>
-                        <div style={ center }>
+                <AboutMe>
+                    <Header>
+                        <Intro>
+                            About
+                        </Intro>
+                        <div>
+                            <Underline>About Me</Underline>
+                        </div>
+                    </Header>
+                    <Main>
+                        <div>
+                            <img style={{ maxWidth: "100%", maxHeight: "250px" }} src="/assets/images/self_taught.jpg" alt=""/>
+                        </div>
+                        <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between", textAlign: "left" }}>
                             <AboutMeText>
                                 I'm a
                                 self-taught
@@ -37,63 +42,82 @@ export default class About extends React.PureComponent {
                                 express their inner thoughts and emotions comprable to programming.
                             </AboutMeText>
                         </div>
-                    </Border>
-                </Header>
-                
-                <AboutMe>
-                    <TintedBackground />
-                    
-                </AboutMe>
+                    </Main>
+                    <div>
+                        <Intro>
+                            Me  
 
+                        </Intro>
+                        <Underline>About Me</Underline>
+
+                    </div>
+                </AboutMe>
             </Container>
         )
     }
 }
 
-const Border = styled.div`
-    border: solid 2px ${ SECONDARY_COLOR };
-    padding-bottom: 2em;
-    height: 100%;
-    position: relative;
+const Underline = styled.span`
+    border-top: solid 1px ${ PRIMARY_COLOR };
+    font-weight: bolder;
+    color: transparent;
+    margin: 11px 0px;
+    display: inline-block;
+    height: 0px;
+    white-space: nowrap;
+    width: 156px;
 `
 const Container = styled.div`
-    text-align: center;    
+    // text-align: center;    
     position: relative;
 `
-const Header = styled.div`
-    color: ${ SECONDARY_COLOR };
-    background-color: ${ PRIMARY_COLOR };
+const Main = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    height: 300px;
-    padding: 2em;
-    text-align: center;
-    overflow: hidden;
-`
-const Intro = styled.h3`
-    background-color: ${ PRIMARY_COLOR };
-    font-size: 9vw;
-    margin: 0;
-    display: inline-block;
-    transform: translateY(-55%);
+    padding: 1em;
+    border: solid thin ${ PRIMARY_COLOR };
+
+    > * {
+        flex: 0 1 50%;
+    }
 
     @media (min-width: 768px) {
-        font-size: 4vw;
+        flex-direction: row;
+
+        div:first-child {
+            margin-right: 14px;
+        }
+    }
+`
+const Header = styled.div`
+    display: flex;
+    flex-direction: column;
+`
+const Intro = styled.h3`
+    font-size: 28px;
+    margin: 0;
+    display: inline-block;
+    font-weight: 500;
+    letter-spacing: 6px;
+
+    @media (min-width: 768px) {
+
     }
 `
 const AboutMeText = styled.p`
-    // margin: 0;
+    margin: 0;
+    font-size: 13px;
 `
 const AboutMeImg = styled.img`
     width: 100%;
 `
 const AboutMe = styled.div`
-    background: url(/assets/images/self_taught.jpg) no-repeat center center;
-    background-size: cover;
-    background-attachment: fixed;
-    height: 100vh;
+    background-color: ${ SECONDARY_COLOR };
     position: relative;
+    padding: 2em;
+    text-align: center;
+    display: flex;
+    align-items: center;
 `
 const TintedBackground = styled.div`
     background: rgba(0, 0, 0, .8);
