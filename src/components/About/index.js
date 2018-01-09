@@ -23,24 +23,52 @@ export default class About extends React.PureComponent {
                     </Header>
                     <Main>
                         <div>
-                            <img style={{ maxWidth: "100%", maxHeight: "250px" }} src="/assets/images/self_taught.jpg" alt=""/>
+                            <img style={{ maxWidth: "100%", maxHeight: "300px" }} src="/assets/images/self_taught.jpg" alt=""/>
                         </div>
-                        <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between", textAlign: "left" }}>
+                        <div style={{ textAlign: "left" }}>
                             <AboutMeText>
                                 I'm a
-                                self-taught
-                                developer whose
+                                self-taught fullstack
+                                developer who is
                                 inspired everyday 
                                 to build badass creations.
                             </AboutMeText>
-                            <AboutMeText>
-                                I love everything about the web from designing database schemas to perfecting animations. 
-                            </AboutMeText>
-                            <AboutMeText>
-                            I'm passionate about taking ideas in my head and bringing them to reality through
-                                web technoligies. I don't believe there is an artistic medium that allows an individual to 
-                                express their inner thoughts and emotions comprable to programming.
-                            </AboutMeText>
+                            <Skills>
+                                <Skill>
+                                    <Icon>
+                                        <img src="/assets/images/html.png" alt=""/>
+                                    </Icon>
+                                    <p>I construct intricate interfaces</p>
+                                </Skill>
+
+                                <Skill>
+                                    <Icon>
+                                        <img src="/assets/images/css.png" alt=""/>
+                                    </Icon>
+                                    <p>I visualize &amp; solidify designs</p>
+                                </Skill>
+
+                                <Skill>
+                                    <Icon>
+                                        <img src="/assets/images/mongo.png" alt=""/>
+                                    </Icon>
+                                    <p>I manage vasts amounts of user-critical information</p>
+                                </Skill>
+
+                                <Skill>
+                                    <Icon>
+                                        <img src="/assets/images/node.svg" alt=""/>
+                                    </Icon>
+                                    <p>I orchastrate communications between client and server</p>
+                                </Skill>
+
+                                <Skill>
+                                    <Icon>
+                                        <img src="/assets/images/javascript.png" alt=""/>
+                                    </Icon>
+                                    <p>I bring together amazing experiences</p>
+                                </Skill>
+                            </Skills>
                         </div>
                     </Main>
                     <Underline>About Me</Underline>
@@ -50,6 +78,27 @@ export default class About extends React.PureComponent {
     }
 }
 
+const Skills = styled.ul`
+    list-style: none;
+    font-size: 13px;
+
+    @media (max-width: 767px) {
+        padding: 0;
+    }
+`
+const Skill = styled.li`
+    display: flex;
+    align-items: center;
+`
+const Icon = styled.div`
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+
+    img {
+        max-width: 100%;
+    }
+`
 const Underline = styled.span`
     border-top: solid 1px ${ PRIMARY_COLOR };
     font-weight: bolder;
@@ -59,7 +108,6 @@ const Underline = styled.span`
     height: 0px;
 `
 const Container = styled.div`
-    // text-align: center;    
     position: relative;
 `
 const Main = styled.div`
@@ -96,7 +144,9 @@ const Intro = styled.h3`
 `
 const AboutMeText = styled.p`
     margin: 0;
-    font-size: 13px;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
 `
 const AboutMeImg = styled.img`
     width: 100%;
