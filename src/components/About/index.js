@@ -143,10 +143,13 @@ const Intro = styled.h3`
     }
 `
 const AboutMeText = styled.p`
-    margin: 0;
     font-size: 18px;
     font-weight: 600;
     text-align: center;
+
+    @media (min-width: 768px) {
+        margin: 0;    
+    }
 `
 const AboutMeImg = styled.img`
     width: 100%;
