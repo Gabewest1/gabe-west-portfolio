@@ -48,6 +48,8 @@ export const Title = styled.h3`
     color: ${ SECONDARY_COLOR };
     line-height: 12vmax;
     font-size: 28px;
+    text-align: center;
+    letter-spacing: 4px;
     margin: 0;
 `
 export const Description = styled.p`

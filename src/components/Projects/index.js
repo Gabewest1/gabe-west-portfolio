@@ -22,7 +22,7 @@ export default class Projects extends React.Component {
 
         return (
             <Container>
-                <Title style={{ textAlign: "center" }}>My Latest Work</Title>
+                <Title>My Latest Work</Title>
 
                 <Background>
                     <ProjectsView>
