@@ -15,10 +15,10 @@ export default class About extends React.PureComponent {
                 <AboutMe>
                     <Header>
                         <Intro>
-                            About
+                            Who Is Gabe West?
                         </Intro>
                         <div>
-                            <Underline>About Me</Underline>
+                            <Underline>Who Is Gabe West?</Underline>
                         </div>
                     </Header>
                     <Main>
@@ -43,14 +43,7 @@ export default class About extends React.PureComponent {
                             </AboutMeText>
                         </div>
                     </Main>
-                    <div>
-                        <Intro>
-                            Me  
-
-                        </Intro>
-                        <Underline>About Me</Underline>
-
-                    </div>
+                    <Underline>About Me</Underline>
                 </AboutMe>
             </Container>
         )
@@ -64,8 +57,6 @@ const Underline = styled.span`
     margin: 11px 0px;
     display: inline-block;
     height: 0px;
-    white-space: nowrap;
-    width: 156px;
 `
 const Container = styled.div`
     // text-align: center;    
@@ -75,7 +66,6 @@ const Main = styled.div`
     display: flex;
     flex-direction: column;
     padding: 1em;
-    border: solid thin ${ PRIMARY_COLOR };
 
     > * {
         flex: 0 1 50%;
@@ -117,6 +107,7 @@ const AboutMe = styled.div`
     padding: 2em;
     text-align: center;
     display: flex;
+    flex-direction: column;
     align-items: center;
 `
 const TintedBackground = styled.div`

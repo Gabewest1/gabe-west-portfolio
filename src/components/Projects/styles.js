@@ -47,7 +47,7 @@ export const Title = styled.h3`
     background: ${ PRIMARY_COLOR };
     color: ${ SECONDARY_COLOR };
     line-height: 12vmax;
-    font-size: 5vw;
+    font-size: 28px;
     margin: 0;
 `
 export const Description = styled.p`
