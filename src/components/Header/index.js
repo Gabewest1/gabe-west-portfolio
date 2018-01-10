@@ -78,6 +78,7 @@ const Navbar = styled.nav`
 	top: 0;
 	width: 100%;
 	box-sizing: border-box;
+	font-size: 20px;
 `
 const List = styled.div`
 	display: flex;
