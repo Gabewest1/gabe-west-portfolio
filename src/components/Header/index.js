@@ -58,6 +58,7 @@ const HeroText = styled.h3`
 	z-index: 1;
 	line-height: 2em;
 	font-size: 1em;
+	font-family: 'Titillium Web', sans-serif;
 
 	@media (min-width: 480px) {
 		font-size: 2em;
