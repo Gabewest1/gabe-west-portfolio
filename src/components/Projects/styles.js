@@ -6,10 +6,16 @@ export const Background = styled.div`
     background: ${ SECONDARY_COLOR };
 `
 export const Container = styled.div`
-    
+    position: relative;
+`
+export const Stripe = styled.div`
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-top: solid 150px transparent;
+    border-left: solid 285px #15191d;
 `
 export const ProjectsView = styled.div`
-    // background: url(/assets/images/skills.jpg) no-repeat center center;
     background-attachment: fixed;
     background-size: cover;
     background-color: ${ PRIMARY_COLOR };

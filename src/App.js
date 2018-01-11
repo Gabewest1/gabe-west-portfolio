@@ -3,8 +3,9 @@ import styled, { keyframes } from "styled-components"
 import './App.css'
 
 import Header from "./components/Header"
-import Projects from "./components/Projects"
 import About from "./components/About"
+import Projects from "./components/Projects"
+import Contact from "./components/Contact"
 
 const Container = styled.div`
 
@@ -17,6 +18,7 @@ class App extends Component {
 			<Header />
 			<About />
 			<Projects />
+			<Contact />
 		</Container>
     )
   }

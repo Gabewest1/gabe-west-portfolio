@@ -13,7 +13,8 @@ import {
     Title,
     Description,
     ProjectImage,
-    CardView
+    CardView,
+    Stripe
 } from "./styles"
 
 export default class Projects extends React.Component {
@@ -22,6 +23,8 @@ export default class Projects extends React.Component {
 
         return (
             <Container>
+                <Stripe/>
+
                 <Title>My Latest Work</Title>
 
                 <Background>
