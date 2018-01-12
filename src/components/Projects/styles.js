@@ -86,7 +86,7 @@ export const CardView = styled.article`
     i {
         width: auto !important;
     }
-    
+
     h2 {
         color: ${ SECONDARY_COLOR };
         background-color: ${({ color }) => color };
@@ -161,7 +161,7 @@ export const CardView = styled.article`
     .mc-content {
         font-size: 14px;
         position: absolute;
-        right: 0;
+        right: 8px;
         top: 0;
         bottom: 16px;
         left: 16px;
@@ -171,7 +171,7 @@ export const CardView = styled.article`
         background: ${({ color }) => colorer(color).light(-20) };
         font-size: 16px;
         position: absolute;
-        right: 0px;
+        right: 8px;
         top: 5px;
         -webkit-border-radius: 50%;
         -moz-border-radius: 50%;
@@ -193,8 +193,8 @@ export const CardView = styled.article`
         position: absolute;
         height: 0%;
         top: 100%;
-        right: 30px;
-        left: 30px;
+        right: 15px;
+        left: 17px;
         overflow: hidden;
         bottom: 54px;
         overflow: hidden;
@@ -214,7 +214,7 @@ export const CardView = styled.article`
             color: ${({ color }) => color};
             position: absolute;
             top: 200px;
-            left: 30px;
+            left: 17px;
             padding: 0;
             margin: 0;
             font-size: 16px;
