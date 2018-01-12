@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from "styled-components"
 import ReactFitText from "react-fittext"
+import colorer from "colorer"
 import { PRIMARY_COLOR, SECONDARY_COLOR } from "../../constants"
 
 import SelfWritingText from "../shared/SelfWritingText"
@@ -20,11 +21,11 @@ class Header extends Component {
 				</Navbar>
 				
 				<HeroText style={{ fontSize: "7vw" }}>
-					<ColoredText>Hello,</ColoredText> I'm Gabe West!
+					<ColoredText color="#718199">Hello,</ColoredText> I'm Gabe West!
 				</HeroText>
 				
-				<_HeroText style={{ margin: 0 }}><ColoredText>You can catch me:</ColoredText></_HeroText>
-				<_SelfWritingText color="white" />
+				{/* <_HeroText style={{ margin: 0 }}><ColoredText>You can catch me:</ColoredText></_HeroText>
+				<_SelfWritingText color="white" /> */}
 	
 			</HeaderView>
 	  	)
@@ -57,7 +58,13 @@ const HeaderView = styled.header`
 		position: absolute;
 		height: 100%;
 		width: 100%;
-		background: rgba(0,0,0,.8);
+		background: linear-gradient(45deg,
+			${SECONDARY_COLOR} 0%,
+			${colorer(SECONDARY_COLOR).light(10)} 50%,
+			${colorer(SECONDARY_COLOR).light(20)} 51%,
+			${colorer(SECONDARY_COLOR).light(30)} 100%
+		);
+		opacity: .7;
 	}
 `
 const HeroText = styled.h3`
