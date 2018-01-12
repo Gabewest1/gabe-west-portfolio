@@ -18,7 +18,7 @@ export const Stripe = styled.div`
 export const ProjectsView = styled.div`
     background-attachment: fixed;
     background-size: cover;
-    background-color: ${ PRIMARY_COLOR };
+    background-color: ${ SECONDARY_COLOR };
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -84,6 +84,7 @@ export const CardView = styled.article`
     }
 
     h2 {
+        color: ${ SECONDARY_COLOR };
         background-color: ${({ color }) => color };
         box-sizing: border-box;
         position: absolute;
@@ -91,7 +92,6 @@ export const CardView = styled.article`
         left: 0;
         width: 100%;
         padding: 10px 16px;
-        color: #fff;
         font-size: 18px;
         line-height: 1.6em;
         margin: 0;
@@ -164,7 +164,7 @@ export const CardView = styled.article`
         ${ getTransition() };
     }
     .mc-btn-action {
-        background: ${({ color }) => color };
+        background: ${({ color }) => colorer(color).light(-20) };
         font-size: 16px;
         position: absolute;
         right: 0px;
