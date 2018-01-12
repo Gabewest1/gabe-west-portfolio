@@ -83,12 +83,16 @@ export const CardView = styled.article`
         width: 30%;
     }
 
+    i {
+        width: auto !important;
+    }
+    
     h2 {
         color: ${ SECONDARY_COLOR };
         background-color: ${({ color }) => color };
         box-sizing: border-box;
         position: absolute;
-        top: calc(100% - 48px);
+        top: calc(100% - 76px);
         left: 0;
         width: 100%;
         padding: 10px 16px;
@@ -136,7 +140,7 @@ export const CardView = styled.article`
         }
         h2 {
             top: 0;
-            padding-left: 70px;
+            padding-left: 61px;
 
             &:before {
                 top: 0;
@@ -183,7 +187,7 @@ export const CardView = styled.article`
         ${ getTransition() };
     }
     &.mc-active .mc-btn-action {
-        top: 25px;
+        top: 53px;
     }
     .mc-description {
         position: absolute;
@@ -273,7 +277,7 @@ export const CardView = styled.article`
             -moz-border-radius: 50%;
             border-radius: 50%;
             left: -6px;
-            top: 2px;
+            top: 14px;
             width: 45px;
             height: 45px;
             z-index: 20;
@@ -287,7 +291,7 @@ export const CardView = styled.article`
             }
         }
         .mc-description {
-            top: 87px;
+            top: 100px;
             height: 100%;
             opacity: 1;
         }
