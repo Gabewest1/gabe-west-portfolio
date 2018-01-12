@@ -11,34 +11,36 @@ export default class Contact extends React.Component {
             <Container>
                 <SectionTitle right secondary>Get in Touch!</SectionTitle>
 
-                <Form>
-                    <Field>
-                        <Label htmlFor="name">FULLNAME:
-                            <Input name="name" />
-                        </Label>
-                    </Field>
-                    <Field>
-                        <Label htmlFor="email">EMAIL:
-                            <Input name="email" />
-                        </Label>
-                    </Field>
-                    <Field>
-                        <Label htmlFor="message">MESSAGE:
-                            <TextArea type="textarea" name="message" />
-                        </Label>
-                    </Field>
+                <div style={{ padding: "40px 0" }}>
+                    <Form>
+                        <Field>
+                            <Label htmlFor="name">FULLNAME:
+                                <Input name="name" />
+                            </Label>
+                        </Field>
+                        <Field>
+                            <Label htmlFor="email">EMAIL:
+                                <Input name="email" />
+                            </Label>
+                        </Field>
+                        <Field>
+                            <Label htmlFor="message">MESSAGE:
+                                <TextArea type="textarea" name="message" />
+                            </Label>
+                        </Field>
 
-                    <SubmitButton onClick={ this._handleSubmit }>
-                        <SubmitIcon />
-                    </SubmitButton>
+                        <SubmitButton onClick={ this._handleSubmit }>
+                            <SubmitIcon />
+                        </SubmitButton>
 
-                    <Footer>
-                        <div>
-                            <Text><strong>Hate Forms?</strong> <em>Give Me A Call!</em></Text>
-                            <Text>512-669-9592</Text>
-                        </div>
-                    </Footer>
-                </Form>
+                        <Footer>
+                            <div>
+                                <Text><strong>Hate Forms?</strong> <em>Give Me A Call!</em></Text>
+                                <Text>512-669-9592</Text>
+                            </div>
+                        </Footer>
+                    </Form>
+                </div>
             </Container>
         )
     }
@@ -58,7 +60,6 @@ const FORM_BACKGROUND_COLOR = colorer(SECONDARY_COLOR).light(20)
 const Container = styled.div`
     background: ${ SECONDARY_COLOR };
     position: relative;
-    padding-bottom: 40px;
 `
 const Text = styled.p``
 const Title = styled.h3`
