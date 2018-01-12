@@ -31,47 +31,59 @@ export default class About extends React.PureComponent {
                                 self-taught fullstack
                                 developer who is
                                 inspired everyday 
-                                to build badass creations.
+                                to:
                             </AboutMeText>
                             <Skills>
                                 <Skill>
                                     <Icon>
                                         <img src="/assets/images/html.png" alt=""/>
                                     </Icon>
-                                    <p>I construct intricate interfaces</p>
+                                    <p>Construct intricate interfaces</p>
                                 </Skill>
 
                                 <Skill>
                                     <Icon>
                                         <img src="/assets/images/css.png" alt=""/>
                                     </Icon>
-                                    <p>I visualize &amp; solidify designs</p>
+                                    <p>Visualize &amp; solidify designs</p>
                                 </Skill>
 
                                 <Skill>
                                     <Icon>
                                         <img src="/assets/images/mongo.png" alt=""/>
                                     </Icon>
-                                    <p>I manage vasts amounts of user-critical information</p>
+                                    <p>Manage vasts amounts of user-critical information</p>
                                 </Skill>
 
                                 <Skill>
                                     <Icon>
-                                        <img src="/assets/images/node.svg" alt=""/>
+                                        <img src="/assets/images/node.png" alt=""/>
                                     </Icon>
-                                    <p>I orchastrate communications between client and server</p>
+                                    <p>Orchastrate communications between client and server</p>
                                 </Skill>
 
                                 <Skill>
                                     <Icon>
                                         <img src="/assets/images/javascript.png" alt=""/>
                                     </Icon>
-                                    <p>I bring together amazing experiences</p>
+                                    <p>Bring together amazing experiences</p>
                                 </Skill>
                             </Skills>
                         </div>
                     </Main>
+
                     <Underline>About Me</Underline>
+
+                    <Intro style={{ margin: "16px 0px" }}>What's My Mission?</Intro>
+
+                    <Underline>What's My Mission?</Underline>
+
+                    <MissionStatement>
+                        <pre><em>Simply put:</em> To be the best developer I can possible be.</pre>
+                        I want to be able to construct any idea in my head through code. I don't want to constrict my ability to create
+                        awesome applications because of a limited technical know-how. I'm deeply interested in all aspects of the web from 
+                        perfecting button animations to designing database schemas.
+                    </MissionStatement>
                 </AboutMe>
             </Container>
         )
@@ -171,4 +183,13 @@ const TintedBackground = styled.div`
     height: 100%;
     width: 100%;
     z-index: 0;
+`
+const MissionStatement = styled.p`
+    font-size: 16px;
+    text-align: left;
+    // font-family: 'Bangers', cursive;
+
+    pre {
+        font-family: inherit;
+    }
 `

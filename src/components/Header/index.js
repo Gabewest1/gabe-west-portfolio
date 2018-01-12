@@ -58,6 +58,7 @@ const HeroText = styled.h3`
 	z-index: 1;
 	line-height: 2em;
 	font-size: 1em;
+	font-family: 'Titillium Web', sans-serif;
 
 	@media (min-width: 480px) {
 		font-size: 2em;
@@ -72,7 +73,6 @@ const Underline = styled.span`
 `
 const Navbar = styled.nav`
 	display: flex;
-	justify-content: space-between;
 	padding: 1em;
 	position: absolute;
 	top: 0;
@@ -80,8 +80,13 @@ const Navbar = styled.nav`
 	box-sizing: border-box;
 	font-size: 20px;
 `
-const List = styled.div`
+const List = styled.ul`
+	padding: 0;
+	margin: 0;
 	display: flex;
+	justify-content: space-around;	
+	width: 100%;
+	list-style: none;
 	
 	a {
 		color: inherit;
@@ -93,16 +98,20 @@ const List = styled.div`
 		text-decoration: underline;
 	}
 	
-	> * {
-		align-items: center;
-		display: flex;
-		list-style: none;
-		margin-left: 1em;
-		margin-right: 1em;
-	}
-
-	> *:last-child {
-		margin-right: 0;
+	
+	@media (min-width: 768px) {
+		justify-content: flex-start;
+		
+		> * {
+			align-items: center;
+			display: flex;
+			margin-left: 24px;
+			margin-right: 24px;
+		}
+	
+		> *:last-child {
+			margin-right: 0;
+		}
 	}
 `
 const _SelfWritingText = styled(SelfWritingText)`
