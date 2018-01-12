@@ -3,80 +3,75 @@ import styled, { keyframes } from "styled-components"
 import { PRIMARY_COLOR, SECONDARY_COLOR } from "../../constants"
 
 import ColoredText from "../shared/ColoredText"
+import SectionTitle from "../shared/SectionTitle"
 
 export default class About extends React.PureComponent {
     render() {
-        const center = {
-           
-        }
-
         return (
-            <Container>
-                <AboutMe>
-                    <Header>
-                        <Intro>
-                            Who Is Gabe West?
-                        </Intro>
-                        <div>
-                            <Underline>Who Is Gabe West?</Underline>
-                        </div>
-                    </Header>
-                    <Main>
-                        <div>
-                            <img style={{ maxWidth: "100%", maxHeight: "300px" }} src="/assets/images/self_taught.jpg" alt=""/>
-                        </div>
-                        <div style={{ textAlign: "left" }}>
-                            <AboutMeText>
-                                I'm a
-                                self-taught fullstack
-                                developer who is
-                                inspired everyday 
-                                to:
-                            </AboutMeText>
-                            <Skills>
-                                <Skill>
-                                    <Icon>
-                                        <img src="/assets/images/html.png" alt=""/>
-                                    </Icon>
-                                    <p>Construct intricate interfaces</p>
-                                </Skill>
+            <AboutMe>
+                <SectionTitle secondary style={{ width: "100%" }}>
+                    Who Is Gabe West?
+                </SectionTitle>
+                {/* <div>
+                    <Underline>Who Is Gabe West?</Underline>
+                </div> */}
+                <Main>
+                    <div>
+                        <img style={{ maxWidth: "100%", maxHeight: "300px" }} src="/assets/images/self_taught.jpg" alt=""/>
+                    </div>
+                    <div style={{ textAlign: "left" }}>
+                        <AboutMeText>
+                            I'm a
+                            self-taught fullstack
+                            developer who is
+                            inspired everyday 
+                            to:
+                        </AboutMeText>
+                        <Skills>
+                            <Skill>
+                                <Icon>
+                                    <img src="/assets/images/html.png" alt=""/>
+                                </Icon>
+                                <p>Construct intricate interfaces</p>
+                            </Skill>
 
-                                <Skill>
-                                    <Icon>
-                                        <img src="/assets/images/css.png" alt=""/>
-                                    </Icon>
-                                    <p>Visualize &amp; solidify designs</p>
-                                </Skill>
+                            <Skill>
+                                <Icon>
+                                    <img src="/assets/images/css.png" alt=""/>
+                                </Icon>
+                                <p>Visualize &amp; solidify designs</p>
+                            </Skill>
 
-                                <Skill>
-                                    <Icon>
-                                        <img src="/assets/images/mongo.png" alt=""/>
-                                    </Icon>
-                                    <p>Manage vasts amounts of user-critical information</p>
-                                </Skill>
+                            <Skill>
+                                <Icon>
+                                    <img src="/assets/images/mongo.png" alt=""/>
+                                </Icon>
+                                <p>Manage vasts amounts of user-critical information</p>
+                            </Skill>
 
-                                <Skill>
-                                    <Icon>
-                                        <img src="/assets/images/node.png" alt=""/>
-                                    </Icon>
-                                    <p>Orchastrate communications between client and server</p>
-                                </Skill>
+                            <Skill>
+                                <Icon>
+                                    <img src="/assets/images/node.png" alt=""/>
+                                </Icon>
+                                <p>Orchastrate communications between client and server</p>
+                            </Skill>
 
-                                <Skill>
-                                    <Icon>
-                                        <img src="/assets/images/javascript.png" alt=""/>
-                                    </Icon>
-                                    <p>Bring together amazing experiences</p>
-                                </Skill>
-                            </Skills>
-                        </div>
-                    </Main>
+                            <Skill>
+                                <Icon>
+                                    <img src="/assets/images/javascript.png" alt=""/>
+                                </Icon>
+                                <p>Bring together amazing experiences</p>
+                            </Skill>
+                        </Skills>
+                    </div>
+                </Main>
 
-                    <Underline>About Me</Underline>
+                <Header>
+                    <SectionTitle right secondary>What's My Mission?</SectionTitle>
 
-                    <Intro style={{ margin: "16px 0px" }}>What's My Mission?</Intro>
-
-                    <Underline>What's My Mission?</Underline>
+                    {/* <div>
+                        <Underline>What's My Mission?</Underline>
+                    </div> */}
 
                     <MissionStatement>
                         <pre><em>Simply put:</em> To be the best developer I can possible be.</pre>
@@ -84,8 +79,8 @@ export default class About extends React.PureComponent {
                         awesome applications because of a limited technical know-how. I'm deeply interested in all aspects of the web from 
                         perfecting button animations to designing database schemas.
                     </MissionStatement>
-                </AboutMe>
-            </Container>
+                </Header>
+            </AboutMe>
         )
     }
 }
@@ -115,7 +110,7 @@ const Underline = styled.span`
     border-top: solid 1px ${ PRIMARY_COLOR };
     font-weight: bolder;
     color: transparent;
-    margin: 11px 0px;
+    // margin: 11px 0px;
     display: inline-block;
     height: 0px;
 `
@@ -142,6 +137,7 @@ const Main = styled.div`
 const Header = styled.div`
     display: flex;
     flex-direction: column;
+    position: relative;
 `
 const Intro = styled.h3`
     font-size: 28px;
@@ -149,10 +145,7 @@ const Intro = styled.h3`
     display: inline-block;
     font-weight: 500;
     letter-spacing: 6px;
-
-    @media (min-width: 768px) {
-
-    }
+    line-height: 12vmax;
 `
 const AboutMeText = styled.p`
     font-size: 18px;
@@ -169,7 +162,6 @@ const AboutMeImg = styled.img`
 const AboutMe = styled.div`
     background-color: ${ SECONDARY_COLOR };
     position: relative;
-    padding: 2em;
     text-align: center;
     display: flex;
     flex-direction: column;

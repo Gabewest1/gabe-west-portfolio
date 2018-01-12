@@ -3,11 +3,13 @@ import styled from "styled-components"
 import colorer from "colorer"
 import { PRIMARY_COLOR, SECONDARY_COLOR } from "../../constants"
 
+import SectionTitle from "../shared/SectionTitle"
+
 export default class Contact extends React.Component {
     render() {
         return (
             <Container>
-                <Title>Get in Touch!</Title>
+                <SectionTitle right secondary>Get in Touch!</SectionTitle>
 
                 <Form>
                     <Field>
@@ -48,13 +50,8 @@ export default class Contact extends React.Component {
 const INPUT_STYLES = `
     box-sizing: border-box;
     height: 30px;
-    // width: 160px;
     width: 100%;
     margin-bottom: 24px;
-
-    // @media (min-width: 768px) {
-    //     width: 74%;
-    // }
 `
 const FORM_BACKGROUND_COLOR = colorer(SECONDARY_COLOR).light(20)
 
@@ -105,13 +102,6 @@ const Form = styled.form`
     margin: 0 auto;
     padding: 15px;
     padding-top: 27px;  
-`
-const Stripe = styled.div`
-    position: absolute;
-    top: 0;
-    right: 0;
-    border-top: solid 122px transparent;
-    border-right: solid 285px ${ PRIMARY_COLOR };
 `
 const Footer = styled.div`
     margin-top: 30px;

@@ -2,14 +2,13 @@ import React from "react"
 import styled from "styled-components"
 import randomColor from "random-color"
 
-import { SECONDARY_COLOR } from "../../constants"
+import { PRIMARY_COLOR } from "../../constants"
 import projectData from "./projectData"
-
+import SectionTitle from "../shared/SectionTitle"
 import {
     Background,
     Container,
     ProjectsView,
-    Overlay,
     Title,
     Description,
     ProjectImage,
@@ -25,7 +24,7 @@ export default class Projects extends React.Component {
             <Container>
                 <Stripe/>
 
-                <Title>My Latest Work</Title>
+                <SectionTitle secondary>My Latest Work</SectionTitle>
 
                 <Background>
                     <ProjectsView>
@@ -45,7 +44,7 @@ class Card extends React.PureComponent {
             active: false,
             arrows: false,
             bars: true,
-            color: SECONDARY_COLOR
+            color: PRIMARY_COLOR
         }
     }
     render() {

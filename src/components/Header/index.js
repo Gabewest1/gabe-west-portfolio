@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import styled from "styled-components"
 import ReactFitText from "react-fittext"
-import { SECONDARY_COLOR } from "../../constants"
+import { PRIMARY_COLOR, SECONDARY_COLOR } from "../../constants"
 
 import SelfWritingText from "../shared/SelfWritingText"
 import ColoredText from "../shared/ColoredText"
@@ -23,13 +23,21 @@ class Header extends Component {
 					<ColoredText>Hello,</ColoredText> I'm Gabe West!
 				</HeroText>
 				
-				{/* <_HeroText style={{ margin: 0 }}><ColoredText>You can catch me:</ColoredText></_HeroText>
-				<_SelfWritingText color="white" /> */}
+				<_HeroText style={{ margin: 0 }}><ColoredText>You can catch me:</ColoredText></_HeroText>
+				<_SelfWritingText color="white" />
 	
 			</HeaderView>
 	  	)
 	}
 }
+
+const Stripe = styled.div`
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-top: solid 122px transparent;
+    border-right: solid 285px ${ PRIMARY_COLOR };
+`
 
 const HeaderView = styled.header`
 	align-items: center;
