@@ -6,26 +6,36 @@ import { PRIMARY_COLOR, SECONDARY_COLOR } from "../../constants"
 import SectionTitle from "../shared/SectionTitle"
 
 export default class Contact extends React.Component {
+    constructor() {
+        super()
+        
+        this.inputs = {}
+    }
     render() {
         return (
             <Container>
-                <SectionTitle right secondary>Get in Touch!</SectionTitle>
+                <SectionTitle left right secondary>Get in Touch!</SectionTitle>
 
-                <div style={{ padding: "40px 0" }}>
-                    <Form>
+
+                <FormWrapper>
+                    <p>
+                        I'd love to hear from you! If you'd like a quote, or more information about working with me, please fill out the form with a detailed description 
+                        of your project, and I will respond as soon as possible!
+                    </p>
+                    <Form action="/contact" method="post" >
                         <Field>
                             <Label htmlFor="name">FULLNAME:
-                                <Input name="name" />
+                                <Input innerRef={ (input) => this.inputs["name"] = input } name="name" />
                             </Label>
                         </Field>
                         <Field>
                             <Label htmlFor="email">EMAIL:
-                                <Input name="email" />
+                                <Input innerRef={ (input) => this.inputs["email"] = input } name="email" />
                             </Label>
                         </Field>
                         <Field>
                             <Label htmlFor="message">MESSAGE:
-                                <TextArea type="textarea" name="message" />
+                                <TextArea innerRef={ (input) => this.inputs["message"] = input } name="message" />
                             </Label>
                         </Field>
 
@@ -40,12 +50,30 @@ export default class Contact extends React.Component {
                             </div>
                         </Footer>
                     </Form>
-                </div>
+                </FormWrapper>
             </Container>
         )
     }
     _handleSubmit = (e) => {
         e.preventDefault()
+        
+        const data = {}
+
+        for (const field in this.inputs) {
+            data[field] = this.inputs[field].value
+        }
+
+        console.log("FORM DATA:", data)
+        
+        fetch("/contact", {
+            method: "POST", 
+            body: JSON.stringify(data),
+            headers: { "Content-Type": "application/json" },
+            mode: "cors",
+            cache: "default"
+        }).then(res => {
+            console.log("Request complete! response:", res)
+        })
     }
 }
 
@@ -98,11 +126,14 @@ const Field = styled.div`
 const Form = styled.form`
     border-radius: 5px;
     background-color: ${ FORM_BACKGROUND_COLOR };
-    width: 80%;
-    max-width: 560px;
-    margin: 0 auto;
-    padding: 15px;
+    padding: 15px 40px;
     padding-top: 27px;  
+`
+const FormWrapper = styled.div`
+    margin: 0 auto;    
+    padding: 40px 0;
+    max-width: 768px;
+    width: 80%;    
 `
 const Footer = styled.div`
     margin-top: 30px;
