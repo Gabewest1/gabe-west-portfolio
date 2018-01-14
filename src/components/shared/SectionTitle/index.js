@@ -9,7 +9,7 @@ const Stripe = styled.div`
     border-top: solid 73px transparent;
     ${({ right }) => right ? "right: 0" : "left: 0"};
     ${({ right }) => right ? `border-right-width: 73px` : "border-left-width: 73px"};
-    ${({ right }) => right ? `border-right-color: #718199;` : "border-left-color: #718199"};
+    ${({ right }) => right ? `border-right-color: ${ SECONDARY_COLOR };` : "border-left-color: ${ SECONDARY_COLOR }"};
     ${({ right }) => right ? `border-left-color: transparent` : "border-right-color: transparent"};
 
     @media (min-width: 768px) {
