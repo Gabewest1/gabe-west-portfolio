@@ -24,7 +24,7 @@ export default class Projects extends React.Component {
             <Container>
                 <Stripe/>
 
-                <SectionTitle secondary>My Latest Work</SectionTitle>
+                <SectionTitle left secondary>My Latest Work</SectionTitle>
 
                 <Background>
                     <ProjectsView>
@@ -49,7 +49,7 @@ class Card extends React.PureComponent {
     }
     render() {
         const { color } = this.state
-        const { title, description, src, subTitle } = this.props.project
+        const { title, description, href, reactNative, src, subTitle } = this.props.project
 
         return (
             <CardView
@@ -77,11 +77,23 @@ class Card extends React.PureComponent {
                 </a>
                 <div className="mc-footer">
                     <h4>
-                        Social
+                        { this._renderLink(title, href, reactNative) }
                     </h4>
                 </div>
             </CardView>
         )
+    }
+    _renderLink = (title, href, isReactNativeProject) => {
+        if (isReactNativeProject) {
+            return (
+                <div>
+                    <a target="_blank" href={ href.android } alt={ "android link" }>Play Store</a> 
+                    <a target="_blank" href={ href.ios } alt="ios link">App Store</a> 
+                </div>
+            )   
+        } else {
+            return <a target="_blank" href={ href } alt={ title + " link" }>Check it out</a>
+        }
     }
     _getCTAIcon = () => {
         const { active, arrows, bars } = this.state
