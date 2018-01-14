@@ -5,23 +5,23 @@ import { PRIMARY_COLOR, SECONDARY_COLOR } from "../../../constants"
 const Stripe = styled.div`
     position: absolute;
     top: 0;
-    border-top: solid 12vmax transparent;
-    
-    /* GENERATE LEFT/RIGHT POSITION AND STRIPE DIRECTION */
-    ${({ right, secondary }) => {
-        const position = right ? "right: 0" : "left: 0"
-        // const borderColor = secondary ? SECONDARY_COLOR : PRIMARY_COLOR
-        const borderColor = "#718199"
-        const borderDirection = right ? "border-right" : "border-left"
+    border-style: solid;
+    border-top: solid 73px transparent;
+    ${({ right }) => right ? "right: 0" : "left: 0"};
+    ${({ right }) => right ? `border-right-width: 73px` : "border-left-width: 73px"};
+    ${({ right }) => right ? `border-right-color: #718199;` : "border-left-color: #718199"};
+    ${({ right }) => right ? `border-left-color: transparent` : "border-right-color: transparent"};
 
-        return `
-            ${position};
-            ${borderDirection}: solid 12vmax ${ borderColor };
-        `
-    }}
+    @media (min-width: 768px) {
+        border-top-width: 140px;
+        ${({ right }) => right ? `border-right-width: 140px` : "border-left-width: 140px"};    
+    }
 `
 const Title = styled.h3`
-    line-height: 12vmax;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 73px;
     font-size: 20px;
     text-align: center;
     letter-spacing: 4px;
@@ -30,7 +30,8 @@ const Title = styled.h3`
     z-index: 1;
 
     @media (min-width: 768px) {
-        font-size: 28px;
+        font-size: 32px;
+        height: 140px;
     }
 `
 const SectionTitle = styled.div`
