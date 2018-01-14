@@ -24,9 +24,10 @@ class Header extends Component {
 					<ColoredText color="#718199">Hello,</ColoredText> I'm Gabe West!
 				</HeroText>
 				
-				{/* <_HeroText style={{ margin: 0 }}><ColoredText>You can catch me:</ColoredText></_HeroText>
-				<_SelfWritingText color="white" /> */}
-	
+				<SubTitle>
+					FRONTEND <span style={{ margin: "0 5px" }}>&#10084;</span> BACKEND <span style={{ margin: "0 5px" }}>&#10084;</span> MOBILE
+				</SubTitle>
+
 			</HeaderView>
 	  	)
 	}
@@ -71,7 +72,6 @@ const HeroText = styled.h3`
 	margin: 0;
 	text-align: center;
 	z-index: 1;
-	line-height: 2em;
 	font-size: 1em;
 	font-family: 'Titillium Web', sans-serif;
 
@@ -82,6 +82,12 @@ const HeroText = styled.h3`
 const _HeroText = styled(HeroText)`
 	font-weight: 100;
 	font-size: 1em;
+`
+const SubTitle = styled.p`
+	color: #efefef;
+	margin: 0;
+	z-Index: 3;
+	margin: 0 0 8px 0; 
 `
 const Underline = styled.span`
 	text-decoration: underline;

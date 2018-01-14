@@ -9,15 +9,13 @@ export default class About extends React.PureComponent {
     render() {
         return (
             <AboutMe>
-                <SectionTitle secondary style={{ width: "100%" }}>
+                <SectionTitle left secondary style={{ width: "100%" }}>
                     Who Is Gabe West?
                 </SectionTitle>
-                {/* <div>
-                    <Underline>Who Is Gabe West?</Underline>
-                </div> */}
+
                 <Main>
                     <div>
-                        <img style={{ maxWidth: "100%", maxHeight: "300px" }} src="/assets/images/self_taught.jpg" alt=""/>
+                        <img style={{ maxWidth: "100%", maxHeight: "400px" }} src="/assets/images/self_taught.jpg" alt=""/>
                     </div>
                     <div style={{ textAlign: "left" }}>
                         <AboutMeText>
@@ -66,20 +64,20 @@ export default class About extends React.PureComponent {
                     </div>
                 </Main>
 
-                <Header>
-                    <SectionTitle right secondary>What's My Mission?</SectionTitle>
+                <SectionTitle right secondary style={{ width: "100%" }}>What's My Mission?</SectionTitle>
 
-                    {/* <div>
-                        <Underline>What's My Mission?</Underline>
-                    </div> */}
-
+                <div style={{ padding: "40px 20px", width: "100%", boxSizing: "border-box" }}>
+                    <p><em>Simply put:</em> To be the best developer I can possible be.</p>
                     <MissionStatement>
-                        <pre><em>Simply put:</em> To be the best developer I can possible be.</pre>
                         I want to be able to construct any idea in my head through code. I don't want to constrict my ability to create
-                        awesome applications because of a limited technical know-how. I'm deeply interested in all aspects of the web from 
+                        awesome applications because of a limited technical know-how.
+                    </MissionStatement>
+                    <MissionStatement>
+                        I'm deeply interested in all aspects of the web from 
                         perfecting button animations to designing database schemas.
                     </MissionStatement>
-                </Header>
+                </div>
+
             </AboutMe>
         )
     }
@@ -120,13 +118,15 @@ const Container = styled.div`
 const Main = styled.div`
     display: flex;
     flex-direction: column;
-    padding: 1em;
+    padding: 80px 20px;
+    width: 100%;
+    box-sizing: border-box;
 
     > * {
         flex: 0 1 50%;
     }
 
-    @media (min-width: 768px) {
+    @media (min-width: 920px) {
         flex-direction: row;
 
         div:first-child {
@@ -138,6 +138,7 @@ const Header = styled.div`
     display: flex;
     flex-direction: column;
     position: relative;
+    max-width: 100%;
 `
 const Intro = styled.h3`
     font-size: 28px;
@@ -153,7 +154,11 @@ const AboutMeText = styled.p`
     text-align: center;
 
     @media (min-width: 768px) {
-        margin: 0;    
+        font-size: 24px; 
+    }
+
+    @media (min-width: 920px) {
+        margin: 0;        
     }
 `
 const AboutMeImg = styled.img`
