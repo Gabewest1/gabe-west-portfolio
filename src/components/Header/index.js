@@ -11,15 +11,7 @@ class Header extends Component {
 	render() {
 	  	return (
 			<HeaderView>
-	
-				<Navbar>
-					<List>
-						<li><a href="#">About</a></li>
-						<li><a href="#">Projects</a></li>
-						<li><a href="#">Contact</a></li>
-					</List>
-				</Navbar>
-				
+
 				<HeroText style={{ fontSize: "7vw" }}>
 					<ColoredText color="#718199">Hello,</ColoredText> I'm Gabe West!
 				</HeroText>
@@ -91,17 +83,6 @@ const SubTitle = styled.p`
 `
 const Underline = styled.span`
 	text-decoration: underline;
-`
-const Navbar = styled.nav`
-	display: flex;
-	padding: 1em;
-	position: absolute;
-	top: 0;
-	width: 100%;
-	box-sizing: border-box;
-	font-size: 20px;
-`
-const List = styled.ul`
 	padding: 0;
 	margin: 0;
 	display: flex;
