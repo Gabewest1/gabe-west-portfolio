@@ -22,11 +22,10 @@ export default class Projects extends React.Component {
 
         return (
             <Container>
-                <Stripe/>
-
                 <SectionTitle left secondary>My Latest Work</SectionTitle>
 
                 <Background>
+                    <h3 style={{ textAlign: "center", fontSize: 32, margin: 0, padding: 40 }}>My Work</h3>
                     <ProjectsView>
                         { projects }
                     </ProjectsView>

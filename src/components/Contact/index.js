@@ -22,7 +22,14 @@ export default class Contact extends React.Component {
                         I'm looking to start a long career with a company that will provide long-term stability,
                         new challenges and an opportunity to work with talented people.
                     </p>
+
                     <Form action="/contact" method="post" >
+                        <Footer bottom>
+                            <div>
+                                <Text>Send me an Email</Text>
+                            </div>
+                        </Footer>
+
                         <Field>
                             <Label htmlFor="name">FULLNAME:
                                 <Input innerRef={ (input) => this.inputs["name"] = input } name="name" />
@@ -126,8 +133,8 @@ const Field = styled.div`
 const Form = styled.form`
     border-radius: 5px;
     background-color: ${ FORM_BACKGROUND_COLOR };
-    padding: 15px 40px;
-    padding-top: 27px;  
+    padding: 15px 18px;
+    // padding-top: 27px;  
 `
 const FormWrapper = styled.div`
     margin: 0 auto;    
@@ -136,14 +143,15 @@ const FormWrapper = styled.div`
     width: 80%;    
 `
 const Footer = styled.div`
-    margin-top: 30px;
+    ${({ bottom }) => bottom ? "margin-bottom: 30px;" : "margin-top: 30px;"}
 
     ${Text} {
         margin: 8px 0;
     }
 
     div {
-        border-top: solid thin ${ PRIMARY_COLOR };
+        ${({ bottom }) => bottom ? `border-bottom: solid thin ${ PRIMARY_COLOR };` : `border-top: solid thin ${ PRIMARY_COLOR };`}
+        
         display: flex;
         justify-content: space-between;
     }

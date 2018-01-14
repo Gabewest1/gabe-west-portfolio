@@ -17,7 +17,10 @@ class Header extends Component {
 				</HeroText>
 				
 				<SubTitle>
-					FRONTEND <span style={{ margin: "0 5px" }}>&#10084;</span> BACKEND <span style={{ margin: "0 5px" }}>&#10084;</span> MOBILE
+					FRONTEND<span style={{ margin: "0 7px" }}>&#10084;</span>
+					BACKEND<span style={{ margin: "0 7px" }}>&#10084;</span>
+					MOBILE<span style={{ margin: "0 7px" }}>&#10084;</span>
+					JAVASCRIPT
 				</SubTitle>
 
 			</HeaderView>
@@ -64,22 +67,25 @@ const HeroText = styled.h3`
 	margin: 0;
 	text-align: center;
 	z-index: 1;
-	font-size: 1em;
+	font-size: 32px;
 	font-family: 'Titillium Web', sans-serif;
 
-	@media (min-width: 480px) {
+	@media (min-width: 768px) {
 		font-size: 2em;
 	}
 `
 const _HeroText = styled(HeroText)`
 	font-weight: 100;
-	font-size: 1em;
 `
 const SubTitle = styled.p`
 	color: #efefef;
 	margin: 0;
 	z-Index: 3;
-	margin: 0 0 8px 0; 
+	margin: 0 0 8px 0;
+
+	@media (max-width: 767px) {
+		font-size: 12px;
+	}
 `
 const Underline = styled.span`
 	text-decoration: underline;

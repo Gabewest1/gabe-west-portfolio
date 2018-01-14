@@ -21,7 +21,6 @@ const Title = styled.h3`
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 73px;
     font-size: 20px;
     text-align: center;
     letter-spacing: 4px;
@@ -37,6 +36,9 @@ const Title = styled.h3`
 const SectionTitle = styled.div`
     position: relative;
     overflow: hidden;
+`
+const Divider = styled.div`
+    height: 73px;
 
     ${({ right, secondary }) => {
         const backgroundColor = secondary ? PRIMARY_COLOR : SECONDARY_COLOR
@@ -45,11 +47,11 @@ const SectionTitle = styled.div`
         return `background-color: ${ backgroundColor }; color: ${ color };`
     }}
 `
-
 export default (props) => (
     <SectionTitle { ...props }>
-        { props.right && <Stripe right={ true } secondary={ props.secondary } /> }
-        { props.left && <Stripe right={ false } secondary={ props.secondary } /> }
-        <Title { ...props }>{ props.children }</Title>
+        {/* { props.right && <Stripe right={ true } secondary={ props.secondary } /> }
+        { props.left && <Stripe right={ false } secondary={ props.secondary } /> } */}
+        <Divider right={ props.right } secondary={ props.secondary } />
+        {/* <Title { ...props }>{ props.children }</Title> */}
     </SectionTitle>
 )

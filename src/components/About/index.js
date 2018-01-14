@@ -1,5 +1,6 @@
 import React from "react"
 import styled, { keyframes } from "styled-components"
+import colorer from "colorer"
 import { PRIMARY_COLOR, SECONDARY_COLOR } from "../../constants"
 
 import ColoredText from "../shared/ColoredText"
@@ -10,7 +11,6 @@ export default class About extends React.PureComponent {
         return (
             <AboutMe>
                 <SectionTitle left secondary style={{ width: "100%" }}>
-                    Who Is Gabe West?
                 </SectionTitle>
 
                 <Main>
@@ -20,7 +20,7 @@ export default class About extends React.PureComponent {
                     <div style={{ textAlign: "left" }}>
                         <AboutMeText>
                             I'm a
-                            self-taught fullstack
+                            self-taught fullstack JavaScript
                             developer who is
                             inspired everyday 
                             to:
@@ -64,10 +64,10 @@ export default class About extends React.PureComponent {
                     </div>
                 </Main>
 
-                <SectionTitle right secondary style={{ width: "100%" }}>What's My Mission?</SectionTitle>
+                {/* <SectionTitle right secondary style={{ width: "100%" }}>What's My Mission?</SectionTitle> */}
 
-                <div style={{ padding: "40px 20px", width: "100%", boxSizing: "border-box" }}>
-                    <p><em>Simply put:</em> To be the best developer I can possible be.</p>
+                <div style={{ padding: "0 20px 40px 20px", width: "100%", boxSizing: "border-box" }}>
+                    {/* <p><em>Simply put:</em> To be the best developer I can possible be.</p> */}
                     <MissionStatement>
                         I want to be able to construct any idea in my head through code. I don't want to constrict my ability to create
                         awesome applications because of a limited technical know-how.
@@ -118,7 +118,7 @@ const Container = styled.div`
 const Main = styled.div`
     display: flex;
     flex-direction: column;
-    padding: 80px 20px;
+    padding: 80px 20px 0px 20px;
     width: 100%;
     box-sizing: border-box;
 
@@ -165,7 +165,12 @@ const AboutMeImg = styled.img`
     width: 100%;
 `
 const AboutMe = styled.div`
-    background-color: ${ SECONDARY_COLOR };
+    background: linear-gradient(315deg,
+        ${SECONDARY_COLOR} 0%,
+        ${colorer(SECONDARY_COLOR).light(10)} 50%,
+        ${colorer(SECONDARY_COLOR).light(20)} 51%,
+        ${colorer(SECONDARY_COLOR).light(30)} 100%
+    );
     position: relative;
     text-align: center;
     display: flex;

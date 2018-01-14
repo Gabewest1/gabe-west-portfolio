@@ -17,9 +17,11 @@ class Navbar extends Component {
 }
 
 const NavbarView = styled.nav`
+    background: rgba(255, 255, 255, 0.79);
+    color: #718199;
 	display: flex;
 	padding: 1em;
-	position: fixed;
+    position: fixed;
 	top: 0;
 	width: 100%;
 	box-sizing: border-box;
