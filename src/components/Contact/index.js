@@ -19,8 +19,8 @@ export default class Contact extends React.Component {
 
                 <FormWrapper>
                     <p>
-                        I'd love to hear from you! If you'd like a quote, or more information about working with me, please fill out the form with a detailed description 
-                        of your project, and I will respond as soon as possible!
+                        I'm looking to start a long career with a company that will provide long-term stability,
+                        new challenges and an opportunity to work with talented people.
                     </p>
                     <Form action="/contact" method="post" >
                         <Field>
