@@ -12,15 +12,16 @@ class Header extends Component {
 	  	return (
 			<HeaderView>
 
-				<HeroText style={{ fontSize: "7vw" }}>
+				<HeroText style={{ fontSize: "8vw" }}>
 					<ColoredText color="#718199">Hello,</ColoredText> I'm Gabe West!
 				</HeroText>
 				
 				<SubTitle>
-					FRONTEND<span style={{ margin: "0 7px" }}>&#10084;</span>
-					BACKEND<span style={{ margin: "0 7px" }}>&#10084;</span>
-					MOBILE<span style={{ margin: "0 7px" }}>&#10084;</span>
-					JAVASCRIPT
+					FRONTEND<span style={{ margin: "0 7px" }}>/</span>
+					BACKEND<span style={{ margin: "0 7px" }}>/</span>
+					MOBILE
+					<br/>
+					<span>JavaScript Developer</span>
 				</SubTitle>
 
 			</HeaderView>
@@ -67,25 +68,35 @@ const HeroText = styled.h3`
 	margin: 0;
 	text-align: center;
 	z-index: 1;
-	font-size: 32px;
+	font-size: 48px;
 	font-family: 'Titillium Web', sans-serif;
 
 	@media (min-width: 768px) {
 		font-size: 2em;
 	}
 `
-const _HeroText = styled(HeroText)`
-	font-weight: 100;
-`
 const SubTitle = styled.p`
 	color: #efefef;
-	margin: 0;
+	border: solid thin ${ PRIMARY_COLOR };
 	z-Index: 3;
-	margin: 0 0 8px 0;
+	margin: 8px 0;
+	text-align: center;
+	padding: 12px 30px;
+	font-family: 'Titillium Web', sans-serif;	
+	color: #718199;
+	font-size: 3vw;
 
-	@media (max-width: 767px) {
-		font-size: 12px;
+	span {
+		color: ${ PRIMARY_COLOR };
 	}
+
+	span:last-child {
+		font-size: 4vw;
+	}
+
+	// @media (max-width: 767px) {
+	// 	font-size: 12px;
+	// }
 `
 const Underline = styled.span`
 	text-decoration: underline;

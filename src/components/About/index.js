@@ -20,7 +20,7 @@ export default class About extends React.PureComponent {
                     <div style={{ textAlign: "left" }}>
                         <AboutMeText>
                             I'm a
-                            self-taught fullstack JavaScript
+                            self-taught
                             developer who is
                             inspired everyday 
                             to:
@@ -150,8 +150,9 @@ const Intro = styled.h3`
 `
 const AboutMeText = styled.p`
     font-size: 18px;
-    font-weight: 600;
-    text-align: center;
+    font-weight: 400;
+    text-align: left;
+    font-family: 'Titillium Web',sans-serif;
 
     @media (min-width: 768px) {
         font-size: 24px; 
