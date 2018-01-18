@@ -17,7 +17,6 @@ class Navbar extends Component {
 		}
 	}
 	render() {
-		console.log("RENDERING")
 		const { isExpanded, isSetToCollapse } = this.state
 		const hasntBeenSetToCollapse = !isSetToCollapse
 
@@ -42,7 +41,6 @@ class Navbar extends Component {
 		const { isExpanded, isSetToCollapse } = state
 		const hasntBeenSetToCollapse = !isSetToCollapse
 		
-		console.log("WILL RECIEVE PROPS:", isExpanded, hasntBeenSetToCollapse)
 		if (isExpanded && hasntBeenSetToCollapse) {
 			this._collapseNavbarHandler()
 		}
@@ -90,7 +88,7 @@ class Navbar extends Component {
 		if (isScrollingUp && !isExpanded) {
 			this._setIsExpanded(true)
 		}
-		
+
 		if (isScrollingUp && isSetToCollapse) {
 			this.setState({ shouldCancelCollapse: true })
 			NAVBAR_TIMER = clearTimeout(NAVBAR_TIMER)
@@ -103,6 +101,9 @@ class Navbar extends Component {
 		DOCUMENT_SCROLL_TOP = window.scrollY
 	}
 }
+var gretting = "hi"
+
+var hiAgain = `${gretting}, im gabe west`
 
 const NavbarView = styled.nav`
     background: rgba(255, 255, 255, 0.79);
