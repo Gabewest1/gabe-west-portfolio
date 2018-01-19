@@ -34,7 +34,7 @@ export default class About extends React.PureComponent {
                                     <img src="/assets/images/skills.png" alt=""/>
                                 </Icon>
                                 <h3>Creating Amazing Experiences</h3>
-                                <p>With the power of JavaScript, I can do ANYTHING!</p>
+                                <p>With the power of HTML, CSS &amp; JavaScript, I can do ANYTHING!</p>
                             </Skill>
                         </JavascriptSkill>
 
@@ -42,6 +42,14 @@ export default class About extends React.PureComponent {
 
                         <OtherSkills>
                             <Skill innerRef={ leftSkill => this.leftSkill = leftSkill}>
+                                <Icon>
+                                    <img src="/assets/images/react_logo.svg" alt=""/>
+                                </Icon>
+                                <h3>Visualize &amp; Solidify Designs</h3>
+                                <p>I break apart ideas into components and construct large applications!</p>
+                            </Skill>
+
+                            <Skill>
                                 <Icon>
                                     <img src="/assets/images/responsive_icon.png" alt=""/>
                                 </Icon>
@@ -51,31 +59,23 @@ export default class About extends React.PureComponent {
 
                             <Skill>
                                 <Icon>
-                                    <img src="/assets/images/react_logo.svg" alt=""/>
-                                </Icon>
-                                <h3>Visualize &amp; Solidify Designs</h3>
-                                <p>Perspiciatis numquam, recusandae libero nulla eveniet nemo!</p>
-                            </Skill>
-
-                            <Skill>
-                                <Icon>
                                     <img src="/assets/images/node.png" alt=""/>
                                 </Icon>
-                                <h3>Communicating Across the Web</h3>
-                                <p>Orchastrate communications between client and server</p>
+                                <h3>Communicating Over the Web</h3>
+                                <p>I orchastrate communications between client and server through RESTful API's</p>
                             </Skill>
 
                             <Skill innerRef={ rightSkill => this.rightSkill = rightSkill }>
                                 <Icon>
-                                    <img src="/assets/images/database_icon.png" alt=""/>
+                                    <img src="/assets/images/database_icon.png" alt="" style={{ maxWidth: "70%" }} />
                                 </Icon>
                                 <h3>Handling Big Data</h3>
-                                <p>Manage vasts amounts of user-critical information</p>
+                                <p>I manage vasts amounts of user-critical information</p>
                             </Skill>
                         </OtherSkills>
                     </Skills>
                 </Main>
-
+{/* 
                 <div>
                     <MissionStatement>
                         I want to be able to construct any idea in my head through code. I don't want to constrict my ability to create
@@ -85,7 +85,7 @@ export default class About extends React.PureComponent {
                         I'm deeply interested in all aspects of the web from 
                         perfecting button animations to designing database schemas.
                     </MissionStatement>
-                </div>
+                </div> */}
 
             </AboutMe>
         )
@@ -125,16 +125,22 @@ const BAR_HEIGHT = 40
 const BAR_OFFSET = 40
 
 const BarConnectingSkills = styled.div`
-    background-color: ${ PRIMARY_COLOR };
+    background-color: ${ SECONDARY_COLOR };
     height: 5px;
     position: absolute;
 `
 const Icon = styled.div`
+    background-color: ${ SECONDARY_COLOR };
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 80px;
     height: 80px;
+    padding: 8px;
 
     img {
-        max-width: 100%;
+        max-width: 80%;
     }
 `
 const OtherSkills = styled.div`
@@ -163,7 +169,7 @@ const Skill = styled.li`
     }
 
     p {
-        color: ${ colorer(PRIMARY_COLOR).light(-10)};
+        color: ${ colorer(SECONDARY_COLOR).light(-10)};
         margin: 0;
     }
 `
@@ -190,7 +196,7 @@ const Skills = styled.ul`
                 content: "";
                 position: absolute;
                 height: ${ BAR_HEIGHT }px;
-                border: solid ${ BAR_WIDTH }px ${ PRIMARY_COLOR };
+                border: solid ${ BAR_WIDTH }px ${ SECONDARY_COLOR };
                 top: -${ BAR_OFFSET }px;
                 left: 50%;
                 transform: translateX(-50%);
@@ -203,7 +209,7 @@ const Skills = styled.ul`
                 content: "";
                 position: absolute;
                 height: ${ BAR_HEIGHT }px;
-                border: solid ${ BAR_WIDTH }px ${ PRIMARY_COLOR };
+                border: solid ${ BAR_WIDTH }px ${ SECONDARY_COLOR };
                 bottom: -${ BAR_OFFSET + 10 }px;
                 left: 50%;
                 transform: translateX(-50%);
@@ -211,7 +217,8 @@ const Skills = styled.ul`
         }
 
         ${Icon} {
-            width: 120px;
+            width: 100px;
+            height: 100px;
         }
     }
     @media (min-width: 768px) {
@@ -222,10 +229,9 @@ const Skills = styled.ul`
     }
 `
 const Underline = styled.span`
-    border-top: solid 3px ${ PRIMARY_COLOR };
+    border-top: solid 3px ${ SECONDARY_COLOR };
     font-weight: bolder;
     color: transparent;
-    // margin: 11px 0px;
     display: inline-block;
     height: 0px;
 `
@@ -287,6 +293,8 @@ const AboutMe = styled.div`
         ${colorer(SECONDARY_COLOR).light(20)} 51%,
         ${colorer(SECONDARY_COLOR).light(30)} 100%
     );
+    background: ${ PRIMARY_COLOR };
+    color: ${ SECONDARY_COLOR };
     display: flex;
     flex-direction: column;
     align-items: center;
