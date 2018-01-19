@@ -12,31 +12,52 @@ class Header extends Component {
 	  	return (
 			<HeaderView>
 
-				<HeroText style={{ fontSize: "8vw" }}>
-					<ColoredText color="#718199">Hello,</ColoredText> I'm Gabe West!
-				</HeroText>
-				
-				<SubTitle>
-					FRONTEND<span style={{ margin: "0 7px" }}>/</span>
-					BACKEND<span style={{ margin: "0 7px" }}>/</span>
-					MOBILE
-					<br/>
-					<span>JavaScript Developer</span>
-				</SubTitle>
+				<div style={{ zIndex: 1 }}>
+					<HeroText>
+						<ColoredText color="#718199">Hello,</ColoredText> I'm Gabe West!
+					</HeroText>
+					
+					<SubTitle>
+						FRONTEND<span style={{ margin: "0 7px" }}>/</span>
+						BACKEND<span style={{ margin: "0 7px" }}>/</span>
+						MOBILE
+						<br/>
+						<span>JavaScript Developer</span>
+					</SubTitle>
+				</div>
 
 			</HeaderView>
 	  	)
 	}
 }
 
-const Stripe = styled.div`
-    position: absolute;
-    top: 0;
-    right: 0;
-    border-top: solid 122px transparent;
-    border-right: solid 285px ${ PRIMARY_COLOR };
+const HeroText = styled.h1`
+	margin: 0;
+	text-align: center;
+	z-index: 1;
+	font-family: 'Titillium Web', sans-serif;
 `
+const SubTitle = styled.p`
+	color: #efefef;
+	border: solid thin ${ PRIMARY_COLOR };
+	border-radius: 7px;
+	margin: 8px 0;
+	font-size: 14px;
+	font-weight: 700;
+	text-align: center;
+	padding: 12px 0;
+	color: #718199;
+	width: 100%;
 
+	span {
+		color: ${ PRIMARY_COLOR };
+	}
+
+	span:last-child {
+		font-family: 'Titillium Web', sans-serif;	
+		font-size: 22px;
+	}
+`
 const HeaderView = styled.header`
 	align-items: center;
 	background: url(/assets/images/hero/img7.jpg) no-repeat;
@@ -63,80 +84,20 @@ const HeaderView = styled.header`
 		);
 		opacity: .7;
 	}
-`
-const HeroText = styled.h3`
-	margin: 0;
-	text-align: center;
-	z-index: 1;
-	font-size: 48px;
-	font-family: 'Titillium Web', sans-serif;
 
 	@media (min-width: 768px) {
-		font-size: 2em;
-	}
-`
-const SubTitle = styled.p`
-	color: #efefef;
-	border: solid thin ${ PRIMARY_COLOR };
-	z-Index: 3;
-	margin: 8px 0;
-	text-align: center;
-	padding: 12px 30px;
-	font-family: 'Titillium Web', sans-serif;	
-	color: #718199;
-	font-size: 3vw;
-
-	span {
-		color: ${ PRIMARY_COLOR };
-	}
-
-	span:last-child {
-		font-size: 4vw;
-	}
-
-	// @media (max-width: 767px) {
-	// 	font-size: 12px;
-	// }
-`
-const Underline = styled.span`
-	text-decoration: underline;
-	padding: 0;
-	margin: 0;
-	display: flex;
-	justify-content: space-around;	
-	width: 100%;
-	list-style: none;
-	
-	a {
-		color: inherit;
-		text-decoration: none;
-	}
-
-	a:hover {
-		color: ${ SECONDARY_COLOR };
-		text-decoration: underline;
-	}
-	
-	
-	@media (min-width: 768px) {
-		justify-content: flex-start;
-		
-		> * {
-			align-items: center;
-			display: flex;
-			margin-left: 24px;
-			margin-right: 24px;
+		${ HeroText } {
+			font-size: 72px;
+			margin-bottom: 10px;
 		}
-	
-		> *:last-child {
-			margin-right: 0;
+		${ SubTitle } {
+			font-size: 20px;
+
+			span:last-child {
+				font-size: 32px;
+			}
 		}
 	}
-`
-const _SelfWritingText = styled(SelfWritingText)`
-	min-height: 32px;
-	color: #efefef;
-	font-family: 'Pacifico', cursive;
 `
 
 export default Header
