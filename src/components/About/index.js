@@ -26,14 +26,15 @@ export default class About extends React.PureComponent {
                 </AboutMeHeader>
 
                 <Main>
-                    <div style={{ textAlign: "center" }}>
+                    <div style={{ textAlign: "center", display: "flex", flexDirection:"column", justifyContent:"space-between" }}>
+                        <h1 style={{ fontFamily: "raleway-bold", fontSize: 24 }}>
+                            Who's this guy?
+                        </h1>
+
                         <div style={{ width: "80%", margin: "0 auto" }}>
                             <AboutMeImg src="/assets/images/self_taught.jpg" />
                         </div>
 
-                        <h1 style={{ fontFamily: "raleway-bold", fontSize: 24 }}>
-                            Who's this guy?
-                        </h1>
                         <MissionStatement>
                             I'm a self-taught (proof above) fullstack developer who specializes in frontend
                             development. My passion is any and all things JavaScript, ranging from setting up RESTful 
@@ -186,25 +187,21 @@ const Skills = styled.ul`
     padding: 0;
 
     ${Skill} {
-        @media (min-width: 768px) {
-            flex: 0 1 25%;
+        flex: 0 1 50%;
+
+        &:nth-child(1) {
+            order: 1;
         }
-
-        @media (max-width: 767px), (min-width: 920px) {
-            flex: 0 1 50%;
-
-            &:nth-child(1) {
-                order: 1;
-            }
-            &:nth-child(2) {
-                order: 3;
-            }
-            &:nth-child(3) {
-                order: 2;
-            }
-            &:nth-child(4) {
-                order: 4;
-            }
+        &:nth-child(2) {
+            order: 3;
+            margin-bottom: 0 !important;
+        }
+        &:nth-child(3) {
+            order: 2;
+        }
+        &:nth-child(4) {
+            order: 4;
+            margin-bottom: 0 !important;
         }
     }
 
