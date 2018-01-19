@@ -9,3 +9,8 @@ body, html {
 input, textarea {
   font-family: inherit;
 }
+
+@font-face {
+  font-family: 'Raleway-bold';
+  src: url("http://findmatthew.com/style/../fonts/Raleway-Bold.ttf"); 
+}
