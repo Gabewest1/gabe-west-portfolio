@@ -10,61 +10,54 @@ export default class About extends React.PureComponent {
     render() {
         return (
             <AboutMe>
-                <SectionTitle left secondary style={{ width: "100%" }}>
-                </SectionTitle>
+                <AboutMeHeader>
+                    <h1>About</h1>
+                    <Underline>About</Underline>
+                </AboutMeHeader>
 
                 <Main>
-                    <div>
-                        <img style={{ maxWidth: "100%", maxHeight: "400px" }} src="/assets/images/self_taught.jpg" alt=""/>
-                    </div>
-                    <div style={{ textAlign: "left" }}>
-                        <AboutMeText>
-                            I'm a
-                            self-taught
-                            developer who is
-                            inspired everyday 
-                            to:
-                        </AboutMeText>
-                        <Skills>
-                            <Skill>
-                                <Icon>
-                                    <img src="/assets/images/html.png" alt=""/>
-                                </Icon>
-                                <p>Construct intricate interfaces</p>
-                            </Skill>
+                    <Skills>
+                        <Skill>
+                            <Icon>
+                                <img src="/assets/images/responsive_icon.png" alt=""/>
+                            </Icon>
+                            <h3>Always Responsive</h3>
+                            <p>I construct intricate interfaces that look pixel perfect on any screen size.</p>
+                        </Skill>
 
-                            <Skill>
-                                <Icon>
-                                    <img src="/assets/images/css.png" alt=""/>
-                                </Icon>
-                                <p>Visualize &amp; solidify designs</p>
-                            </Skill>
+                        <Skill>
+                            <Icon>
+                                <img src="/assets/images/css.png" alt=""/>
+                            </Icon>
+                            <h3>Visualize &amp; solidify designs</h3>
+                            <p>Deserunt iusto, eaque sequi, ad laboriosam officia officiis culpa neque magni et amet obcaecati facere. Perspiciatis numquam, recusandae libero nulla eveniet nemo!</p>
+                        </Skill>
 
-                            <Skill>
-                                <Icon>
-                                    <img src="/assets/images/mongo.png" alt=""/>
-                                </Icon>
-                                <p>Manage vasts amounts of user-critical information</p>
-                            </Skill>
+                        <Skill>
+                            <Icon>
+                                <img src="/assets/images/mongo.png" alt=""/>
+                            </Icon>
+                            <h3>Handling Big Data</h3>
+                            <p>Manage vasts amounts of user-critical information</p>
+                        </Skill>
 
-                            <Skill>
-                                <Icon>
-                                    <img src="/assets/images/node.png" alt=""/>
-                                </Icon>
-                                <p>Orchastrate communications between client and server</p>
-                            </Skill>
+                        <Skill>
+                            <Icon>
+                                <img src="/assets/images/node.png" alt=""/>
+                            </Icon>
+                            <h3>Communicating Across the Web</h3>
+                            <p>Orchastrate communications between client and server</p>
+                        </Skill>
 
-                            <Skill>
-                                <Icon>
-                                    <img src="/assets/images/javascript.png" alt=""/>
-                                </Icon>
-                                <p>Bring together amazing experiences</p>
-                            </Skill>
-                        </Skills>
-                    </div>
+                        <Skill>
+                            <Icon>
+                                <img src="/assets/images/javascript.png" alt=""/>
+                            </Icon>
+                            <h3>Creating Amazing experiences</h3>
+                            <p>Porro ad id fuga modi earum at atque, alias minus quasi nesciunt. Illo velit doloremque laudantium dolorum aliquid blanditiis vero quas facilis.</p>
+                        </Skill>
+                    </Skills>
                 </Main>
-
-                {/* <SectionTitle right secondary style={{ width: "100%" }}>What's My Mission?</SectionTitle> */}
 
                 <div style={{ padding: "0 20px 40px 20px", width: "100%", boxSizing: "border-box" }}>
                     {/* <p><em>Simply put:</em> To be the best developer I can possible be.</p> */}
@@ -84,21 +77,42 @@ export default class About extends React.PureComponent {
 }
 
 const Skills = styled.ul`
+    display: flex;
+    flex-wrap: wrap;
     list-style: none;
     font-size: 13px;
+    padding: 0;
 
-    @media (max-width: 767px) {
-        padding: 0;
+    > * {
+        flex: 0 1 50%;
+    }
+    @media (min-width: 768px) {
+
+        > * {
+            flex: 0 1 25%;
+        }
     }
 `
 const Skill = styled.li`
     display: flex;
+    flex-direction: column;
     align-items: center;
+    margin-bottom: 44px;
+    margin: 0;
+
+    h3 {
+        margin-bottom: 5px;
+    }
+
+    p {
+        color: ${ colorer(PRIMARY_COLOR).light(-10)};
+        margin: 0;
+        max-width: 90%;
+    }
 `
 const Icon = styled.div`
-    width: 24px;
-    height: 24px;
-    margin-right: 8px;
+    width: 80px;
+    height: 80px;
 
     img {
         max-width: 100%;
@@ -118,13 +132,8 @@ const Container = styled.div`
 const Main = styled.div`
     display: flex;
     flex-direction: column;
-    padding: 80px 20px 0px 20px;
     width: 100%;
     box-sizing: border-box;
-
-    > * {
-        flex: 0 1 50%;
-    }
 
     @media (min-width: 920px) {
         flex-direction: row;
@@ -165,6 +174,9 @@ const AboutMeText = styled.p`
 const AboutMeImg = styled.img`
     width: 100%;
 `
+const AboutMeHeader = styled.div`
+
+`
 const AboutMe = styled.div`
     background: linear-gradient(315deg,
         ${SECONDARY_COLOR} 0%,
@@ -172,11 +184,12 @@ const AboutMe = styled.div`
         ${colorer(SECONDARY_COLOR).light(20)} 51%,
         ${colorer(SECONDARY_COLOR).light(30)} 100%
     );
-    position: relative;
-    text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 20px;
+    position: relative;
+    text-align: center;
 `
 const TintedBackground = styled.div`
     background: rgba(0, 0, 0, .8);
