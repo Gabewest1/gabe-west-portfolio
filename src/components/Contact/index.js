@@ -32,17 +32,17 @@ export default class Contact extends React.Component {
 
                         <Field>
                             <Label htmlFor="name">
-                                <Input innerRef={ this._setInput("name") } name="name" placeholder="name" />
+                                <Input innerRef={ this._setInput("name") } name="name" placeholder="Name" />
                             </Label>
                         </Field>
                         <Field>
                             <Label htmlFor="email">
-                                <Input innerRef={ this._setInput("email") } name="email" placeholder="email" />
+                                <Input innerRef={ this._setInput("email") } name="email" placeholder="Email" />
                             </Label>
                         </Field>
                         <Field>
                             <Label htmlFor="message">
-                                <TextArea innerRef={ this._setInput("message") } name="message" placeholder="message" />
+                                <TextArea innerRef={ this._setInput("message") } name="message" placeholder="Message" />
                             </Label>
                         </Field>
 
@@ -92,6 +92,7 @@ const INPUT_STYLES = `
     height: 30px;
     width: 100%;
     margin-bottom: 24px;
+    padding: 8px;
 `
 const FORM_BACKGROUND_COLOR = colorer(SECONDARY_COLOR).light(20)
 
