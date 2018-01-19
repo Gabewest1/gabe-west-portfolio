@@ -47,7 +47,7 @@ export default class About extends React.PureComponent {
                         <JavascriptSkill>
                             <Skill>
                                 <Icon>
-                                    <img src="/assets/images/skills.png" alt=""/>
+                                    <img src="/assets/images/html_css_js.png" alt="" onLoad={ this._positionBarComponent }/>
                                 </Icon>
                                 <h3>Creating Amazing Experiences</h3>
                                 <p>With the power of HTML, CSS &amp; JavaScript, I can do ANYTHING!</p>
@@ -112,7 +112,7 @@ export default class About extends React.PureComponent {
         
         const top = leftSkill.top - BAR_OFFSET
         const left = leftSkill.left - BAR_WIDTH
-        const right = rightSkill.left - BAR_WIDTH
+        const right = rightSkill.left + 1
         const width = (right - left) + "px"
 
         this.setState({ bar: { left, top, width }})
