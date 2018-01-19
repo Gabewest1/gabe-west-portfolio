@@ -89,12 +89,14 @@ export default class Contact extends React.Component {
 
 const INPUT_STYLES = `
     box-sizing: border-box;
+    border: none;
+    background-color: ${colorer(SECONDARY_COLOR).light(-20)};
     height: 30px;
     width: 100%;
     margin-bottom: 24px;
     padding: 8px;
 `
-const FORM_BACKGROUND_COLOR = colorer(SECONDARY_COLOR).light(20)
+const FORM_BACKGROUND_COLOR = colorer(SECONDARY_COLOR).light(-20)
 
 const Container = styled.div`
     background: ${ SECONDARY_COLOR };
@@ -121,14 +123,32 @@ const Label = styled.label`
 `
 const SubmitIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="32" height="32" viewBox="0 0 512 512">
-        <path d="M104.837 294.974l-87.562-42.957 477.45-133.694z" fill={ FORM_BACKGROUND_COLOR }/>
-        <path d="M494.725 118.323l-354.918 187.812 17.531 87.542 63.13-51.528-31.293-13.742z" fill={ FORM_BACKGROUND_COLOR }/>
-        <path d="M326.154 372.705l-106.865-47.084 274.985-206.756z" fill={ FORM_BACKGROUND_COLOR }/>
+        <path d="M104.837 294.974l-87.562-42.957 477.45-133.694z" fill={ PRIMARY_COLOR }/>
+        <path d="M494.725 118.323l-354.918 187.812 17.531 87.542 63.13-51.528-31.293-13.742z" fill={ PRIMARY_COLOR }/>
+        <path d="M326.154 372.705l-106.865-47.084 274.985-206.756z" fill={ PRIMARY_COLOR }/>
     </svg>
 )
 const SubmitButton = styled.button`
     width: 100%;
-    margin-top: 8px;
+    background: ${FORM_BACKGROUND_COLOR};
+    border-left: solid thin black;
+    border-top: solid thin black;
+    border-right: solid thin #efefef;
+    border-bottom: solid thin #efefef;
+    outline: none;
+
+    &:active {
+        border-left: solid thin #efefef;
+        border-top: solid thin #efefef;
+        border-right: solid thin black;
+        border-bottom: solid thin black;
+
+        * {
+            position: relative;
+            top: 2px;
+            left: 2px;
+        }
+    }
 `
 const Field = styled.div`
     display: flex;
@@ -136,15 +156,11 @@ const Field = styled.div`
 `
 const Form = styled.form`
     border-radius: 5px;
-    background-color: ${ FORM_BACKGROUND_COLOR };
-    padding: 15px 18px;
-    // padding-top: 27px;  
 `
 const FormWrapper = styled.div`
     margin: 0 auto;    
-    padding: 40px 0;
-    max-width: 768px;
-    width: 80%;    
+    max-width: 500px;
+    width: 90%;    
 `
 const Footer = styled.div`
     ${({ bottom }) => bottom ? "margin-bottom: 30px;" : "margin-top: 30px;"}
