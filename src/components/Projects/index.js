@@ -22,8 +22,6 @@ export default class Projects extends React.Component {
 
         return (
             <Container>
-                <SectionTitle left secondary>My Latest Work</SectionTitle>
-
                 <Background>
                     <h3 style={{ textAlign: "center", fontSize: 32, margin: 0, padding: 40 }}>My Work</h3>
                     <ProjectsView>
@@ -85,7 +83,7 @@ class Card extends React.PureComponent {
     _renderLink = (title, href, isReactNativeProject) => {
         if (isReactNativeProject) {
             return (
-                <div>
+                <div style={{ display: "flex", justifyContent: "space-between" }}>
                     <a target="_blank" href={ href.android } alt={ "android link" }>Play Store</a> 
                     <a target="_blank" href={ href.ios } alt="ios link">App Store</a> 
                 </div>
