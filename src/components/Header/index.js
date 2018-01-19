@@ -35,7 +35,7 @@ const HeroText = styled.h1`
 	margin: 0;
 	text-align: center;
 	z-index: 1;
-	font-family: 'Titillium Web', sans-serif;
+	font-family: Raleway-Bold;
 `
 const SubTitle = styled.p`
 	color: #efefef;
@@ -54,7 +54,7 @@ const SubTitle = styled.p`
 	}
 
 	span:last-child {
-		font-family: 'Titillium Web', sans-serif;	
+		font-family: Raleway-Bold;	
 		font-size: 22px;
 	}
 `
