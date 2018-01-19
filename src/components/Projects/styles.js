@@ -3,10 +3,11 @@ import colorer from "colorer"
 import { PRIMARY_COLOR, SECONDARY_COLOR } from "../../constants"
 
 export const Background = styled.div`
-    background: ${ SECONDARY_COLOR };
+
 `
 export const Container = styled.div`
     position: relative;
+    background-color: ${ SECONDARY_COLOR };
 `
 export const Stripe = styled.div`
     position: absolute;
@@ -18,7 +19,6 @@ export const Stripe = styled.div`
 export const ProjectsView = styled.div`
     background-attachment: fixed;
     background-size: cover;
-    background-color: ${ SECONDARY_COLOR };
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -50,7 +50,6 @@ export const Overlay = styled.div`
     transform: translateX(100%);
 `
 export const Title = styled.h3`
-    background: ${ PRIMARY_COLOR };
     color: ${ SECONDARY_COLOR };
     line-height: 12vmax;
     font-size: 28px;
@@ -194,7 +193,7 @@ export const CardView = styled.article`
         height: 0%;
         top: 100%;
         right: 15px;
-        left: 17px;
+        left: 8px;
         overflow: hidden;
         bottom: 54px;
         overflow: hidden;
@@ -214,7 +213,8 @@ export const CardView = styled.article`
             color: ${({ color }) => color};
             position: absolute;
             top: 200px;
-            left: 17px;
+            left: 8px;
+            right: 15px;
             padding: 0;
             margin: 0;
             font-size: 16px;
@@ -223,15 +223,15 @@ export const CardView = styled.article`
         }
         a {
             display: block;
-            float: left;
             position: relative;
-            width: 52px;
-            height: 52px;
-            font-size: 20px;
+            font-size: 18px;
             color: #fff;
-            line-height: 52px;
             text-decoration: none;
             top: 200px;
+
+            &:hover {
+                text-decoration: underline;
+            }
 
             &:nth-child(1) {
                 ${ getTransition(.5) }
