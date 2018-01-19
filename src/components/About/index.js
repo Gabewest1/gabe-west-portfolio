@@ -26,6 +26,22 @@ export default class About extends React.PureComponent {
                 </AboutMeHeader>
 
                 <Main>
+                    <div style={{ textAlign: "center" }}>
+                        <div style={{ width: "80%", margin: "0 auto" }}>
+                            <AboutMeImg src="/assets/images/self_taught.jpg" />
+                        </div>
+
+                        <h1 style={{ fontFamily: "raleway-bold", fontSize: 24 }}>
+                            Who's this guy?
+                        </h1>
+                        <MissionStatement>
+                            I'm a self-taught (proof above) fullstack developer who specializes in frontend
+                            development. My passion is any and all things JavaScript, ranging from setting up RESTful 
+                            API's and designing database schemas to creating web and mobile applications using 
+                            various frameworks like Angular, React &amp; React Native. I'm excited to learn new 
+                            technologies and you can always find me in my room working on my craft.
+                        </MissionStatement>
+                    </div>
 
                     <Skills>
                         <JavascriptSkill>
@@ -37,8 +53,6 @@ export default class About extends React.PureComponent {
                                 <p>With the power of HTML, CSS &amp; JavaScript, I can do ANYTHING!</p>
                             </Skill>
                         </JavascriptSkill>
-
-                        <BarConnectingSkills style={ bar } />
 
                         <OtherSkills>
                             <Skill innerRef={ leftSkill => this.leftSkill = leftSkill}>
@@ -73,19 +87,12 @@ export default class About extends React.PureComponent {
                                 <p>I manage vasts amounts of user-critical information</p>
                             </Skill>
                         </OtherSkills>
+
+                        <BarConnectingSkills style={ bar } />
+                        
                     </Skills>
+
                 </Main>
-{/* 
-                <div>
-                    <MissionStatement>
-                        I want to be able to construct any idea in my head through code. I don't want to constrict my ability to create
-                        awesome applications because of a limited technical know-how.
-                    </MissionStatement>
-                    <MissionStatement>
-                        I'm deeply interested in all aspects of the web from 
-                        perfecting button animations to designing database schemas.
-                    </MissionStatement>
-                </div> */}
 
             </AboutMe>
         )
@@ -179,7 +186,26 @@ const Skills = styled.ul`
     padding: 0;
 
     ${Skill} {
-        flex: 0 1 50%;
+        @media (min-width: 768px) {
+            flex: 0 1 25%;
+        }
+
+        @media (max-width: 767px), (min-width: 920px) {
+            flex: 0 1 50%;
+
+            &:nth-child(1) {
+                order: 1;
+            }
+            &:nth-child(2) {
+                order: 3;
+            }
+            &:nth-child(3) {
+                order: 2;
+            }
+            &:nth-child(4) {
+                order: 4;
+            }
+        }
     }
 
     ${OtherSkills} {
@@ -205,10 +231,12 @@ const Skills = styled.ul`
     }
     ${JavascriptSkill} {
         ${Skill} {
+            min-width: 300px;
+
             &:after {
                 content: "";
                 position: absolute;
-                height: ${ BAR_HEIGHT }px;
+                height: ${ BAR_HEIGHT - 3 }px;
                 border: solid ${ BAR_WIDTH }px ${ SECONDARY_COLOR };
                 bottom: -${ BAR_OFFSET + 10 }px;
                 left: 50%;
@@ -221,12 +249,7 @@ const Skills = styled.ul`
             height: 100px;
         }
     }
-    @media (min-width: 768px) {
-
-        ${Skill} {
-            flex: 0 1 25%;
-        }
-    }
+    
 `
 const Underline = styled.span`
     border-top: solid 3px ${ SECONDARY_COLOR };
@@ -243,6 +266,10 @@ const Main = styled.div`
     flex-direction: column;
     width: 100%;
     box-sizing: border-box;
+
+    > * {
+        flex: 0 1 50%;
+    }
 
     @media (min-width: 920px) {
         flex-direction: row;
@@ -277,7 +304,8 @@ const AboutMeText = styled.p`
     }
 `
 const AboutMeImg = styled.img`
-    width: 100%;
+    border-radius: 20px;
+    max-width: 100%;
 `
 const AboutMeHeader = styled.div`
     margin-bottom: 30px;
@@ -312,9 +340,7 @@ const TintedBackground = styled.div`
     z-index: 0;
 `
 const MissionStatement = styled.p`
-    font-size: 16px;
-    text-align: left;
-    // font-family: 'Bangers', cursive;
+    line-height: 24px;
 
     pre {
         font-family: inherit;
