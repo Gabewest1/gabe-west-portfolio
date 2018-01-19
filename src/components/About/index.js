@@ -26,6 +26,18 @@ export default class About extends React.PureComponent {
                 </AboutMeHeader>
 
                 <Main>
+                    <JavascriptSkill>
+                        <Skill>
+                            <Icon>
+                                <img src="/assets/images/javascript.png" alt=""/>
+                            </Icon>
+                            <h3>Creating Amazing experiences</h3>
+                            <p>Illo velit doloremque laudantium dolorum aliquid blanditiis vero quas facilis.</p>
+                        </Skill>
+                    </JavascriptSkill>
+
+                    <BarConnectingSkills style={ bar } />
+
                     <Skills>
                         <OtherSkills>
                             <Skill innerRef={ leftSkill => this.leftSkill = leftSkill}>
@@ -60,18 +72,6 @@ export default class About extends React.PureComponent {
                                 <p>Orchastrate communications between client and server</p>
                             </Skill>
                         </OtherSkills>
-
-                        <BarConnectingSkills style={ bar } />
-
-                        <JavascriptSkill>
-                            <Skill>
-                                <Icon>
-                                    <img src="/assets/images/javascript.png" alt=""/>
-                                </Icon>
-                                <h3>Creating Amazing experiences</h3>
-                                <p>Illo velit doloremque laudantium dolorum aliquid blanditiis vero quas facilis.</p>
-                            </Skill>
-                        </JavascriptSkill>
                     </Skills>
                 </Main>
 
@@ -90,11 +90,20 @@ export default class About extends React.PureComponent {
             </AboutMe>
         )
     }
+    componentWillMount = () => {
+        window.addEventListener("scroll", this._positionBarComponent)
+    }
     componentDidMount = () => {
+        this._positionBarComponent()
+    }
+    componentWillUnmount = () => {
+        window.removeEventListener("scroll", this._positionBarComponent)        
+    }
+    _positionBarComponent = () => {
         const leftSkill = this._getElementsPosition(this.leftSkill)
         const rightSkill = this._getElementsPosition(this.rightSkill)
         
-        const top = leftSkill.top + BAR_OFFSET
+        const top = leftSkill.top - BAR_OFFSET
         const left = leftSkill.left - BAR_WIDTH
         const right = rightSkill.left + BAR_WIDTH
         const width = (right - left) + "px"
@@ -107,7 +116,7 @@ export default class About extends React.PureComponent {
         const left = element.offsetLeft
         const top = element.offsetTop
 
-        return { left: (width / 2) + left, top: top + height }
+        return { left: (width / 2) + left, top }
     }
 }
 
@@ -160,7 +169,7 @@ const Skills = styled.ul`
     }
 
     ${OtherSkills} {
-        margin-bottom: 90px;
+        margin-top: 90px;
 
         ${Skill} {
             &:after {
@@ -168,7 +177,7 @@ const Skills = styled.ul`
                 position: absolute;
                 height: ${ BAR_HEIGHT }px;
                 border: solid ${ BAR_WIDTH }px ${ PRIMARY_COLOR };
-                bottom: -${ BAR_OFFSET }px;
+                top: -${ BAR_OFFSET }px;
                 left: 50%;
                 transform: translateX(-50%);
             }
@@ -181,7 +190,7 @@ const Skills = styled.ul`
                 position: absolute;
                 height: ${ BAR_HEIGHT }px;
                 border: solid ${ BAR_WIDTH }px ${ PRIMARY_COLOR };
-                top: -${ BAR_OFFSET }px;
+                bottom: -${ BAR_OFFSET }px;
                 left: 50%;
                 transform: translateX(-50%);
             }
