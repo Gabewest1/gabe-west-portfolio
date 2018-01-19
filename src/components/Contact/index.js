@@ -31,18 +31,18 @@ export default class Contact extends React.Component {
                         </Footer>
 
                         <Field>
-                            <Label htmlFor="name">FULLNAME:
-                                <Input innerRef={ (input) => this.inputs["name"] = input } name="name" />
+                            <Label htmlFor="name">
+                                <Input innerRef={ this._setInput("name") } name="name" placeholder="name" />
                             </Label>
                         </Field>
                         <Field>
-                            <Label htmlFor="email">EMAIL:
-                                <Input innerRef={ (input) => this.inputs["email"] = input } name="email" />
+                            <Label htmlFor="email">
+                                <Input innerRef={ this._setInput("email") } name="email" placeholder="email" />
                             </Label>
                         </Field>
                         <Field>
-                            <Label htmlFor="message">MESSAGE:
-                                <TextArea innerRef={ (input) => this.inputs["message"] = input } name="message" />
+                            <Label htmlFor="message">
+                                <TextArea innerRef={ this._setInput("message") } name="message" placeholder="message" />
                             </Label>
                         </Field>
 
@@ -81,6 +81,9 @@ export default class Contact extends React.Component {
         }).then(res => {
             console.log("Request complete! response:", res)
         })
+    }
+    _setInput = (name) => (input) => {
+        this.inputs[name] = input
     }
 }
 
