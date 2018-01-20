@@ -51,10 +51,7 @@ export default class Contact extends React.Component {
                         <Footer>
                             <div>
                                 <Text>
-                                    <strong>Hate Forms?</strong>
-                                    { window.innerWidth < 768 && <br />} 
-                                    <em> Give Me A Call!</em>
-                                    </Text>
+                                    <strong>Hate Forms?</strong> <em> Give Me A Call!</em>                                    </Text>
                                 <Text>512-669-9592</Text>
                             </div>
                         </Footer>
@@ -247,5 +244,11 @@ const Footer = styled.div`
         
         display: flex;
         justify-content: space-between;
+    }
+
+    @media (max-width: 767px) {
+        em {
+            display: block;
+        }
     }
 `
