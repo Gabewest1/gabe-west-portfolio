@@ -23,7 +23,7 @@ export default class Contact extends React.Component {
         const InputComponents = inputs.map(this._renderInput)
 
         return (
-            <Container>
+            <Container id="contact">
 
                 <FormWrapper>
                     <p>

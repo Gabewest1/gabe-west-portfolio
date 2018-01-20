@@ -10,7 +10,7 @@ import ColoredText from "../shared/ColoredText"
 class Header extends Component {
 	render() {
 	  	return (
-			<HeaderView>
+			<HeaderView id="header">
 
 				<div style={{ zIndex: 1 }}>
 					<HeroText>

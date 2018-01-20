@@ -21,7 +21,7 @@ export default class Projects extends React.Component {
         const projects = projectData.map((project, i) => <Card key={ i } project={ project } />)
 
         return (
-            <Container>
+            <Container id="projects">
                 <Background>
                     <h3 style={{ textAlign: "center", fontSize: 32, margin: 0, padding: 40 }}>My Work</h3>
                     <ProjectsView>

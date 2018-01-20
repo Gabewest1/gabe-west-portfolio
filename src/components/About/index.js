@@ -19,7 +19,7 @@ export default class About extends React.PureComponent {
         const { bar } = this.state
 
         return (
-            <AboutMe>
+            <AboutMe id="about">
                 <AboutMeHeader>
                     <h1>About</h1>
                     <Underline>About</Underline>
