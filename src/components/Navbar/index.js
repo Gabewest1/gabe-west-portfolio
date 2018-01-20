@@ -109,10 +109,12 @@ const NavbarView = styled.nav`
     background: rgba(255, 255, 255, 0.79);
     color: #718199;
 	display: flex;
-	padding: 1em;
+	align-items: center;
+	padding: 0 1em;
     position: fixed;
 	top: 0;
 	width: 100%;
+	height: 63px;
 	box-sizing: border-box;
     font-size: 20px;
 	z-index: 100;
@@ -126,7 +128,7 @@ const List = styled.ul`
 	justify-content: space-around;	
 	width: 100%;
 	list-style: none;
-	
+
 	a {
 		color: inherit;
 		text-decoration: none;
