@@ -90,7 +90,26 @@ export default class About extends React.PureComponent {
                         </OtherSkills>
 
                         <BarConnectingSkills style={ bar } />
-                        
+                        <span style={{
+                            position: "absolute",
+                            top: bar.top,
+                            left: bar.left,
+                            transform: "translateY(-100%)",
+                            fontFamily: "raleway-bold",
+                            fontSize: "12px"
+                        }}>
+                            FRONTEND
+                        </span>
+                        <span style={{
+                            position: "absolute",
+                            top: bar.top,
+                            left: parseInt(bar.left) + parseInt(bar.width) + "px",
+                            transform: "translate(-100%, -100%)",
+                            fontFamily: "raleway-bold",
+                            fontSize: "12px"
+                        }}>
+                            BACKEND
+                        </span>
                     </Skills>
 
                 </Main>
@@ -136,6 +155,13 @@ const BarConnectingSkills = styled.div`
     background-color: ${ SECONDARY_COLOR };
     height: 5px;
     position: absolute;
+
+    &:after {
+        content: "FRONTEND"
+        position: absolute;
+        left: 0;
+        color: ${ SECONDARY_COLOR };
+    }
 `
 const Icon = styled.div`
     background-color: ${ SECONDARY_COLOR };
