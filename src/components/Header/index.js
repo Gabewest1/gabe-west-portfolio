@@ -78,9 +78,9 @@ const HeaderView = styled.header`
 		width: 100%;
 		background: linear-gradient(45deg,
 			${SECONDARY_COLOR} 0%,
-			${colorer(SECONDARY_COLOR).light(10)} 50%,
-			${colorer(SECONDARY_COLOR).light(20)} 51%,
-			${colorer(SECONDARY_COLOR).light(30)} 100%
+			${colorer(SECONDARY_COLOR).light(10)} 25%,
+			${colorer(SECONDARY_COLOR).light(20)} 50%,
+			${colorer(SECONDARY_COLOR).light(30)} 75%
 		);
 		opacity: .7;
 	}
