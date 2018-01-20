@@ -24,7 +24,13 @@ export default class Contact extends React.Component {
 
         return (
             <Container id="contact">
+                <svg preserveAspectRatio="none" viewBox="0 0 100 102" height="100" width="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="svgcolor-light">
+                    <path d="M0 0 L50 100 L100 0 Z" fill={ SECONDARY_COLOR } stroke={ SECONDARY_COLOR }></path>
+                </svg>
 
+                <Padding>
+                    <SectionTitle secondary>Contact</SectionTitle>
+                </Padding>
                 <FormWrapper>
                     <p>
                         I'm looking to start a long career with a company that will provide long-term stability,
@@ -144,10 +150,19 @@ const Container = styled.div`
     background: ${ PRIMARY_COLOR };
     color: ${ SECONDARY_COLOR };
     position: relative;
+    padding-bottom: 20px;
+    padding-top: 0;
+
+    @media (min-width: 768px) {
+        padding-bottom: 40px;
+    }
+`
+const Padding = styled.div`
     padding: 20px 0;
 
     @media (min-width: 768px) {
-        padding: 40px 0;
+        padding-top: 30px;
+        padding-bottom: 20px;
     }
 `
 const Text = styled.p``

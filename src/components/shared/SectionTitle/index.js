@@ -2,56 +2,39 @@ import React from "react"
 import styled from "styled-components"
 import { PRIMARY_COLOR, SECONDARY_COLOR } from "../../../constants"
 
-const Stripe = styled.div`
-    position: absolute;
-    top: 0;
-    border-style: solid;
-    border-top: solid 73px transparent;
-    ${({ right }) => right ? "right: 0" : "left: 0"};
-    ${({ right }) => right ? `border-right-width: 73px` : "border-left-width: 73px"};
-    ${({ right }) => right ? `border-right-color: ${ SECONDARY_COLOR };` : "border-left-color: ${ SECONDARY_COLOR }"};
-    ${({ right }) => right ? `border-left-color: transparent` : "border-right-color: transparent"};
-
-    @media (min-width: 768px) {
-        border-top-width: 140px;
-        ${({ right }) => right ? `border-right-width: 140px` : "border-left-width: 140px"};    
-    }
-`
-const Title = styled.h3`
+const Title = styled.h1`
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 20px;
+    font-family: raleway;
+    font-size: 48px;
+    font-weight: bolder;
     text-align: center;
     letter-spacing: 4px;
+    line-height: 88px;
     margin: 0;
     position: relative;
     z-index: 1;
-
-    @media (min-width: 768px) {
-        font-size: 32px;
-        height: 140px;
-    }
 `
 const SectionTitle = styled.div`
     position: relative;
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 `
-const Divider = styled.div`
-    height: 73px;
-
-    ${({ right, secondary }) => {
-        const backgroundColor = secondary ? PRIMARY_COLOR : SECONDARY_COLOR
-        const color = secondary ? SECONDARY_COLOR : PRIMARY_COLOR
-
-        return `background-color: ${ backgroundColor }; color: ${ color };`
-    }}
+const Underline = styled.span`
+    border-top: solid 2px ${({ secondary }) => secondary ? SECONDARY_COLOR : PRIMARY_COLOR };
+    font-weight: bolder;
+    color: transparent;
+    display: inline-block;
+    font-size: 32px;
+    height: 0px;
 `
 export default (props) => (
     <SectionTitle { ...props }>
-        {/* { props.right && <Stripe right={ true } secondary={ props.secondary } /> }
-        { props.left && <Stripe right={ false } secondary={ props.secondary } /> } */}
-        <Divider right={ props.right } secondary={ props.secondary } />
-        {/* <Title { ...props }>{ props.children }</Title> */}
+        <Title { ...props }>{ props.children }</Title>
+        <Underline { ...props }>{ props.children }</Underline>
     </SectionTitle>
 )

@@ -3,7 +3,12 @@ import colorer from "colorer"
 import { PRIMARY_COLOR, SECONDARY_COLOR } from "../../constants"
 
 export const Background = styled.div`
+    padding-top: 40px;
+    padding-bottom: 20px;
 
+    @media (min-width: 768px) {
+        padding-bottom: 40px;
+    }
 `
 export const Container = styled.div`
     position: relative;
@@ -23,6 +28,9 @@ export const ProjectsView = styled.div`
     justify-content: center;
     flex-wrap: wrap;
     position: relative;
+    max-width: 1048px;
+    margin: 0 auto;
+    padding-top: 40px;
 
     > * {
         margin: 1em;
@@ -38,8 +46,8 @@ export const ProjectsView = styled.div`
         position: absolute;
 		height: 100%;
 		width: 100%;
-		// background: rgba(0,0,0,.8);
-	}
+    }
+    
 `
 export const Overlay = styled.div`
     height: 100%;

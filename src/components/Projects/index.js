@@ -23,7 +23,7 @@ export default class Projects extends React.Component {
         return (
             <Container id="projects">
                 <Background>
-                    <h3 style={{ textAlign: "center", fontSize: 32, margin: 0, padding: 40 }}>My Work</h3>
+                    <SectionTitle>My Work</SectionTitle>
                     <ProjectsView>
                         { projects }
                     </ProjectsView>

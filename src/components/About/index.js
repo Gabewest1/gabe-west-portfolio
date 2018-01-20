@@ -21,28 +21,29 @@ export default class About extends React.PureComponent {
         return (
             <AboutMe id="about">
                 <AboutMeHeader>
-                    <h1>About</h1>
-                    <Underline>About</Underline>
+                    <SectionTitle secondary>About</SectionTitle>
                 </AboutMeHeader>
 
                 <Main>
-                    <div style={{ textAlign: "center", display: "flex", flexDirection:"column", justifyContent:"space-between" }}>
-                        <h1 style={{ fontFamily: "raleway-bold", fontSize: 24 }}>
-                            Who's this guy?
-                        </h1>
+                    <Description>
 
-                        <div style={{ width: "80%", margin: "0 auto" }}>
+                        <div style={{ width: "80%", margin: "0 auto", textAlign: "center" }}>
                             <AboutMeImg src="/assets/images/self_taught.jpg" />
                         </div>
+                        <div>
+                            <h1 style={{ fontFamily: "raleway-bold", fontSize: 24, textAlign: "center" }}>
+                                Who's this guy?
+                            </h1>
+                            <MissionStatement>
+                                I'm a self-taught (proof above) fullstack developer who specializes in frontend
+                                development. My passion is any and all things JavaScript, ranging from setting up RESTful 
+                                API's and designing database schemas to creating web and mobile applications using 
+                                various frameworks like Angular, React &amp; React Native. I'm excited to learn new 
+                                technologies and you can always find me in my room working on my craft.
+                            </MissionStatement>
 
-                        <MissionStatement>
-                            I'm a self-taught (proof above) fullstack developer who specializes in frontend
-                            development. My passion is any and all things JavaScript, ranging from setting up RESTful 
-                            API's and designing database schemas to creating web and mobile applications using 
-                            various frameworks like Angular, React &amp; React Native. I'm excited to learn new 
-                            technologies and you can always find me in my room working on my craft.
-                        </MissionStatement>
-                    </div>
+                        </div>
+                    </Description>
 
                     <Skills>
                         <JavascriptSkill>
@@ -208,6 +209,32 @@ const Skill = styled.li`
         margin: 0;
     }
 `
+const Description = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: justify;
+    text-align-last: center;
+
+    @media (min-width: 888px) {
+        flex-direction: row;
+        justify-content: center;
+
+        > * {
+            flex-basis: 50%;
+
+        }
+
+        div:last-child {
+            padding: 0 15px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            margin-top: 0;
+        }
+    }
+`
 const Skills = styled.ul`
     list-style: none;
     font-size: 13px;
@@ -275,13 +302,6 @@ const Skills = styled.ul`
     }
     
 `
-const Underline = styled.span`
-    border-top: solid 3px ${ SECONDARY_COLOR };
-    font-weight: bolder;
-    color: transparent;
-    display: inline-block;
-    height: 0px;
-`
 const Container = styled.div`
     position: relative;
 `
@@ -290,13 +310,10 @@ const Main = styled.div`
     flex-direction: column;
     width: 100%;
     box-sizing: border-box;
+    max-width: 1024px;
 
     > * {
         flex: 0 1 50%;
-    }
-
-    @media (min-width: 920px) {
-        flex-direction: row;
     }
 `
 const Header = styled.div`
@@ -330,13 +347,10 @@ const AboutMeText = styled.p`
 const AboutMeImg = styled.img`
     border-radius: 20px;
     max-width: 100%;
+    max-height: 234px;
 `
 const AboutMeHeader = styled.div`
     margin-bottom: 30px;
-
-    h1 {
-        margin-bottom: 7px;
-    }
 `
 const AboutMe = styled.div`
     background: linear-gradient(315deg,
