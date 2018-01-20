@@ -24,8 +24,6 @@ export default class Contact extends React.Component {
 
         return (
             <Container>
-                <SectionTitle left right secondary>Get in Touch!</SectionTitle>
-
 
                 <FormWrapper>
                     <p>
@@ -62,6 +60,7 @@ export default class Contact extends React.Component {
                         </Footer>
                     </Form>
                 </FormWrapper>
+
             </Container>
         )
     }
@@ -145,8 +144,14 @@ const INPUT_STYLES = `
 const FORM_BACKGROUND_COLOR = colorer(SECONDARY_COLOR).light(-20)
 
 const Container = styled.div`
-    background: ${ SECONDARY_COLOR };
+    background: ${ PRIMARY_COLOR };
+    color: ${ SECONDARY_COLOR };
     position: relative;
+    padding: 20px 0;
+
+    @media (min-width: 768px) {
+        padding: 40px 0;
+    }
 `
 const Text = styled.p``
 const Title = styled.h3`
@@ -238,7 +243,7 @@ const Footer = styled.div`
     }
 
     div {
-        ${({ bottom }) => bottom ? `border-bottom: solid thin ${ PRIMARY_COLOR };` : `border-top: solid thin ${ PRIMARY_COLOR };`}
+        ${({ bottom }) => bottom ? `border-bottom: solid thin ${ SECONDARY_COLOR };` : `border-top: solid thin ${ SECONDARY_COLOR };`}
         
         display: flex;
         justify-content: space-between;
