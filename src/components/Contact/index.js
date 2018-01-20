@@ -1,6 +1,8 @@
 import React from "react"
 import styled from "styled-components"
 import colorer from "colorer"
+import * as EmailValidator from 'email-validator';
+
 import { PRIMARY_COLOR, SECONDARY_COLOR } from "../../constants"
 
 import SectionTitle from "../shared/SectionTitle"
@@ -9,9 +11,17 @@ export default class Contact extends React.Component {
     constructor() {
         super()
         
+        this.state = {
+            loading: false,
+            errors: {}
+        }
+
         this.inputs = {}
     }
     render() {
+        const inputs = [{ name: "Name", type: "input" }, { name: "Email", type: "email" }, { name: "Message", type: "textArea" }]
+        const InputComponents = inputs.map(this._renderInput)
+
         return (
             <Container>
                 <SectionTitle left right secondary>Get in Touch!</SectionTitle>
@@ -22,6 +32,10 @@ export default class Contact extends React.Component {
                         I'm looking to start a long career with a company that will provide long-term stability,
                         new challenges and an opportunity to work with talented people.
                     </p>
+                    <p>
+                        If you're looking for someone who loves what they do &amp; lays awake at night thinking about 
+                        what they're gonna build tomorrow then reach out to me and lets create something awesome!
+                    </p>
 
                     <Form action="/contact" method="post" >
                         <Footer bottom>
@@ -30,21 +44,7 @@ export default class Contact extends React.Component {
                             </div>
                         </Footer>
 
-                        <Field>
-                            <Label htmlFor="name">
-                                <Input innerRef={ this._setInput("name") } name="name" placeholder="Name" />
-                            </Label>
-                        </Field>
-                        <Field>
-                            <Label htmlFor="email">
-                                <Input innerRef={ this._setInput("email") } name="email" placeholder="Email" />
-                            </Label>
-                        </Field>
-                        <Field>
-                            <Label htmlFor="message">
-                                <TextArea innerRef={ this._setInput("message") } name="message" placeholder="Message" />
-                            </Label>
-                        </Field>
+                        { InputComponents }
 
                         <SubmitButton onClick={ this._handleSubmit }>
                             <SubmitIcon />
@@ -52,7 +52,11 @@ export default class Contact extends React.Component {
 
                         <Footer>
                             <div>
-                                <Text><strong>Hate Forms?</strong> <em>Give Me A Call!</em></Text>
+                                <Text>
+                                    <strong>Hate Forms?</strong>
+                                    { window.innerWidth < 768 && <br />} 
+                                    <em> Give Me A Call!</em>
+                                    </Text>
                                 <Text>512-669-9592</Text>
                             </div>
                         </Footer>
@@ -61,26 +65,67 @@ export default class Contact extends React.Component {
             </Container>
         )
     }
+    _renderInput = (input) => {
+        const { name, type } = input
+        const errorMessage = this.state.errors[name.toLowerCase()]
+        const InputComponent = type === "input" || type === "email"
+            ? Input 
+            : TextArea
+
+        return (
+            <Field error={ errorMessage }>
+                <Label htmlFor={ name.toLowerCase() }>
+                    <InputComponent
+                        innerRef={ this._setInput(name.toLowerCase()) }
+                        name={ name.toLowerCase() }
+                        placeholder={ errorMessage || name }
+                        type={ type } />
+                </Label>
+            </Field>
+        )
+    }
     _handleSubmit = (e) => {
         e.preventDefault()
         
         const data = {}
+        const errors = {}
 
         for (const field in this.inputs) {
             data[field] = this.inputs[field].value
         }
 
         console.log("FORM DATA:", data)
+
+        errors.name = data.name.trim() === "" && "Please enter your name"
+        errors.email = data.email.trim() === "" 
+            ? "Please enter your email address"
+            : !EmailValidator.validate(data.email)
+                ? "Please enter a valid email address"
+                : "" 
+        errors.message = data.message.trim() === "" && "Please enter a message"
+
+        const hasError = Object.keys(errors).find(error => errors[error])
         
-        fetch("/contact", {
-            method: "POST", 
-            body: JSON.stringify(data),
-            headers: { "Content-Type": "application/json" },
-            mode: "cors",
-            cache: "default"
-        }).then(res => {
-            console.log("Request complete! response:", res)
-        })
+        if (hasError) {
+            console.log("Errors:", errors, hasError)
+            this.setState({ errors })
+        } else {
+            this.setState({ loading: true, errors: {} })
+
+            fetch("/contact", {
+                method: "POST", 
+                body: JSON.stringify(data),
+                headers: { "Content-Type": "application/json" },
+                mode: "cors",
+                cache: "default"
+            }).then(res => {
+                console.log("Request complete! response:", res)
+                this.setState({ loading: false })
+            }).catch(err => {
+                console.log("Error submitting form:", err)
+                this.setState({ errors: { submit: "An error occured when trying to process your Email :(" }})
+            })
+        }
     }
     _setInput = (name) => (input) => {
         this.inputs[name] = input
@@ -91,6 +136,7 @@ const INPUT_STYLES = `
     box-sizing: border-box;
     border: none;
     background-color: ${colorer(SECONDARY_COLOR).light(-20)};
+    color: ${ PRIMARY_COLOR };
     height: 30px;
     width: 100%;
     margin-bottom: 24px;
@@ -153,6 +199,28 @@ const SubmitButton = styled.button`
 const Field = styled.div`
     display: flex;
     justify-content: space-between;
+    ${({ error }) => {
+        if (error) {
+            return `
+                input, textarea {
+                    border: solid thin red;
+
+                    ::placeholder {
+                        color: red;
+                        opacity: 1;
+                    }
+                    
+                    :-ms-input-placeholder {
+                        color: red;
+                    }
+                    
+                    ::-ms-input-placeholder {
+                        color: red;
+                    }
+                }
+            `
+        }
+    }}
 `
 const Form = styled.form`
     border-radius: 5px;
