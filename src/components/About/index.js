@@ -215,10 +215,12 @@ const Description = styled.div`
     justify-content: space-between;
     text-align: justify;
     text-align-last: center;
+    margin: 20px 0;
 
     @media (min-width: 888px) {
         flex-direction: row;
         justify-content: center;
+        margin: 40px 0;
 
         > * {
             flex-basis: 50%;
