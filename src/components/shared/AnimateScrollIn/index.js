@@ -14,7 +14,7 @@ class AnimateScrollIn extends React.Component {
         const { isHidden } = this.state
 
         return (
-            <AnimateScrollInView isHidden={ isHidden } innerRef={ component => this.component = component }>
+            <AnimateScrollInView { ...this.props } isHidden={ isHidden } innerRef={ component => this.component = component }>
                 { this.props.children }
             </AnimateScrollInView>
         )
@@ -45,6 +45,10 @@ class AnimateScrollIn extends React.Component {
 }
 
 const AnimateScrollInView = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     opacity: ${({ isHidden }) => isHidden ? 0 : 1};
     transition: opacity .7s ease-in-out;
 `
