@@ -35,7 +35,7 @@ export default class About extends React.PureComponent {
                                 Who's this guy?
                             </h1>
                             <MissionStatement>
-                                I'm a self-taught (proof above) fullstack developer who specializes in frontend
+                                I'm a self-taught (proof in image) fullstack developer who specializes in frontend
                                 development. My passion is any and all things JavaScript, ranging from setting up RESTful 
                                 API's and designing database schemas to creating web and mobile applications using 
                                 various frameworks like Angular, React &amp; React Native. I'm excited to learn new 
@@ -45,6 +45,10 @@ export default class About extends React.PureComponent {
                         </div>
                     </Description>
 
+                    <AboutMeHeader>
+                        <SectionTitle secondary>The Process</SectionTitle>
+                    </AboutMeHeader> 
+
                     <Skills>
                         <JavascriptSkill>
                             <Skill>
@@ -52,25 +56,17 @@ export default class About extends React.PureComponent {
                                     <img src="/assets/images/html_css_js.png" alt="" onLoad={ this._positionBarComponent }/>
                                 </Icon>
                                 <h3>Creating Amazing Experiences</h3>
-                                <p>With the power of HTML, CSS &amp; JavaScript, I can do ANYTHING!</p>
+                                <p>Starts with an idea, passion and <strong>JAVASCRIPT!</strong></p>
                             </Skill>
                         </JavascriptSkill>
 
                         <OtherSkills>
                             <Skill innerRef={ leftSkill => this.leftSkill = leftSkill}>
                                 <Icon>
-                                    <img src="/assets/images/react_logo.svg" alt=""/>
+                                    <img src="/assets/images/wireframing_icon.png" alt=""/>
                                 </Icon>
                                 <h3>Visualize &amp; Solidify Designs</h3>
-                                <p>I break apart ideas into components and construct large applications!</p>
-                            </Skill>
-
-                            <Skill>
-                                <Icon>
-                                    <img src="/assets/images/responsive_icon.png" alt=""/>
-                                </Icon>
-                                <h3>Always Responsive</h3>
-                                <p>I construct intricate interfaces that look pixel perfect on any screen size.</p>
+                                <p>I break apart ideas into components and construct large-scale applications</p>
                             </Skill>
 
                             <Skill>
@@ -78,7 +74,31 @@ export default class About extends React.PureComponent {
                                     <img src="/assets/images/node.png" alt=""/>
                                 </Icon>
                                 <h3>Communicating Over the Web</h3>
-                                <p>I orchastrate communications between client and server through RESTful API's</p>
+                                <p>I orchastrate the flow of data between client and server.</p>
+                            </Skill>
+
+                            <Skill>
+                                <Icon>
+                                    <img src="/assets/images/react_logo.svg" alt=""/>
+                                </Icon>
+                                <h3>Communicating Over the Web</h3>
+                                <p>I break apart ideas into components and construct large-scale applications</p>
+                            </Skill>
+
+                            <Skill>
+                                <Icon>
+                                    <img src="/assets/images/node.png" alt=""/>
+                                </Icon>
+                                <h3>Communicating Over the Web</h3>
+                                <p>I orchastrate the flow of data between client and server.</p>
+                            </Skill>
+
+                            <Skill>
+                                <Icon>
+                                    <img src="/assets/images/responsive_icon.png" alt=""/>
+                                </Icon>
+                                <h3>Always Responsive</h3>
+                                <p>I construct intricate interfaces that look pixel perfect on any screen size</p>
                             </Skill>
 
                             <Skill innerRef={ rightSkill => this.rightSkill = rightSkill }>
@@ -86,7 +106,7 @@ export default class About extends React.PureComponent {
                                     <img src="/assets/images/database_icon.png" alt="" style={{ maxWidth: "70%" }} />
                                 </Icon>
                                 <h3>Handling Big Data</h3>
-                                <p>I manage vasts amounts of user-critical information</p>
+                                <p>I manage vasts amounts of user-critical information using industry standard encryption strategies</p>
                             </Skill>
                         </OtherSkills>
 
@@ -113,8 +133,7 @@ export default class About extends React.PureComponent {
                         </span>
                     </Skills>
 
-                </Main>
-
+                </Main>                                                                                                                                                                                     
             </AboutMe>
         )
     }
@@ -224,7 +243,6 @@ const Description = styled.div`
 
         > * {
             flex-basis: 50%;
-
         }
 
         div:last-child {
@@ -245,18 +263,10 @@ const Skills = styled.ul`
     ${Skill} {
         flex: 0 1 50%;
 
-        &:nth-child(1) {
-            order: 1;
-        }
-        &:nth-child(2) {
-            order: 3;
+        &:nth-child(5) {
             margin-bottom: 0 !important;
         }
-        &:nth-child(3) {
-            order: 2;
-        }
-        &:nth-child(4) {
-            order: 4;
+        &:nth-child(6) {
             margin-bottom: 0 !important;
         }
     }
