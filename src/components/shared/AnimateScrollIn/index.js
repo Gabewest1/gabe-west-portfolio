@@ -24,6 +24,9 @@ class AnimateScrollIn extends React.Component {
             window.addEventListener("scroll", this._shouldShowComponent)
         }
     }
+    componentWillUnMount = () => {
+        window.removeEventListener("scroll", this._shouldShowComponent)
+    }
     componentDidMount = () => {
         const scrollTop = this._getScrollTop(this.component)
         console.log("SCROLLTOP:", scrollTop)
@@ -37,9 +40,16 @@ class AnimateScrollIn extends React.Component {
         return scrollTop
     }
     _shouldShowComponent = (e) => {
-        if (window.scrollY + (window.innerHeight / 1.5) >= this.state.scrollTop) {
-            this.setState({ isHidden: false })
-            window.removeEventListener("scroll", this._shouldShowComponent)
+        if (this.state.isHidden) {
+            if (window.scrollY + (window.innerHeight / 1.5) >= this.state.scrollTop) {
+                this.setState({ isHidden: false })
+                // window.removeEventListener("scroll", this._shouldShowComponent)
+            }
+        } else {
+            if (window.scrollY + (window.innerHeight / 1.5) <= this.state.scrollTop) {
+                this.setState({ isHidden: true })
+                // window.removeEventListener("scroll", this._shouldShowComponent)
+            }
         }
     }
 }
