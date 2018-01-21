@@ -137,6 +137,7 @@ export default class Contact extends React.Component {
 const INPUT_STYLES = `
     box-sizing: border-box;
     border: none;
+    border-radius: 5px;
     background-color: ${colorer(SECONDARY_COLOR).light(-20)};
     color: ${ PRIMARY_COLOR };
     height: 30px;
@@ -198,6 +199,7 @@ const SubmitButton = styled.button`
     border-top: solid thin black;
     border-right: solid thin #efefef;
     border-bottom: solid thin #efefef;
+    border-radius: 5px;
     outline: none;
 
     &:active {
