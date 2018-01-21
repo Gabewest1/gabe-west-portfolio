@@ -4,6 +4,7 @@ import randomColor from "random-color"
 
 import { PRIMARY_COLOR } from "../../constants"
 import projectData from "./projectData"
+import AnimateScrollIn from "../shared/AnimateScrollIn"
 import SectionTitle from "../shared/SectionTitle"
 import {
     Background,
@@ -49,35 +50,37 @@ class Card extends React.PureComponent {
         const { title, description, href, reactNative, src, subTitle } = this.props.project
 
         return (
-            <CardView
-                key={ title }
-                className={ `material-card ${this.state.active ? "mc-active" : "" }`}
-                color={ color }
-            >
-                <h2>
-                    <span>{ title }</span>
-                    <strong>
-                        {/* <i class="fa fa-fw fa-star"></i> */}
-                        { subTitle }
-                    </strong>
-                </h2>
-                <div className="mc-content">
-                    <div className="img-container">
-                        <img className="img-responsive" src={ src } />
+            <AnimateScrollIn>
+                <CardView
+                    key={ title }
+                    className={ `material-card ${this.state.active ? "mc-active" : "" }`}
+                    color={ color }
+                >
+                    <h2>
+                        <span>{ title }</span>
+                        <strong>
+                            {/* <i class="fa fa-fw fa-star"></i> */}
+                            { subTitle }
+                        </strong>
+                    </h2>
+                    <div className="mc-content">
+                        <div className="img-container">
+                            <img className="img-responsive" src={ src } />
+                        </div>
+                        <div className="mc-description">
+                            { description }
+                        </div>
                     </div>
-                    <div className="mc-description">
-                        { description }
+                    <a className={ `mc-btn-action` } onClick={ this._handleCTAClick }>
+                        <i className={ this._getCTAIcon() }></i>
+                    </a>
+                    <div className="mc-footer">
+                        <h4>
+                            { this._renderLink(title, href, reactNative) }
+                        </h4>
                     </div>
-                </div>
-                <a className={ `mc-btn-action` } onClick={ this._handleCTAClick }>
-                    <i className={ this._getCTAIcon() }></i>
-                </a>
-                <div className="mc-footer">
-                    <h4>
-                        { this._renderLink(title, href, reactNative) }
-                    </h4>
-                </div>
-            </CardView>
+                </CardView>
+            </AnimateScrollIn>
         )
     }
     _renderLink = (title, href, isReactNativeProject) => {

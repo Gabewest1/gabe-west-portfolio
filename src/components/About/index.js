@@ -3,6 +3,7 @@ import styled, { keyframes } from "styled-components"
 import colorer from "colorer"
 import { PRIMARY_COLOR, SECONDARY_COLOR } from "../../constants"
 
+import AnimateScrollIn from "../shared/AnimateScrollIn"
 import ColoredText from "../shared/ColoredText"
 import SectionTitle from "../shared/SectionTitle"
 
@@ -12,7 +13,7 @@ export default class About extends React.PureComponent {
 
         this.state = {
             isBarDisplayed: false,
-            bar: { left: 0, top: 0, width: 0 }
+            bar: { left: 0, top: 0, width: 0, height: "5px", position: "absolute" }
         }
     }
     render() {
@@ -25,25 +26,25 @@ export default class About extends React.PureComponent {
                 </AboutMeHeader>
 
                 <Main>
-                    <Description>
-
-                        <div style={{ width: "80%", margin: "0 auto", textAlign: "center" }}>
-                            <AboutMeImg src="/assets/images/self_taught.jpg" />
-                        </div>
-                        <div>
-                            <h1 style={{ fontFamily: "raleway-bold", fontSize: 24, textAlign: "center" }}>
-                                Who's this guy?
-                            </h1>
-                            <MissionStatement>
-                                I'm a self-taught (proof in image) fullstack developer who specializes in frontend
-                                development. My passion is any and all things JavaScript, ranging from setting up RESTful 
-                                API's and designing database schemas to creating web and mobile applications using 
-                                various frameworks like Angular, React &amp; React Native. I'm excited to learn new 
-                                technologies and you can always find me in my room working on my craft.
-                            </MissionStatement>
-
-                        </div>
-                    </Description>
+                    <AnimateScrollIn>
+                        <Description>
+                            <div style={{ width: "80%", margin: "0 auto", textAlign: "center" }}>
+                                <AboutMeImg src="/assets/images/self_taught.jpg" />
+                            </div>
+                            <div>
+                                <h1 style={{ fontFamily: "raleway-bold", fontSize: 24, textAlign: "center" }}>
+                                    Who's this guy?
+                                </h1>
+                                <MissionStatement>
+                                    I'm a self-taught (proof in image) fullstack developer who specializes in frontend
+                                    development. My passion is any and all things JavaScript, ranging from setting up RESTful 
+                                    API's and designing database schemas to creating web and mobile applications using 
+                                    various frameworks like Angular, React &amp; React Native. I'm excited to learn new 
+                                    technologies and you can always find me in my room working on my craft.
+                                </MissionStatement>
+                            </div>
+                        </Description>
+                    </AnimateScrollIn>
 
                     <AboutMeHeader>
                         <SectionTitle secondary>The Process</SectionTitle>
@@ -52,65 +53,83 @@ export default class About extends React.PureComponent {
                     <Skills>
                         <JavascriptSkill>
                             <Skill>
-                                <Icon>
-                                    <img src="/assets/images/html_css_js.png" alt="" onLoad={ this._positionBarComponent }/>
-                                </Icon>
-                                <h3>Creating Amazing Experiences</h3>
-                                <p>Starts with an idea, passion and <strong>JAVASCRIPT!</strong></p>
+                                <AnimateScrollIn>
+                                    <Icon>
+                                        <img src="/assets/images/html_css_js.png" alt="" onLoad={ this._positionBarComponent }/>
+                                    </Icon>
+                                    <h3>Creating Amazing Experiences</h3>
+                                    <p>Starts with an idea, passion and <strong>JAVASCRIPT!</strong></p>
+                                </AnimateScrollIn>
                             </Skill>
                         </JavascriptSkill>
 
+
                         <OtherSkills>
-                            <Skill innerRef={ leftSkill => this.leftSkill = leftSkill}>
-                                <Icon>
-                                    <img src="/assets/images/wireframing_icon.png" alt=""/>
-                                </Icon>
-                                <h3>Visualize &amp; Solidify Designs</h3>
-                                <p>I break apart ideas into components and construct large-scale applications</p>
-                            </Skill>
+                                <Skill innerRef={ leftSkill => this.leftSkill = leftSkill}>
+                                    <AnimateScrollIn>
+                                        <Icon>
+                                            <img src="/assets/images/wireframing_icon.png" alt=""/>
+                                        </Icon>
+                                        <h3>Visualize &amp; Solidify Designs</h3>
+                                        <p>I break apart ideas into components and construct large-scale applications</p>
+                                    </AnimateScrollIn>
+                                </Skill>
 
-                            <Skill>
-                                <Icon>
-                                    <img src="/assets/images/node.png" alt=""/>
-                                </Icon>
-                                <h3>Communicating Over the Web</h3>
-                                <p>I orchastrate the flow of data between client and server.</p>
-                            </Skill>
+                                <Skill>
+                                    <AnimateScrollIn>
+                                        <Icon>
+                                            <img src="/assets/images/node.png" alt=""/>
+                                        </Icon>
+                                        <h3>Communicating Over the Web</h3>
+                                        <p>I orchastrate the flow of data between client and server.</p>
+                                    </AnimateScrollIn>
+                                </Skill>
 
-                            <Skill>
-                                <Icon>
-                                    <img src="/assets/images/react_logo.svg" alt=""/>
-                                </Icon>
-                                <h3>Communicating Over the Web</h3>
-                                <p>I break apart ideas into components and construct large-scale applications</p>
-                            </Skill>
+                                <Skill>
+                                    <AnimateScrollIn>
+                                        <Icon>
+                                            <img src="/assets/images/react_logo.svg" alt=""/>
+                                        </Icon>
+                                        <h3>Communicating Over the Web</h3>
+                                        <p>I break apart ideas into components and construct large-scale applications</p>
+                                    </AnimateScrollIn>
+                                </Skill>
 
-                            <Skill>
-                                <Icon>
-                                    <img src="/assets/images/node.png" alt=""/>
-                                </Icon>
-                                <h3>Communicating Over the Web</h3>
-                                <p>I orchastrate the flow of data between client and server.</p>
-                            </Skill>
+                                <Skill>
+                                    <AnimateScrollIn>
+                                        <Icon>
+                                            <img src="/assets/images/node.png" alt=""/>
+                                        </Icon>
+                                        <h3>Communicating Over the Web</h3>
+                                        <p>I orchastrate the flow of data between client and server.</p>
+                                    </AnimateScrollIn>
+                                </Skill>
 
-                            <Skill>
-                                <Icon>
-                                    <img src="/assets/images/responsive_icon.png" alt=""/>
-                                </Icon>
-                                <h3>Always Responsive</h3>
-                                <p>I construct intricate interfaces that look pixel perfect on any screen size</p>
-                            </Skill>
+                                <Skill>
+                                    <AnimateScrollIn>
+                                        <Icon>
+                                            <img src="/assets/images/responsive_icon.png" alt=""/>
+                                        </Icon>
+                                        <h3>Always Responsive</h3>
+                                        <p>I construct intricate interfaces that look pixel perfect on any screen size</p>
+                                    </AnimateScrollIn>
+                                </Skill>
 
-                            <Skill innerRef={ rightSkill => this.rightSkill = rightSkill }>
-                                <Icon>
-                                    <img src="/assets/images/database_icon.png" alt="" style={{ maxWidth: "70%" }} />
-                                </Icon>
-                                <h3>Handling Big Data</h3>
-                                <p>I manage vasts amounts of user-critical information using industry standard encryption strategies</p>
-                            </Skill>
+                                <Skill innerRef={ rightSkill => this.rightSkill = rightSkill }>
+                                    <AnimateScrollIn>
+                                        <Icon>
+                                            <img src="/assets/images/database_icon.png" alt="" style={{ maxWidth: "70%" }} />
+                                        </Icon>
+                                        <h3>Handling Big Data</h3>
+                                        <p>I manage vasts amounts of user-critical information using industry standard encryption strategies</p>
+                                    </AnimateScrollIn>
+                                </Skill>
                         </OtherSkills>
 
-                        <BarConnectingSkills style={ bar } />
+                        <AnimateScrollIn style={ bar } >
+                            <BarConnectingSkills style={ bar } />
+                        </AnimateScrollIn>
+
                         <span style={{
                             position: "absolute",
                             top: bar.top,
@@ -119,7 +138,9 @@ export default class About extends React.PureComponent {
                             fontFamily: "raleway-bold",
                             fontSize: "12px"
                         }}>
-                            FRONTEND
+                            <AnimateScrollIn>
+                                FRONTEND
+                            </AnimateScrollIn>
                         </span>
                         <span style={{
                             position: "absolute",
@@ -129,7 +150,9 @@ export default class About extends React.PureComponent {
                             fontFamily: "raleway-bold",
                             fontSize: "12px"
                         }}>
-                            BACKEND
+                            <AnimateScrollIn>
+                                BACKEND
+                            </AnimateScrollIn>
                         </span>
                     </Skills>
 
@@ -175,13 +198,6 @@ const BarConnectingSkills = styled.div`
     background-color: ${ SECONDARY_COLOR };
     height: 5px;
     position: absolute;
-
-    &:after {
-        content: "FRONTEND"
-        position: absolute;
-        left: 0;
-        color: ${ SECONDARY_COLOR };
-    }
 `
 const Icon = styled.div`
     background-color: ${ SECONDARY_COLOR };

@@ -1,6 +1,9 @@
 import React from "react"
 import styled from "styled-components"
+
+import AnimateScrollIn from "../AnimateScrollIn"
 import { PRIMARY_COLOR, SECONDARY_COLOR } from "../../../constants"
+
 
 const Title = styled.h1`
     display: flex;
@@ -33,8 +36,10 @@ const Underline = styled.span`
     height: 0px;
 `
 export default (props) => (
-    <SectionTitle { ...props }>
-        <Title { ...props }>{ props.children }</Title>
-        <Underline { ...props }>{ props.children }</Underline>
-    </SectionTitle>
+    <AnimateScrollIn>
+        <SectionTitle { ...props }>
+            <Title { ...props }>{ props.children }</Title>
+            <Underline { ...props }>{ props.children }</Underline>
+        </SectionTitle>
+    </AnimateScrollIn>
 )

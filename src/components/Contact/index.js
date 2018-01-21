@@ -5,6 +5,7 @@ import * as EmailValidator from 'email-validator';
 
 import { PRIMARY_COLOR, SECONDARY_COLOR } from "../../constants"
 
+import AnimateScrollIn from "../shared/AnimateScrollIn"
 import SectionTitle from "../shared/SectionTitle"
 
 export default class Contact extends React.Component {
@@ -31,37 +32,47 @@ export default class Contact extends React.Component {
                 <Padding>
                     <SectionTitle secondary>Contact</SectionTitle>
                 </Padding>
+                
                 <FormWrapper>
-                    <p>
-                        I'm looking to start a long career with a company that will provide long-term stability,
-                        new challenges and an opportunity to work with talented people.
-                    </p>
-                    <p>
-                        If you're looking for someone who loves what they do &amp; lays awake at night thinking about 
-                        what they're gonna build tomorrow then reach out to me and lets create something awesome!
-                    </p>
+                    <AnimateScrollIn>
+                        <p>
+                            I'm looking to start a long career with a company that will provide long-term stability,
+                            new challenges and an opportunity to work with talented people.
+                        </p>
+                    </AnimateScrollIn>
+                    <AnimateScrollIn>
+                        <p>
+                            If you're looking for someone who loves what they do &amp; lays awake at night thinking about 
+                            what they're gonna build tomorrow then reach out to me and lets create something awesome!
+                        </p>
+                    </AnimateScrollIn>
 
-                    <Form action="/contact" method="post" >
-                        <Footer bottom>
-                            <div>
-                                <Text>Send me an Email</Text>
-                            </div>
-                        </Footer>
+                    <AnimateScrollIn>
+                        <Form action="/contact" method="post" >
+                            <Footer bottom>
+                                <div>
+                                    <Text>Send me an Email</Text>
+                                </div>
+                            </Footer>
 
-                        { InputComponents }
+                            { InputComponents }
 
-                        <SubmitButton onClick={ this._handleSubmit }>
-                            <SubmitIcon />
-                        </SubmitButton>
+                            <SubmitButton onClick={ this._handleSubmit }>
+                                <SubmitIcon />
+                            </SubmitButton>
 
-                        <Footer>
-                            <div>
-                                <Text>
-                                    <strong>Hate Forms?</strong> <em> Give Me A Call!</em>                                    </Text>
-                                <Text>512-669-9592</Text>
-                            </div>
-                        </Footer>
-                    </Form>
+                            <Footer>
+                                <div>
+                                    <Text>
+                                        <strong>Hate Forms?</strong> <em> Give Me A Call!</em>
+                                    </Text>
+
+                                    <Text>512-669-9592</Text>
+                                </div>
+                            </Footer>
+                        </Form>
+                    </AnimateScrollIn>
+
                 </FormWrapper>
 
             </Container>
@@ -243,6 +254,7 @@ const Field = styled.div`
 `
 const Form = styled.form`
     border-radius: 5px;
+    width: 100%;
 `
 const FormWrapper = styled.div`
     margin: 0 auto;    

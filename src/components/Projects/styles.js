@@ -81,14 +81,10 @@ export const ProjectImage = styled.img`
 export const CardView = styled.article`
     overflow: hidden;
     position: relative;
-    width: 80%;
-    max-width: 230px;
+    width: 230px;
     height: 300px;
     margin-bottom: 95px;
 
-    @media (min-width: 768px) {
-        width: 30%;
-    }
 
     i {
         width: auto !important;
