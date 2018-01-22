@@ -13,11 +13,12 @@ export default class About extends React.PureComponent {
 
         this.state = {
             isBarDisplayed: false,
-            bar: { left: 0, top: 0, width: 0, height: "5px", position: "absolute" }
+            topBar: { left: 0, top: 0, width: 0, height: "5px", position: "absolute" },
+            bottomBar: { left: 0, top: 0, width: 0, height: "5px", position: "absolute" }
         }
     }
     render() {
-        const { bar } = this.state
+        const { bottomBar, topBar } = this.state
 
         return (
             <AboutMe id="about">
@@ -124,16 +125,33 @@ export default class About extends React.PureComponent {
                                         <p>I manage vasts amounts of user-critical information using industry standard encryption strategies</p>
                                     </AnimateScrollIn>
                                 </Skill>
+                        
+                                <JavascriptSkill barAbove style={{ marginTop: "30px" }}>
+                                    <Skill>
+                                        <AnimateScrollIn>
+                                            <Icon>
+                                                <img src="/assets/images/html_css_js.png" alt="" onLoad={ this._positionBarComponent }/>
+                                            </Icon>
+                                            <h3>Creating Amazing Experiences</h3>
+                                            <p>Starts with an idea, passion and <strong>JAVASCRIPT!</strong></p>
+                                        </AnimateScrollIn>
+                                    </Skill>
+                                </JavascriptSkill>
                         </OtherSkills>
 
-                        <AnimateScrollIn style={ bar } >
-                            <BarConnectingSkills style={ bar } />
+
+                        <AnimateScrollIn style={ topBar } >
+                            <BarConnectingSkills style={ topBar } />
+                        </AnimateScrollIn>
+
+                        <AnimateScrollIn style={ bottomBar } >
+                            <BarConnectingSkills style={ bottomBar } />
                         </AnimateScrollIn>
 
                         <span style={{
                             position: "absolute",
-                            top: bar.top,
-                            left: bar.left,
+                            top: topBar.top,
+                            left: topBar.left,
                             transform: "translateY(-100%)",
                             fontFamily: "raleway-bold",
                             fontSize: "12px"
@@ -144,8 +162,8 @@ export default class About extends React.PureComponent {
                         </span>
                         <span style={{
                             position: "absolute",
-                            top: bar.top,
-                            left: parseInt(bar.left) + parseInt(bar.width) + "px",
+                            top: topBar.top,
+                            left: parseInt(topBar.left) + parseInt(topBar.width) + "px",
                             transform: "translate(-100%, -100%)",
                             fontFamily: "raleway-bold",
                             fontSize: "12px"
@@ -173,12 +191,17 @@ export default class About extends React.PureComponent {
         const leftSkill = this._getElementsPosition(this.leftSkill)
         const rightSkill = this._getElementsPosition(this.rightSkill)
         
-        const top = leftSkill.top - BAR_OFFSET
+        const topBar_top = leftSkill.top - BAR_OFFSET
+        const bottomBar_top = rightSkill.top + rightSkill.height + BAR_OFFSET + 10
         const left = leftSkill.left - BAR_WIDTH
         const right = rightSkill.left + 1
-        const width = (right - left) + "px"
+        const topBar_width = (right - left) + "px"
+        const bottomBar_width = (right - left + 1) + "px"
 
-        this.setState({ bar: { left, top, width }})
+        this.setState({
+            topBar: { left, top: topBar_top, width: topBar_width },
+            bottomBar: { left, top: bottomBar_top, width: bottomBar_width }
+        })
     }
     _getElementsPosition = (element) => {
         const width = parseFloat(getComputedStyle(element).getPropertyValue("width").replace("px", ""))
@@ -193,6 +216,31 @@ export default class About extends React.PureComponent {
 const BAR_WIDTH = 2
 const BAR_HEIGHT = 40
 const BAR_OFFSET = 40
+
+function getBarStyles(type) {
+    return type === "after" ? `
+        &:after {
+            content: "";
+            position: absolute;
+            height: ${ type === "after" ? `-${ BAR_OFFSET }px` : `${ BAR_OFFSET }px`};            
+            height: ${ BAR_HEIGHT }px;
+            border: solid ${ BAR_WIDTH }px ${ SECONDARY_COLOR };
+            top: ${ type === "after" ? `-${ BAR_OFFSET }px` : `${ BAR_OFFSET }px`};
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    ` : `
+        &:before {
+            content: "";
+            position: absolute;
+            height: ${ BAR_HEIGHT - 3 }px;
+            border: solid ${ BAR_WIDTH }px ${ SECONDARY_COLOR };
+            bottom: -${ BAR_OFFSET + 10 }px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    `
+}
 
 const BarConnectingSkills = styled.div`
     background-color: ${ SECONDARY_COLOR };
@@ -223,6 +271,15 @@ const JavascriptSkill = styled.div`
     align-items: center;
     justify-content: center;
     width: 100%;
+
+    ${Skill} {
+        min-width: 300px;
+    }
+
+    ${Icon} {
+        width: 100px;
+        height: 100px;
+    }
 `
 const Skill = styled.li`
     display: flex;
@@ -280,10 +337,28 @@ const Skills = styled.ul`
         flex: 0 1 50%;
 
         &:nth-child(5) {
-            margin-bottom: 0 !important;
+            margin-bottom: 0;
+            ${ getBarStyles("before") }
         }
         &:nth-child(6) {
-            margin-bottom: 0 !important;
+            margin-bottom: 0;
+            ${ getBarStyles("before") }            
+        }
+    }
+
+    ${JavascriptSkill} {
+        ${Skill} {
+            min-width: 300px;
+
+            &:after {
+                content: "";
+                position: absolute;
+                height: ${ BAR_HEIGHT - 3 }px;
+                border: solid ${ BAR_WIDTH }px ${ SECONDARY_COLOR };
+                bottom: -${ BAR_OFFSET + 10 }px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
         }
     }
 
@@ -308,27 +383,6 @@ const Skills = styled.ul`
             }
         }
     }
-    ${JavascriptSkill} {
-        ${Skill} {
-            min-width: 300px;
-
-            &:after {
-                content: "";
-                position: absolute;
-                height: ${ BAR_HEIGHT - 3 }px;
-                border: solid ${ BAR_WIDTH }px ${ SECONDARY_COLOR };
-                bottom: -${ BAR_OFFSET + 10 }px;
-                left: 50%;
-                transform: translateX(-50%);
-            }
-        }
-
-        ${Icon} {
-            width: 100px;
-            height: 100px;
-        }
-    }
-    
 `
 const Container = styled.div`
     position: relative;
