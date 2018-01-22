@@ -69,6 +69,8 @@ export default class About extends React.PureComponent {
 
                         <OtherSkills>
                                 <Skill innerRef={ leftSkill => this.leftSkill = leftSkill}>
+                                    <AnimateScrollInHOC top component={ VerticalBar } />                                
+                                    <AnimateScrollInHOC component={ VerticalBar } />                                
                                     <AnimateScrollIn>
                                         <Icon>
                                             <img src="/assets/images/wireframing_icon.png" alt=""/>
@@ -80,8 +82,6 @@ export default class About extends React.PureComponent {
                                             CSS .
                                         </p>
                                     </AnimateScrollIn>
-                                    <AnimateScrollInHOC top component={ VerticalBar } />                                
-                                    <AnimateScrollInHOC component={ VerticalBar } />                                
                                 </Skill>
 
 
@@ -99,6 +99,7 @@ export default class About extends React.PureComponent {
 
 
                                 <Skill>
+                                    <AnimateScrollInHOC component={ VerticalBar } />
                                     <AnimateScrollIn>
                                         <Icon>
                                             <img src="/assets/images/react_logo.svg" alt=""/>
@@ -106,11 +107,11 @@ export default class About extends React.PureComponent {
                                         <h3>Visualize &amp; Solidify Designs</h3>
                                         <p>I break apart ideas into components and construct large-scale applications</p>
                                     </AnimateScrollIn>
-                                    <AnimateScrollInHOC component={ VerticalBar } />
                                 </Skill>
 
 
                                 <Skill>
+                                    <AnimateScrollInHOC component={ VerticalBar } />                                
                                     <AnimateScrollIn>
                                         <Icon>
                                             <img src="/assets/images/node.png" alt=""/>
@@ -118,11 +119,11 @@ export default class About extends React.PureComponent {
                                         <h3>Communicating Over the Web</h3>
                                         <p>I orchastrate the flow of data between client and server.</p>
                                     </AnimateScrollIn>
-                                    <AnimateScrollInHOC component={ VerticalBar } />                                
                                 </Skill>
 
 
                                 <Skill>
+                                    <AnimateScrollInHOC component={ VerticalBar } />
                                     <AnimateScrollIn>
                                         <Icon>
                                             <img src="/assets/images/responsive_icon.png" alt=""/>
@@ -130,11 +131,11 @@ export default class About extends React.PureComponent {
                                         <h3>Always Responsive</h3>
                                         <p>I construct intricate interfaces that look pixel perfect on any screen size</p>
                                     </AnimateScrollIn>
-                                    <AnimateScrollInHOC component={ VerticalBar } />
                                 </Skill>
 
 
                                 <Skill innerRef={ rightSkill => this.rightSkill = rightSkill }>
+                                    <AnimateScrollInHOC component={ VerticalBar } />
                                     <AnimateScrollIn>
                                         <Icon>
                                             <img src="/assets/images/database_icon.png" alt="" style={{ maxWidth: "70%" }} />
@@ -142,12 +143,12 @@ export default class About extends React.PureComponent {
                                         <h3>Handling Big Data</h3>
                                         <p>I manage vasts amounts of user-critical information using industry standard encryption strategies</p>
                                     </AnimateScrollIn>
-                                    <AnimateScrollInHOC component={ VerticalBar } />
                                 </Skill>
                         
 
                                 <JavascriptSkill barAbove style={{ marginTop: "30px" }}>
                                     <Skill>
+                                        <AnimateScrollInHOC top component={ VerticalBar } />                                     
                                         <AnimateScrollIn>
                                             <Icon>
                                                 <img src="/assets/images/html_css_js.png" alt="" onLoad={ this._positionBarComponent }/>
@@ -155,19 +156,14 @@ export default class About extends React.PureComponent {
                                             <h3>Creating Amazing Experiences</h3>
                                             <p>Starts with an idea, passion and <strong>JAVASCRIPT!</strong></p>
                                         </AnimateScrollIn>
-                                        <AnimateScrollInHOC top component={ VerticalBar } />                                     
                                     </Skill>
                                 </JavascriptSkill>
                         </OtherSkills>
 
 
-                        <AnimateScrollIn style={{ ...topBar, position: "absolute" }} >
-                            <BarConnectingSkills />
-                        </AnimateScrollIn>
+                        <AnimateScrollInHOC style={{ ...topBar }} component={ BarConnectingSkills } />
 
-                        <AnimateScrollIn style={{ ...bottomBar, position: "absolute" }} >
-                            <BarConnectingSkills />
-                        </AnimateScrollIn>
+                        <AnimateScrollInHOC style={{ ...bottomBar }} component={ BarConnectingSkills } />
 
                         <span style={{
                             position: "absolute",
@@ -243,13 +239,15 @@ const VerticalBar = styled.div`
     left: 50%;
     border: solid ${ BAR_WIDTH }px ${ SECONDARY_COLOR };
     ${({ top }) => top ? "top: 0; transform-origin: top;" : "bottom: 0; transform-origin: bottom;"}
-    height: ${({ isHidden }) => isHidden ? 0 : 66 }px;
+    height: ${({ isHidden }) => isHidden ? 0 : BAR_HEIGHT }px;
     transform: rotate(180deg);
+    transition: height .4s linear;
 `
 const BarConnectingSkills = styled.div`
     background-color: ${ SECONDARY_COLOR };
     height: 5px;
-    width: 100%;
+    width: ${({ isHidden }) => isHidden ? "0%" : "100%"} !important;
+    transition: width .4s linear;
 `
 const Icon = styled.div`
     background-color: ${ SECONDARY_COLOR };
