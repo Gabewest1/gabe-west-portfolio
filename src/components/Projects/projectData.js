@@ -1,7 +1,7 @@
 const projectData = [
     { 
-        title: "Simon Says",
-        description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis illo veritatis consectetur alias quod!",
+        title: "Simon Says Online",
+        description: "Fullstack mobile app available for both ios and android. Includes real-time communication via websockets and integrates MongoDB.",
         src: "/assets/images/simon_says.png",
         href: {
             android: "https://play.google.com/store/apps/details?id=com.cimon_says_online",
@@ -11,57 +11,50 @@ const projectData = [
         reactNative: true
     },
     { 
-        title: "Tic-Tac-Toe",
-        description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis illo veritatis consectetur alias quod!",
+        title: "Tic-Tac-Toe Online",
+        description: "Online version of Tic-Tac-Toe using real-time technology.",
         src: "/assets/images/tic_tac_toe.png",
         href: "https://ultimate-online-tic-tac-toe.herokuapp.com/",
         subTitle: "React, Redux & Socket.io"
     },
     { 
         title: "Weather Forecast",
-        description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis illo veritatis consectetur alias quod!",
+        description: "Weather application using Dark Sky's weather API to retrieve current and future forecasts for the upcomming week.",
         src: "/assets/images/weather_app.png",
         href: "https://gabes-weather-app.herokuapp.com/",
         subTitle: "React & Redux"
     },
     { 
         title: "Quote Generator",
-        description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis illo veritatis consectetur alias quod!",
+        description: "Laugh at and share moronic statements from Trump and his administration.",
         src: "/assets/images/quote_generator.png",
         href: "https://trump-admin-quote-generator.herokuapp.com/",
         subTitle: "React & Redux"
     },
     { 
         title: "Wikipedia Viewer",
-        description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis illo veritatis consectetur alias quod!",
+        description: "Web application built using Wikipedia's MediaWiki API. Allows users to easily explore topics of their interest or have one randomly generated.",
         src: "/assets/images/wiki_viewer.png",
         href: "https://react-wiki-viewer.herokuapp.com/",
         subTitle: "React & Redux"
     },
     { 
         title: "Calculator",
-        description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis illo veritatis consectetur alias quod!",
+        description: "Replica of a TI-83 graphing calculator. Doesn't (yet) graph functions but performs all other behavior expected of a calculator.",
         src: "/assets/images/calculator.jpg",
         href: "https://react-redux-calculator.herokuapp.com/",
         subTitle: "React & Redux"
     },
     { 
-        title: "Twitch TV",
-        description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis illo veritatis consectetur alias quod!",
-        src: "/assets/images/twitch_tv_app.png",
-        href: "https://twitch-tv-app-react.herokuapp.com/",
-        subTitle: "React & Redux"
-    },
-    { 
-        title: "Youtube Homepage",
-        description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis illo veritatis consectetur alias quod!",
+        title: "Youtube",
+        description: "Replicated Youtube's homepage.",
         src: "/assets/images/youtube.png",
         href: "https://youtube-homepage.herokuapp.com/",
         subTitle: "Vanilla JS"
     },
     { 
-        title: "Dell Homepage",
-        description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis illo veritatis consectetur alias quod!",
+        title: "Dell",
+        description: "Replicated Dell's homepage.",
         src: "/assets/images/dell.png",
         href: "https://dell-homepage.herokuapp.com/",
         subTitle: "Angular"
