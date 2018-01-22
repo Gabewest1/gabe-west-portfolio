@@ -4,6 +4,7 @@ import colorer from "colorer"
 import { PRIMARY_COLOR, SECONDARY_COLOR } from "../../constants"
 
 import AnimateScrollIn from "../shared/AnimateScrollIn"
+import AnimateScrollInHOC from "../shared/AnimateScrollInHOC"
 import ColoredText from "../shared/ColoredText"
 import SectionTitle from "../shared/SectionTitle"
 
@@ -13,8 +14,8 @@ export default class About extends React.PureComponent {
 
         this.state = {
             isBarDisplayed: false,
-            topBar: { left: 0, top: 0, width: 0, height: "5px", position: "absolute" },
-            bottomBar: { left: 0, top: 0, width: 0, height: "5px", position: "absolute" }
+            topBar: { left: 0, top: 0, width: 0, height: "5px" },
+            bottomBar: { left: 0, top: 0, width: 0, height: "5px" }
         }
     }
     render() {
@@ -61,6 +62,7 @@ export default class About extends React.PureComponent {
                                     <h3>Creating Amazing Experiences</h3>
                                     <p>Starts with an idea, passion and <strong>JAVASCRIPT!</strong></p>
                                 </AnimateScrollIn>
+                            <AnimateScrollInHOC component={ VerticalBar } />
                             </Skill>
                         </JavascriptSkill>
 
@@ -71,12 +73,21 @@ export default class About extends React.PureComponent {
                                         <Icon>
                                             <img src="/assets/images/wireframing_icon.png" alt=""/>
                                         </Icon>
-                                        <h3>Visualize &amp; Solidify Designs</h3>
-                                        <p>I break apart ideas into components and construct large-scale applications</p>
+                                        <h3>Rapid Prototyping</h3>
+                                        <p>
+                                            I quickly test out ideas &amp; designs using libraries such as 
+                                            Bootstrap, Semantic-Ui, or rolling my own layouts with flexbox and 
+                                            CSS .
+                                        </p>
                                     </AnimateScrollIn>
+                                    <AnimateScrollInHOC top component={ VerticalBar } />                                
+                                    <AnimateScrollInHOC component={ VerticalBar } />                                
                                 </Skill>
 
+
                                 <Skill>
+                                    <AnimateScrollInHOC top component={ VerticalBar } />                                
+                                    <AnimateScrollInHOC component={ VerticalBar } />                                
                                     <AnimateScrollIn>
                                         <Icon>
                                             <img src="/assets/images/node.png" alt=""/>
@@ -85,16 +96,19 @@ export default class About extends React.PureComponent {
                                         <p>I orchastrate the flow of data between client and server.</p>
                                     </AnimateScrollIn>
                                 </Skill>
+
 
                                 <Skill>
                                     <AnimateScrollIn>
                                         <Icon>
                                             <img src="/assets/images/react_logo.svg" alt=""/>
                                         </Icon>
-                                        <h3>Communicating Over the Web</h3>
+                                        <h3>Visualize &amp; Solidify Designs</h3>
                                         <p>I break apart ideas into components and construct large-scale applications</p>
                                     </AnimateScrollIn>
+                                    <AnimateScrollInHOC component={ VerticalBar } />
                                 </Skill>
+
 
                                 <Skill>
                                     <AnimateScrollIn>
@@ -104,7 +118,9 @@ export default class About extends React.PureComponent {
                                         <h3>Communicating Over the Web</h3>
                                         <p>I orchastrate the flow of data between client and server.</p>
                                     </AnimateScrollIn>
+                                    <AnimateScrollInHOC component={ VerticalBar } />                                
                                 </Skill>
+
 
                                 <Skill>
                                     <AnimateScrollIn>
@@ -114,7 +130,9 @@ export default class About extends React.PureComponent {
                                         <h3>Always Responsive</h3>
                                         <p>I construct intricate interfaces that look pixel perfect on any screen size</p>
                                     </AnimateScrollIn>
+                                    <AnimateScrollInHOC component={ VerticalBar } />
                                 </Skill>
+
 
                                 <Skill innerRef={ rightSkill => this.rightSkill = rightSkill }>
                                     <AnimateScrollIn>
@@ -124,8 +142,10 @@ export default class About extends React.PureComponent {
                                         <h3>Handling Big Data</h3>
                                         <p>I manage vasts amounts of user-critical information using industry standard encryption strategies</p>
                                     </AnimateScrollIn>
+                                    <AnimateScrollInHOC component={ VerticalBar } />
                                 </Skill>
                         
+
                                 <JavascriptSkill barAbove style={{ marginTop: "30px" }}>
                                     <Skill>
                                         <AnimateScrollIn>
@@ -135,17 +155,18 @@ export default class About extends React.PureComponent {
                                             <h3>Creating Amazing Experiences</h3>
                                             <p>Starts with an idea, passion and <strong>JAVASCRIPT!</strong></p>
                                         </AnimateScrollIn>
+                                        <AnimateScrollInHOC top component={ VerticalBar } />                                     
                                     </Skill>
                                 </JavascriptSkill>
                         </OtherSkills>
 
 
-                        <AnimateScrollIn style={ topBar } >
-                            <BarConnectingSkills style={ topBar } />
+                        <AnimateScrollIn style={{ ...topBar, position: "absolute" }} >
+                            <BarConnectingSkills />
                         </AnimateScrollIn>
 
-                        <AnimateScrollIn style={ bottomBar } >
-                            <BarConnectingSkills style={ bottomBar } />
+                        <AnimateScrollIn style={{ ...bottomBar, position: "absolute" }} >
+                            <BarConnectingSkills />
                         </AnimateScrollIn>
 
                         <span style={{
@@ -214,38 +235,21 @@ export default class About extends React.PureComponent {
 }
 
 const BAR_WIDTH = 2
-const BAR_HEIGHT = 40
+const BAR_HEIGHT = 50
 const BAR_OFFSET = 40
 
-function getBarStyles(type) {
-    return type === "after" ? `
-        &:after {
-            content: "";
-            position: absolute;
-            height: ${ type === "after" ? `-${ BAR_OFFSET }px` : `${ BAR_OFFSET }px`};            
-            height: ${ BAR_HEIGHT }px;
-            border: solid ${ BAR_WIDTH }px ${ SECONDARY_COLOR };
-            top: ${ type === "after" ? `-${ BAR_OFFSET }px` : `${ BAR_OFFSET }px`};
-            left: 50%;
-            transform: translateX(-50%);
-        }
-    ` : `
-        &:before {
-            content: "";
-            position: absolute;
-            height: ${ BAR_HEIGHT - 3 }px;
-            border: solid ${ BAR_WIDTH }px ${ SECONDARY_COLOR };
-            bottom: -${ BAR_OFFSET + 10 }px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-    `
-}
-
+const VerticalBar = styled.div`
+    position: absolute;
+    left: 50%;
+    border: solid ${ BAR_WIDTH }px ${ SECONDARY_COLOR };
+    ${({ top }) => top ? "top: 0; transform-origin: top;" : "bottom: 0; transform-origin: bottom;"}
+    height: ${({ isHidden }) => isHidden ? 0 : 66 }px;
+    transform: rotate(180deg);
+`
 const BarConnectingSkills = styled.div`
     background-color: ${ SECONDARY_COLOR };
     height: 5px;
-    position: absolute;
+    width: 100%;
 `
 const Icon = styled.div`
     background-color: ${ SECONDARY_COLOR };
@@ -282,6 +286,7 @@ const JavascriptSkill = styled.div`
     }
 `
 const Skill = styled.li`
+    // background-color: ${ PRIMARY_COLOR };
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -290,6 +295,11 @@ const Skill = styled.li`
     position: relative;
     padding: 0 5px;
     box-sizing: border-box;
+
+    > div:first-child {
+        z-index: 1;
+        background-color: ${ PRIMARY_COLOR };
+    }
 
     h3 {
         margin-bottom: 5px;
@@ -338,27 +348,15 @@ const Skills = styled.ul`
 
         &:nth-child(5) {
             margin-bottom: 0;
-            ${ getBarStyles("before") }
         }
         &:nth-child(6) {
             margin-bottom: 0;
-            ${ getBarStyles("before") }            
         }
     }
 
     ${JavascriptSkill} {
         ${Skill} {
             min-width: 300px;
-
-            &:after {
-                content: "";
-                position: absolute;
-                height: ${ BAR_HEIGHT - 3 }px;
-                border: solid ${ BAR_WIDTH }px ${ SECONDARY_COLOR };
-                bottom: -${ BAR_OFFSET + 10 }px;
-                left: 50%;
-                transform: translateX(-50%);
-            }
         }
     }
 
@@ -370,16 +368,6 @@ const Skills = styled.ul`
 
             ${Icon} {
                 margin-top: 10px;
-            }
-
-            &:after {
-                content: "";
-                position: absolute;
-                height: ${ BAR_HEIGHT }px;
-                border: solid ${ BAR_WIDTH }px ${ SECONDARY_COLOR };
-                top: -${ BAR_OFFSET }px;
-                left: 50%;
-                transform: translateX(-50%);
             }
         }
     }

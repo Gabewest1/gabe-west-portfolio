@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 
-class AnimateScrollIn extends React.Component {
+class AnimateScrollInHOC extends React.Component {
     constructor() {
         super()
 
@@ -12,10 +12,12 @@ class AnimateScrollIn extends React.Component {
     }
     render() {
         const { isHidden } = this.state
+
+        const Component = this.props.component
         
         return (
             <AnimateScrollInView { ...this.props } isHidden={ isHidden } innerRef={ component => this.component = component }>
-                { this.props.children }
+                <Component { ...this.props } isHidden={ isHidden } />
             </AnimateScrollInView>
         )
     }
@@ -28,26 +30,25 @@ class AnimateScrollIn extends React.Component {
         window.removeEventListener("scroll", this._shouldShowComponent)
     }
     componentDidMount = () => {
-        // const scrollTop = this._getScrollTop(this.component)
-        // console.log("SCROLLTOP:", scrollTop)
+        const scrollTop = this._getScrollTop(this.component)
+        console.log("SCROLLTOP:", scrollTop)
 
-        // this.setState({ scrollTop })
+        this.setState({ scrollTop })
     }
     _getScrollTop = (el) => {
+        // yay readability
         for (var scrollTop = 0; el != null; scrollTop += el.offsetTop, el = el.offsetParent);
 
         return scrollTop
     }
     _shouldShowComponent = (e) => {
-        const scrollTop = this._getScrollTop(this.component)
-
         if (this.state.isHidden) {
-            if (window.scrollY + (window.innerHeight / 2) >= scrollTop) {
+            if (window.scrollY + (window.innerHeight / 2) >= this.state.scrollTop) {
                 this.setState({ isHidden: false })
                 // window.removeEventListener("scroll", this._shouldShowComponent)
             }
         } else {
-            if (window.scrollY + (window.innerHeight / 2) <= scrollTop) {
+            if (window.scrollY + (window.innerHeight / 2) <= this.state.scrollTop) {
                 this.setState({ isHidden: true })
                 // window.removeEventListener("scroll", this._shouldShowComponent)
             }
@@ -63,4 +64,4 @@ const AnimateScrollInView = styled.div`
     opacity: ${({ isHidden }) => isHidden ? 0 : 1};
     transition: opacity .7s ease-in-out;
 `
-export default AnimateScrollIn
+export default AnimateScrollInHOC
