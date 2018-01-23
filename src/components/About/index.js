@@ -57,10 +57,10 @@ export default class About extends React.PureComponent {
                             <Skill>
                                 <AnimateScrollIn>
                                     <Icon>
-                                        <img src="/assets/images/html_css_js.png" alt="" onLoad={ this._positionBarComponent }/>
+                                        <img src="/assets/images/html_css_js2.png" alt="" onLoad={ this._positionBarComponent }/>
                                     </Icon>
                                     <h3>Creating Amazing Experiences</h3>
-                                    <p>Starts with an idea, passion and <strong>JAVASCRIPT!</strong></p>
+                                    <p>Begins with an idea, passion and <strong>JAVASCRIPT!</strong></p>
                                 </AnimateScrollIn>
                                 <AnimateScrollInHOC component={ VerticalBar } />
                             </Skill>
@@ -76,9 +76,8 @@ export default class About extends React.PureComponent {
                                         </Icon>
                                         <h3>Rapid Prototyping</h3>
                                         <p>
-                                            I quickly test out ideas &amp; designs using libraries such as 
-                                            Bootstrap, Semantic-Ui, or rolling my own layouts with flexbox and 
-                                            CSS Grid.
+                                            Quickly generate interactive mockups for user testing and 
+                                            client feedback
                                         </p>
                                     </AnimateScrollIn>
                                     <AnimateScrollInHOC component={ VerticalBar } />                                                                    
@@ -91,8 +90,8 @@ export default class About extends React.PureComponent {
                                         <Icon>
                                             <img src="/assets/images/node.png" alt=""/>
                                         </Icon>
-                                        <h3>Communicating Over the Web</h3>
-                                        <p>I orchastrate the flow of data between client and server through RESTful API's.</p>
+                                        <h3>Communicating through the Web</h3>
+                                        <p>Direct the flow of data &amp; resources between client and server through RESTful API's</p>
                                     </AnimateScrollIn>
                                     <AnimateScrollInHOC component={ VerticalBar } />                                
                                 </Skill>
@@ -103,8 +102,8 @@ export default class About extends React.PureComponent {
                                         <Icon>
                                             <img src="/assets/images/react_logo.svg" alt=""/>
                                         </Icon>
-                                        <h3>Visualize &amp; Solidify Designs</h3>
-                                        <p>I break apart ideas into components and construct large-scale applications</p>
+                                        <h3>Solidifying Designs</h3>
+                                        <p>Architect ideas into components and construct large-scale applications</p>
                                     </AnimateScrollIn>
                                     <AnimateScrollInHOC component={ VerticalBar } />
                                 </Skill>
@@ -117,7 +116,7 @@ export default class About extends React.PureComponent {
                                             <img src="/assets/images/database_icon.png" alt="" style={{ maxWidth: "70%" }} />
                                         </Icon>
                                         <h3>Handling Big Data</h3>
-                                        <p>I manage user-critical information using industry standard encryption strategies</p>
+                                        <p>Secure user-critical information using industry standard encryption strategies</p>
                                     </AnimateScrollIn>
                                     <AnimateScrollInHOC component={ VerticalBar } />
                                 </Skill>
@@ -128,7 +127,7 @@ export default class About extends React.PureComponent {
                                             <img src="/assets/images/responsive_icon.png" alt=""/>
                                         </Icon>
                                         <h3>Always Responsive</h3>
-                                        <p>I construct intricate interfaces that look pixel perfect on any screen size</p>
+                                        <p>Intricate interfaces that look pixel perfect on any screen size</p>
                                     </AnimateScrollIn>
                                     <AnimateScrollInHOC component={ VerticalBar } />
                                 </Skill>
@@ -139,7 +138,7 @@ export default class About extends React.PureComponent {
                                             <img src="/assets/images/credit_card_icon.png" alt=""/>
                                         </Icon>
                                         <h3>Secured Transactions</h3>
-                                        <p>I ensure your money makes it safely into your pockets</p>
+                                        <p>I ensure your sales makes it safely into your pockets</p>
                                     </AnimateScrollIn>
                                     <AnimateScrollInHOC component={ VerticalBar } />                                
                                 </Skill>
@@ -149,10 +148,10 @@ export default class About extends React.PureComponent {
                                         <AnimateScrollInHOC top component={ VerticalBar } />                                     
                                         <AnimateScrollIn>
                                             <Icon>
-                                                <img src="/assets/images/html_css_js.png" alt="" onLoad={ this._positionBarComponent }/>
+                                                <img src="/assets/images/javascript.png" alt="" onLoad={ this._positionBarComponent }/>
                                             </Icon>
-                                            <h3>Creating Amazing Experiences</h3>
-                                            <p>Starts with an idea, passion and <strong>JAVASCRIPT!</strong></p>
+                                            <h3>Delivering Amazing Experiences</h3>
+                                            <p>Happens because of hard-work, craftsmenship and <strong>JAVASCRIPT!</strong></p>
                                         </AnimateScrollIn>
                                     </Skill>
                                 </JavascriptSkill>
