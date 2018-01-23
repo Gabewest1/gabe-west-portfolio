@@ -117,7 +117,7 @@ export default class About extends React.PureComponent {
                                             <img src="/assets/images/database_icon.png" alt="" style={{ maxWidth: "70%" }} />
                                         </Icon>
                                         <h3>Handling Big Data</h3>
-                                        <p>I manage vasts amounts of user-critical information using industry standard encryption strategies</p>
+                                        <p>I manage user-critical information using industry standard encryption strategies</p>
                                     </AnimateScrollIn>
                                     <AnimateScrollInHOC component={ VerticalBar } />
                                 </Skill>
@@ -139,7 +139,7 @@ export default class About extends React.PureComponent {
                                             <img src="/assets/images/credit_card_icon.png" alt=""/>
                                         </Icon>
                                         <h3>Secured Transactions</h3>
-                                        <p>I follow best practices to ensure monetary exchanges between parties is safe and secure</p>
+                                        <p>I ensure your money makes it safely into your pockets</p>
                                     </AnimateScrollIn>
                                     <AnimateScrollInHOC component={ VerticalBar } />                                
                                 </Skill>
@@ -213,7 +213,7 @@ export default class About extends React.PureComponent {
         const topBar_top = leftSkill.top - BAR_HEIGHT - Math.ceil(BAR_WIDTH / 2)
         const bottomBar_top = rightSkill.top + rightSkill.height + BAR_HEIGHT + (BAR_WIDTH / 2)
         const left = leftSkill.left
-        const right = rightSkill.left + Math.ceil(BAR_WIDTH / 2)
+        const right = rightSkill.left + BAR_WIDTH
         const topBar_width = (right - left) + "px"
         const bottomBar_width = (right - left) + "px"
 
