@@ -14,15 +14,16 @@ class Header extends Component {
 
 				<div style={{ zIndex: 1 }}>
 					<HeroText>
-						<ColoredText color="#718199">Hello,</ColoredText> I'm Gabe West!
+						Gabe West
 					</HeroText>
 					
 					<SubTitle>
-						FRONTEND<span style={{ margin: "0 7px" }}>/</span>
-						BACKEND<span style={{ margin: "0 7px" }}>/</span>
-						MOBILE
-						<br/>
-						<span>JavaScript Developer</span>
+						<Descriptors>
+							FRONTEND<span style={{ margin: "0 7px" }}>•</span>
+							BACKEND<span style={{ margin: "0 7px" }}>•</span>
+							MOBILE
+						</Descriptors>
+						<Developer>JavaScript Developer</Developer>
 					</SubTitle>
 				</div>
 
@@ -31,6 +32,17 @@ class Header extends Component {
 	}
 }
 
+const Descriptors = styled.p`
+	display: inline-block;
+	margin: 10px 0;
+	padding: 10px 0;
+	border-top: solid thin ${ PRIMARY_COLOR };	
+	border-bottom: solid thin ${ PRIMARY_COLOR };	
+	width: 350px;
+`
+const Developer = styled.p`
+	margin: 0;
+`
 const HeroText = styled.h1`
 	margin: 0;
 	text-align: center;
@@ -39,18 +51,16 @@ const HeroText = styled.h1`
 `
 const SubTitle = styled.p`
 	color: #efefef;
-	border: solid thin ${ PRIMARY_COLOR };
 	border-radius: 7px;
-	margin: 8px 0;
+	margin: 1px 0;
 	font-size: 14px;
 	font-weight: 700;
 	text-align: center;
-	padding: 12px 0;
 	color: #718199;
+	color: ${ PRIMARY_COLOR };
 	width: 100%;
 
-	span {
-		color: ${ PRIMARY_COLOR };
+	${Descriptors} {
 	}
 
 	span:last-child {
@@ -87,14 +97,14 @@ const HeaderView = styled.header`
 
 	@media (min-width: 768px) {
 		${ HeroText } {
-			font-size: 72px;
-			margin-bottom: 10px;
+			font-size: 68px;
+			// margin-bottom: 10px;
 		}
 		${ SubTitle } {
 			font-size: 20px;
 
-			span:last-child {
-				font-size: 32px;
+			${Developer} {
+				font-size: 42px;
 			}
 		}
 	}
