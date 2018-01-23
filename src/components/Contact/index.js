@@ -36,8 +36,9 @@ export default class Contact extends React.Component {
                 <FormWrapper>
                     <AnimateScrollIn>
                         <p>
-                            I'm looking to start a long career with a company that will provide long-term stability,
-                            new challenges and an opportunity to work with talented people.
+                            I'm looking to start a career with a company that will provide
+                            new challenges, talented people to collaborate with, and the ability 
+                            to grow as a developer.
                         </p>
                     </AnimateScrollIn>
                     <AnimateScrollIn>
@@ -86,7 +87,7 @@ export default class Contact extends React.Component {
             : TextArea
 
         return (
-            <Field error={ errorMessage }>
+            <Field error={ errorMessage } onChange={ this._removeError.bind(this, name.toLowerCase()) }>
                 <Label htmlFor={ name.toLowerCase() }>
                     <InputComponent
                         innerRef={ this._setInput(name.toLowerCase()) }
@@ -138,6 +139,15 @@ export default class Contact extends React.Component {
                 console.log("Error submitting form:", err)
                 this.setState({ errors: { submit: "An error occured when trying to process your Email :(" }})
             })
+        }
+    }
+    _removeError = (name) => {
+        const { errors } = this.state
+
+        if (errors[name] !== "") {
+            errors[name] = ""
+
+            this.setState({ errors })
         }
     }
     _setInput = (name) => (input) => {
