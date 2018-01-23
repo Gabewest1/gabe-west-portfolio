@@ -26,6 +26,7 @@ const SectionTitle = styled.div`
     align-items: center;
     justify-content: center;
     text-align: center;
+    white-space: nowrap;
 `
 const Underline = styled.span`
     border-top: solid 2px ${({ secondary }) => secondary ? SECONDARY_COLOR : PRIMARY_COLOR };
