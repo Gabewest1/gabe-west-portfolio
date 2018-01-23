@@ -69,7 +69,6 @@ export default class About extends React.PureComponent {
 
                         <OtherSkills>
                                 <Skill innerRef={ leftSkill => this.leftSkill = leftSkill}>
-                                    <AnimateScrollInHOC top component={ VerticalBar } />                                
                                     <AnimateScrollIn>
                                         <Icon>
                                             <img src="/assets/images/wireframing_icon.png" alt=""/>
@@ -85,7 +84,6 @@ export default class About extends React.PureComponent {
 
 
                                 <Skill>
-                                    <AnimateScrollInHOC top component={ VerticalBar } />                                
                                     <AnimateScrollIn>
                                         <Icon>
                                             <img src="/assets/images/node.png" alt=""/>
@@ -107,8 +105,6 @@ export default class About extends React.PureComponent {
                                     </AnimateScrollIn>
                                     <AnimateScrollInHOC component={ VerticalBar } />
                                 </Skill>
-
-
 
                                 <Skill>
                                     <AnimateScrollIn>
@@ -145,7 +141,6 @@ export default class About extends React.PureComponent {
 
                                 <JavascriptSkill style={{ marginTop: `${ BAR_HEIGHT }px`, transform: "translateY(-10px)" }}>
                                     <Skill>
-                                        <AnimateScrollInHOC top component={ VerticalBar } />                                     
                                         <AnimateScrollIn>
                                             <Icon>
                                                 <img src="/assets/images/javascript.png" alt="" onLoad={ this._positionBarComponent }/>
@@ -157,10 +152,13 @@ export default class About extends React.PureComponent {
                                 </JavascriptSkill>
                         </OtherSkills>
 
-
+                             { console.log("AYY:", topBar, bottomBar.width, topBar.left + (topBar.width / 2) + (BAR_WIDTH / 2))}
                         <AnimateScrollInHOC style={{ ...topBar, position: "absolute" }} component={ BarConnectingSkills } />
+                        <AnimateScrollInHOC style={{ top: topBar.top + BAR_WIDTH, left: topBar.left, position: "absolute" }} component={ VerticalBar2 } />
+                        <AnimateScrollInHOC style={{ top: topBar.top, left: topBar.left + topBar.width - BAR_WIDTH, position: "absolute" }} component={ VerticalBar2 } />
 
                         <AnimateScrollInHOC style={{ ...bottomBar, position: "absolute" }} component={ BarConnectingSkills } />
+                        <AnimateScrollInHOC style={{ top: bottomBar.top, left: topBar.left + (topBar.width / 2) + (BAR_WIDTH / 2), position: "absolute" }} component={ VerticalBar2 } />
 
                         <span style={{
                             backgroundColor: PRIMARY_COLOR,
@@ -213,8 +211,8 @@ export default class About extends React.PureComponent {
         const bottomBar_top = rightSkill.top + rightSkill.height + BAR_HEIGHT + (BAR_WIDTH / 2)
         const left = leftSkill.left
         const right = rightSkill.left + BAR_WIDTH
-        const topBar_width = (right - left) + "px"
-        const bottomBar_width = (right - left) + "px"
+        const topBar_width = (right - left)
+        const bottomBar_width = (right - left)
 
         this.setState({
             topBar: { ...this.state.topBar, left, top: topBar_top, width: topBar_width },
@@ -241,7 +239,17 @@ const VerticalBar = styled.div`
     border: solid ${ BAR_WIDTH / 2 }px ${ SECONDARY_COLOR };
     ${({ top }) => top ? "top: 0; transform-origin: top;" : "bottom: 0; transform-origin: bottom;"}
     height: ${({ isHidden }) => isHidden ? 0 : BAR_HEIGHT }px;
-    transform: rotate(180deg);
+    transform: translateY(${({ top }) => top ? -100 : 100}%);
+    transition: height .7s linear;
+`
+
+//This bar is used to connect the horizontal bar to the icons
+const VerticalBar2 = styled.div`
+    position: static !important;
+    border: solid ${ BAR_WIDTH / 2 }px ${ SECONDARY_COLOR };
+    // ${({ top }) => top ? "top: 0; transform-origin: top;" : "bottom: 0; transform-origin: bottom;"}
+    height: ${({ isHidden }) => isHidden ? 0 : BAR_HEIGHT }px;
+    // transform: translateY(${({ top }) => top ? -100 : 100}%);
     transition: height .7s linear;
 `
 const BarConnectingSkills = styled.div`
