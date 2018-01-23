@@ -29,12 +29,6 @@ class AnimateScrollInHOC extends React.Component {
     componentWillUnMount = () => {
         window.removeEventListener("scroll", this._shouldShowComponent)
     }
-    componentDidMount = () => {
-        // const scrollTop = this._getScrollTop(this.component)
-        // console.log("SCROLLTOP:", scrollTop)
-
-        // this.setState({ scrollTop })
-    }
     _getScrollTop = (el) => {
         for (var scrollTop = 0; el != null; scrollTop += el.offsetTop, el = el.offsetParent);
 
@@ -46,12 +40,10 @@ class AnimateScrollInHOC extends React.Component {
         if (this.state.isHidden) {
             if (window.scrollY + (window.innerHeight / 2) >= scrollTop) {
                 this.setState({ isHidden: false })
-                // window.removeEventListener("scroll", this._shouldShowComponent)
             }
         } else {
             if (window.scrollY + (window.innerHeight / 2) <= scrollTop) {
                 this.setState({ isHidden: true })
-                // window.removeEventListener("scroll", this._shouldShowComponent)
             }
         }
     }
