@@ -7,7 +7,7 @@ const projectData = [
             android: "https://play.google.com/store/apps/details?id=com.cimon_says_online",
             ios: "https://itunes.apple.com/us/app/App-Name/id1323885065"
         },
-        subTitle: "React Native & Socket.io",
+        subTitle: "React Native & MongoDB",
         reactNative: true
     },
     { 
