@@ -101,13 +101,11 @@ class Navbar extends Component {
 		DOCUMENT_SCROLL_TOP = window.scrollY
 	}
 }
-var gretting = "hi"
-
-var hiAgain = `${gretting}, im gabe west`
 
 const NavbarView = styled.nav`
-    background: rgba(255, 255, 255, 0.79);
-    color: #718199;
+	background: rgba(0, 0, 0, 0.6);
+	box-shadow: 0 3px 3px 1px rgba(40, 40, 40, .8);
+    color: ${ PRIMARY_COLOR };
 	display: flex;
 	align-items: center;
 	padding: 0 1em;
