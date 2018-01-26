@@ -12,10 +12,13 @@ class Header extends Component {
 	  	return (
 			<HeaderView id="header">
 
-				<div style={{ zIndex: 1 }}>
-					<HeroText>
-						Gabe West
-					</HeroText>
+				<HeaderContent>
+					
+					<Logo>
+						<img src="/assets/images/header_logo.png" alt="logo" />
+					</Logo>
+
+					<HeroText>Gabe West</HeroText>
 					
 					<SubTitle>
 						<Descriptors>
@@ -25,52 +28,74 @@ class Header extends Component {
 						</Descriptors>
 						<Developer>JavaScript Developer</Developer>
 					</SubTitle>
-				</div>
+
+				</HeaderContent>
 
 			</HeaderView>
 	  	)
 	}
 }
 
+
+const Logo = styled.div`
+	width: 200px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	max-height: 40vh;
+	margin: 10px 0;
+
+	img {
+		max-width: 100%;
+		max-height: 100%;
+	}
+`
 const Descriptors = styled.p`
 	display: inline-block;
 	margin: 10px 0;
 	padding: 10px 0;
 	border-top: solid thin ${ PRIMARY_COLOR };	
 	border-bottom: solid thin ${ PRIMARY_COLOR };	
-	width: 350px;
+	font-family: raleway;
+
+	@media (min-width: 768px) {
+		width: 350px;
+	}
 `
 const Developer = styled.p`
 	margin: 0;
+	font-size: 28px;
+	font-family: 'Dancing Script', cursive;
 `
 const HeroText = styled.h1`
+	font-family: 'Dancing Script', cursive;
+	font-weight: 100;
 	margin: 0;
 	text-align: center;
 	z-index: 1;
-	font-family: Raleway-Bold;
 `
 const SubTitle = styled.p`
 	color: #efefef;
 	border-radius: 7px;
 	margin: 1px 0;
 	font-size: 14px;
-	font-weight: 700;
+	font-weight: 100;
 	text-align: center;
-	color: #718199;
+	font-family: 'raleway', sans-serif;	
 	color: ${ PRIMARY_COLOR };
 	width: 100%;
-
-	${Descriptors} {
-	}
-
-	span:last-child {
-		font-family: Raleway-Bold;	
-		font-size: 22px;
-	}
+`
+const HeaderContent = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	text-align: center;
+	z-index: 1;
 `
 const HeaderView = styled.header`
 	align-items: center;
-	background: url(/assets/images/hero/img7.jpg) no-repeat;
+	background: url(/assets/images/hero/hero_image.jpg) no-repeat;
 	background-attachment: fixed;
 	background-position: center right;
 	background-size: cover;
@@ -87,18 +112,18 @@ const HeaderView = styled.header`
 		height: 100%;
 		width: 100%;
 		background: linear-gradient(45deg,
-			${SECONDARY_COLOR} 0%,
-			${colorer(SECONDARY_COLOR).light(10)} 25%,
-			${colorer(SECONDARY_COLOR).light(20)} 50%,
-			${colorer(SECONDARY_COLOR).light(30)} 75%
+			${"#000"} 0%,
+			${colorer("#000").light(5)} 25%,
+			${colorer("#000").light(10)} 50%,
+			${colorer("#000").light(15)} 75%
 		);
-		opacity: .7;
+		// background-color: black;
+		opacity: .86;
 	}
 
 	@media (min-width: 768px) {
 		${ HeroText } {
-			font-size: 68px;
-			// margin-bottom: 10px;
+			font-size: 72px;
 		}
 		${ SubTitle } {
 			font-size: 20px;
