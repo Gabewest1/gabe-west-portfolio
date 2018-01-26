@@ -1,15 +1,9 @@
 import React from "react"
 import styled from "styled-components"
 
-class AnimateScrollInHOC extends React.Component {
-    constructor() {
-        super()
+import AnimateScrollIn from "../AnimateScrollIn"
 
-        this.state = {
-            scrollTop: 10000000,
-            isHidden: true
-        }
-    }
+class AnimateScrollInHOC extends AnimateScrollIn {
     render() {
         const { isHidden } = this.state
 
@@ -21,32 +15,6 @@ class AnimateScrollInHOC extends React.Component {
             </AnimateScrollInView>
         )
     }
-    componentWillMount = () => {
-        if (this.state.isHidden) {
-            window.addEventListener("scroll", this._shouldShowComponent)
-        }
-    }
-    componentWillUnMount = () => {
-        window.removeEventListener("scroll", this._shouldShowComponent)
-    }
-    _getScrollTop = (el) => {
-        for (var scrollTop = 0; el != null; scrollTop += el.offsetTop, el = el.offsetParent);
-
-        return scrollTop
-    }
-    _shouldShowComponent = (e) => {
-        const scrollTop = this._getScrollTop(this.component)
-
-        if (this.state.isHidden) {
-            if (window.scrollY + (window.innerHeight / 2) >= scrollTop) {
-                this.setState({ isHidden: false })
-            }
-        } else {
-            if (window.scrollY + (window.innerHeight / 2) <= scrollTop) {
-                this.setState({ isHidden: true })
-            }
-        }
-    }
 }
 
 const AnimateScrollInView = styled.div`
@@ -55,6 +23,6 @@ const AnimateScrollInView = styled.div`
     justify-content: center;
     flex-direction: column;
     opacity: ${({ isHidden }) => isHidden ? 0 : 1};
-    transition: opacity .7s ease-in-out;
+    transition: opacity .7s ease-in-out ${({ isHidden, shouldDelay }) => { console.log(shouldDelay && shouldDelay(isHidden)); return shouldDelay && shouldDelay(isHidden)}};
 `
 export default AnimateScrollInHOC
