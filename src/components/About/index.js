@@ -40,24 +40,23 @@ export default class About extends React.PureComponent {
                                 <MissionStatement>
                                     I'm a self-taught (proof in image) fullstack developer who specializes in frontend
                                     development. My passion is any and all things JavaScript, ranging from setting up RESTful 
-                                    API's and designing database schemas to creating web and mobile applications using 
-                                    various frameworks like Angular, React &amp; React Native. I'm excited to learn new 
+                                    API's and designing database schemas to working with frameworks like Angular, React &amp; React Native. I'm excited to learn new 
                                     technologies and you can always find me in my room working on my craft.
                                 </MissionStatement>
                             </div>
                         </Description>
                     </AnimateScrollIn>
 
-                    <AboutMeHeader>
+                    <AboutMeHeader style={{ marginTop: "100px" }}>
                         <SectionTitle secondary>The Process</SectionTitle>
                     </AboutMeHeader> 
 
                     <Skills>
-                        <JavascriptSkill>
+                        <JavascriptSkill style={{ position: "relative", top: "-10px" }}>
                             <Skill>
                                 <AnimateScrollIn>
                                     <Icon>
-                                        <img src="/assets/images/html_css_js2.png" alt="" onLoad={ this._positionBarComponent }/>
+                                        <img src="/assets/images/javascript.png" alt="" onLoad={ this._positionBarComponent }/>
                                     </Icon>
                                     <h3>Creating Amazing Experiences</h3>
                                     <p>Begins with an idea, passion and <strong>JAVASCRIPT!</strong></p>
@@ -68,97 +67,98 @@ export default class About extends React.PureComponent {
 
 
                         <OtherSkills>
-                                <Skill innerRef={ leftSkill => this.leftSkill = leftSkill}>
-                                    <AnimateScrollIn>
-                                        <Icon>
-                                            <img src="/assets/images/wireframing_icon.png" alt=""/>
-                                        </Icon>
-                                        <h3>Rapid Prototyping</h3>
-                                        <p>
-                                            Quickly generate interactive mockups for user testing and 
-                                            client feedback
-                                        </p>
-                                    </AnimateScrollIn>
-                                    <AnimateScrollInHOC component={ VerticalBar } />                                                                    
-                                </Skill>
+                            <Skill innerRef={ leftSkill => this.leftSkill = leftSkill}>
+                                <AnimateScrollIn>
+                                    <Icon>
+                                        <img src="/assets/images/wireframing_icon.png" alt="" style={{ maxWidth: "85%" }} />
+                                    </Icon>
+                                    <h3>
+                                        Rapid { window.innerWidth < 768 && <br /> } Prototyping</h3>
+                                    <p>
+                                        Quickly generate interactive mockups for user testing and 
+                                        client feedback
+                                    </p>
+                                </AnimateScrollIn>
+                                <AnimateScrollInHOC component={ VerticalBar } />                                                                    
+                            </Skill>
 
 
-                                <Skill>
-                                    <AnimateScrollIn>
-                                        <Icon>
-                                            <img src="/assets/images/node.png" alt=""/>
-                                        </Icon>
-                                        <h3>Communicating through the Web</h3>
-                                        <p>Direct the flow of data &amp; resources between client and server through RESTful API's</p>
-                                    </AnimateScrollIn>
-                                    <AnimateScrollInHOC component={ VerticalBar } />                                
-                                </Skill>
+                            <Skill>
+                                <AnimateScrollIn>
+                                    <Icon>
+                                        <img src="/assets/images/api.png" alt="" style={{ maxWidth: "100%", position: "relative", left: 2 }} />
+                                    </Icon>
+                                    <h3>Communicating through the Web</h3>
+                                    <p>Direct the flow of data between client and server through RESTful API's</p>
+                                </AnimateScrollIn>
+                                <AnimateScrollInHOC component={ VerticalBar } />                                
+                            </Skill>
 
 
-                                <Skill>
-                                    <AnimateScrollIn>
-                                        <Icon>
-                                            <img src="/assets/images/react_logo.svg" alt=""/>
-                                        </Icon>
-                                        <h3>Solidifying Designs</h3>
-                                        <p>Architect ideas into components and construct large-scale applications</p>
-                                    </AnimateScrollIn>
-                                    <AnimateScrollInHOC component={ VerticalBar } />
-                                </Skill>
+                            <Skill>
+                                <AnimateScrollIn>
+                                    <Icon>
+                                        <img src="/assets/images/react_logo.svg" alt=""/>
+                                    </Icon>
+                                    <h3>Solidifying Designs</h3>
+                                    <p>Architect ideas into components and construct large-scale applications</p>
+                                </AnimateScrollIn>
+                                <AnimateScrollInHOC component={ VerticalBar } />
+                            </Skill>
 
-                                <Skill>
-                                    <AnimateScrollIn>
-                                        <Icon>
-                                            <img src="/assets/images/database_icon.png" alt="" style={{ maxWidth: "70%" }} />
-                                        </Icon>
-                                        <h3>Handling Big Data</h3>
-                                        <p>Secure user-critical information using industry standard encryption strategies</p>
-                                    </AnimateScrollIn>
-                                    <AnimateScrollInHOC component={ VerticalBar } />
-                                </Skill>
+                            <Skill>
+                                <AnimateScrollIn>
+                                    <Icon>
+                                        <img src="/assets/images/database_icon.png" alt="" style={{ maxWidth: "70%" }} />
+                                    </Icon>
+                                    <h3>Handling Big Data</h3>
+                                    <p>Secure user-critical information using industry standard encryption strategies</p>
+                                </AnimateScrollIn>
+                                <AnimateScrollInHOC component={ VerticalBar } />
+                            </Skill>
 
-                                <Skill>
-                                    <AnimateScrollIn>
-                                        <Icon>
-                                            <img src="/assets/images/responsive_icon.png" alt=""/>
-                                        </Icon>
-                                        <h3>Always Responsive</h3>
-                                        <p>Intricate interfaces that look pixel perfect on any screen size</p>
-                                    </AnimateScrollIn>
-                                    <AnimateScrollInHOC component={ VerticalBar } />
-                                </Skill>
+                            <Skill>
+                                <AnimateScrollIn>
+                                    <Icon>
+                                        <img src="/assets/images/responsive_icon.png" alt=""/>
+                                    </Icon>
+                                    <h3>Always Responsive</h3>
+                                    <p>Intricate interfaces that look pixel perfect on any screen size</p>
+                                </AnimateScrollIn>
+                                <AnimateScrollInHOC component={ VerticalBar } />
+                            </Skill>
 
-                                <Skill innerRef={ rightSkill => this.rightSkill = rightSkill }>
-                                    <AnimateScrollIn>
-                                        <Icon>
-                                            <img src="/assets/images/credit_card_icon.png" alt=""/>
-                                        </Icon>
-                                        <h3>Secured Transactions</h3>
-                                        <p>I ensure your sales makes it safely into your pockets</p>
-                                    </AnimateScrollIn>
-                                    <AnimateScrollInHOC component={ VerticalBar } />                                
-                                </Skill>
+                            <Skill innerRef={ rightSkill => this.rightSkill = rightSkill }>
+                                <AnimateScrollIn>
+                                    <Icon>
+                                        <img src="/assets/images/credit_card_icon.png" alt=""/>
+                                    </Icon>
+                                    <h3>Secured Transactions</h3>
+                                    <p>I ensure your sales make it safely into your pockets</p>
+                                </AnimateScrollIn>
+                                <AnimateScrollInHOC component={ VerticalBar } />                                
+                            </Skill>
 
-                                <JavascriptSkill style={{ marginTop: `${ BAR_HEIGHT }px`, transform: "translateY(-10px)" }}>
-                                    <Skill>
-                                        <AnimateScrollIn>
-                                            <Icon>
-                                                <img src="/assets/images/javascript.png" alt="" onLoad={ this._positionBarComponent }/>
-                                            </Icon>
-                                            <h3>Delivering Amazing Experiences</h3>
-                                            <p>Happens because of hard-work, craftsmenship and <strong>JAVASCRIPT!</strong></p>
-                                        </AnimateScrollIn>
-                                    </Skill>
-                                </JavascriptSkill>
                         </OtherSkills>
 
-                             { console.log("AYY:", topBar, bottomBar.width, topBar.left + (topBar.width / 2) + (BAR_WIDTH / 2))}
-                        <AnimateScrollInHOC style={{ ...topBar, position: "absolute" }} component={ BarConnectingSkills } />
+                        <JavascriptSkill style={{ marginTop: `${ BAR_HEIGHT }px`, transform: "translateY(10px)" }}>
+                            <Skill>
+                                <AnimateScrollIn>
+                                    <Icon>
+                                        <img src="/assets/images/node.png" alt="" onLoad={ this._positionBarComponent } style={{ maxWidth: "70%" }}/>
+                                    </Icon>
+                                    <h3>Delivering Amazing Experiences</h3>
+                                    <p>Happens because of hard-work, craftsmenship and <strong>JAVASCRIPT!</strong></p>
+                                </AnimateScrollIn>
+                            </Skill>
+                        </JavascriptSkill>
+
+                        <AnimateScrollInHOC shouldDelay={ (isHidden) => isHidden ? ".7s" : "" } style={{ ...topBar, position: "absolute" }} component={ BarConnectingSkills } />
                         <AnimateScrollInHOC style={{ top: topBar.top + BAR_WIDTH, left: topBar.left, position: "absolute" }} component={ VerticalBar2 } />
                         <AnimateScrollInHOC style={{ top: topBar.top, left: topBar.left + topBar.width - BAR_WIDTH, position: "absolute" }} component={ VerticalBar2 } />
 
-                        <AnimateScrollInHOC style={{ ...bottomBar, position: "absolute" }} component={ BarConnectingSkills } />
-                        <AnimateScrollInHOC style={{ top: bottomBar.top, left: topBar.left + (topBar.width / 2) + (BAR_WIDTH / 2), position: "absolute" }} component={ VerticalBar2 } />
+                        <AnimateScrollInHOC shouldDelay={ (isHidden) => isHidden ? ".7s" : "" } style={{ ...bottomBar, position: "absolute" }} component={ BarConnectingSkills } />
+                        <AnimateScrollInHOC style={{ top: bottomBar.top, left: topBar.left + (topBar.width / 2), position: "absolute" }} component={ VerticalBar2 } />
 
                         <span style={{
                             backgroundColor: PRIMARY_COLOR,
@@ -208,7 +208,7 @@ export default class About extends React.PureComponent {
         const rightSkill = this._getElementsPosition(this.rightSkill)
         
         const topBar_top = leftSkill.top - BAR_HEIGHT - Math.ceil(BAR_WIDTH / 2)
-        const bottomBar_top = rightSkill.top + rightSkill.height + BAR_HEIGHT + (BAR_WIDTH / 2)
+        const bottomBar_top = rightSkill.top + rightSkill.height + BAR_HEIGHT + (BAR_WIDTH / 2) + 10
         const left = leftSkill.left
         const right = rightSkill.left + BAR_WIDTH
         const topBar_width = (right - left)
@@ -239,7 +239,7 @@ const VerticalBar = styled.div`
     border: solid ${ BAR_WIDTH / 2 }px ${ SECONDARY_COLOR };
     ${({ top }) => top ? "top: 0; transform-origin: top;" : "bottom: 0; transform-origin: bottom;"}
     height: ${({ isHidden }) => isHidden ? 0 : BAR_HEIGHT }px;
-    transform: translateY(${({ top }) => top ? -100 : 100}%);
+    transform: translateY(${({ top }) => top ? -110 : 110}%);
     transition: height .7s linear;
 `
 
@@ -250,7 +250,7 @@ const VerticalBar2 = styled.div`
     // ${({ top }) => top ? "top: 0; transform-origin: top;" : "bottom: 0; transform-origin: bottom;"}
     height: ${({ isHidden }) => isHidden ? 0 : BAR_HEIGHT }px;
     // transform: translateY(${({ top }) => top ? -100 : 100}%);
-    transition: height .7s linear;
+    transition: height .7s linear ${({ isHidden }) => !isHidden ? ".7s" : ""};
 `
 const BarConnectingSkills = styled.div`
     background-color: ${ SECONDARY_COLOR };
@@ -258,7 +258,7 @@ const BarConnectingSkills = styled.div`
     width: ${({ isHidden }) => isHidden ? "0%" : "100%"} !important;
     top: 0 !important;
     left: 0 !important;
-    transition: width .7s linear;
+    transition: width .7s linear ${({ isHidden }) => isHidden ? ".7s" : ""};
 `
 const Icon = styled.div`
     background-color: ${ SECONDARY_COLOR };
@@ -316,8 +316,10 @@ const Skill = styled.li`
     }
 
     p {
-        color: ${ colorer(SECONDARY_COLOR).light(-10)};
+        color: ${ colorer(SECONDARY_COLOR).light(20)};
         margin: 0;
+        max-width: 268px;
+        line-height: 18px;
     }
 `
 const Description = styled.div`
@@ -459,6 +461,7 @@ const TintedBackground = styled.div`
 `
 const MissionStatement = styled.p`
     line-height: 24px;
+    text-align: center;
 
     pre {
         font-family: inherit;
