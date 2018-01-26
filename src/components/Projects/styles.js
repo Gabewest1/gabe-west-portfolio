@@ -28,12 +28,11 @@ export const ProjectsView = styled.div`
     justify-content: center;
     flex-wrap: wrap;
     position: relative;
-    max-width: 1048px;
     margin: 0 auto;
     padding-top: 40px;
 
     > * {
-        margin: 1em;
+        margin: 1em 48px;
     }
 
     > *:last {
