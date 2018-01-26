@@ -104,6 +104,7 @@ const HeaderView = styled.header`
 	flex-direction: column;
 	justify-content: center;
 	height: 100vh;
+	max-height: 1024px;
 	position: relative;
 
 	&:before {
