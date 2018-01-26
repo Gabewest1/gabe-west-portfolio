@@ -84,7 +84,6 @@ export const CardView = styled.article`
     height: 300px;
     margin-bottom: 95px;
 
-
     i {
         width: auto !important;
     }
@@ -94,12 +93,12 @@ export const CardView = styled.article`
         background-color: ${({ color }) => color };
         box-sizing: border-box;
         position: absolute;
-        top: calc(100% - 76px);
+        top: calc(100% - 70px);
         left: 0;
         width: 100%;
         padding: 10px 16px;
         font-size: 18px;
-        line-height: 1.6em;
+        line-height: 1.4em;
         margin: 0;
         z-index: 10;
         white-space: nowrap;
@@ -111,7 +110,7 @@ export const CardView = styled.article`
         strong {
             font-weight: 400;
             display: block;
-            font-size: .8em;
+            font-size: 14px;
         }
         &:before,
         &:after {
@@ -134,30 +133,6 @@ export const CardView = styled.article`
             bottom: 0;
             border-right-color: ${({ color }) => color};
             border-bottom-color: ${({ color }) => color};
-        }
-    }
-    &.mc-active {
-        @media screen and (max-width: 767px) {
-            padding-bottom: 0;
-        }
-        h2 {
-            top: 0;
-            padding-left: 61px;
-
-            &:before {
-                top: 0;
-                border-top-color: transparent;
-                border-left-color: transparent;
-                border-right-color: ${({ color }) => color};
-                border-bottom-color: ${({ color }) => color};
-            }
-            &:after {
-                bottom: -16px;
-                border-bottom-color: transparent;
-                border-left-color: transparent;
-                border-right-color: ${({ color }) => colorer(color).light(-30)};
-                border-top-color: ${({ color }) => colorer(color).light(-30)};
-            }
         }
     }
     .mc-content {
@@ -188,9 +163,6 @@ export const CardView = styled.article`
         z-index: 20;
         ${ getTransition() };
     }
-    &.mc-active .mc-btn-action {
-        top: 53px;
-    }
     .mc-description {
         position: absolute;
         height: 0%;
@@ -210,7 +182,6 @@ export const CardView = styled.article`
         opacity: 0;
         overflow: hidden;
         background-color: ${({ color }) => color};
-        ${ getTransition() };
 
         h4 {
             color: ${({ color }) => color};
@@ -273,20 +244,45 @@ export const CardView = styled.article`
         }
     }
     &.mc-active {
+        @media screen and (max-width: 767px) {
+            padding-bottom: 0;
+        }
+        h2 {
+            top: 0;
+            padding-left: 59px;
 
+            &:before {
+                top: 0;
+                border-top-color: transparent;
+                border-left-color: transparent;
+                border-right-color: ${({ color }) => color};
+                border-bottom-color: ${({ color }) => color};
+            }
+            &:after {
+                bottom: -16px;
+                border-bottom-color: transparent;
+                border-left-color: transparent;
+                border-right-color: ${({ color }) => colorer(color).light(-30)};
+                border-top-color: ${({ color }) => colorer(color).light(-30)};
+            }
+        }
+        .mc-btn-action {
+            top: 53px;
+        }
         .img-container {
             display: flex;
             -webkit-border-radius: 50%;
             -moz-border-radius: 50%;
             border-radius: 50%;
-            left: -6px;
-            top: 14px;
+            left: -8px;
+            top: 12px;
             width: 45px;
             height: 45px;
             z-index: 20;
         }
         .mc-content {
             height: 100%;
+            transition: none;
 
             @media screen and (max-width: 767px) {
                 position: relative;
@@ -306,6 +302,7 @@ export const CardView = styled.article`
             top: calc(100% - 46px);
             left: 16px;
             right: 0;
+            transition: none;
 
             a {
                 top: 0;
