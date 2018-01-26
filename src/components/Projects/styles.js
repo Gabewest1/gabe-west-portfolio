@@ -167,9 +167,8 @@ export const CardView = styled.article`
         position: absolute;
         height: 0%;
         top: 100%;
-        right: 15px;
+        right: 0px;
         left: 8px;
-        overflow: hidden;
         bottom: 54px;
         overflow: hidden;
         opacity: 0;
@@ -205,22 +204,6 @@ export const CardView = styled.article`
 
             &:hover {
                 text-decoration: underline;
-            }
-
-            &:nth-child(1) {
-                ${ getTransition(.5) }
-            }
-            &:nth-child(2) {
-                ${ getTransition(.6) }
-            }
-            &:nth-child(3) {
-                ${ getTransition(.7) }
-            }
-            &:nth-child(4) {
-                ${ getTransition(.8) }
-            }
-            &:nth-child(5) {
-                ${ getTransition(.9) }
             }
         }
     }
@@ -290,7 +273,7 @@ export const CardView = styled.article`
             }
         }
         .mc-description {
-            top: 100px;
+            top: 105px;
             height: 100%;
             opacity: 1;
         }
