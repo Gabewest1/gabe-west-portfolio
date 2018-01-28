@@ -31,7 +31,7 @@ export default class About extends React.PureComponent {
                     <AnimateScrollIn>
                         <Description>
                             <div style={{ width: "80%", margin: "0 auto", textAlign: "center" }}>
-                                <AboutMeImg src="/assets/images/self_taught.jpg" />
+                                <AboutMeImg src="/assets/images/self_taught.png" />
                             </div>
                             <div>
                                 <h1 style={{ fontFamily: "raleway-bold", fontSize: 24, textAlign: "center" }}>
@@ -47,7 +47,7 @@ export default class About extends React.PureComponent {
                         </Description>
                     </AnimateScrollIn>
 
-                    <AboutMeHeader style={{ marginTop: "60px", marginBottom: "30px" }}>
+                    <AboutMeHeader style={{ marginTop: "60px", marginBottom: "60px" }}>
                         <SectionTitle secondary>The Process</SectionTitle>
                     </AboutMeHeader> 
 
