@@ -12,5 +12,5 @@ input, textarea {
 
 @font-face {
   font-family: 'Raleway-bold';
-  src: url("http://findmatthew.com/style/../fonts/Raleway-Bold.ttf"); 
+  src: url("/assets/fonts/Raleway-Bold"); 
 }
