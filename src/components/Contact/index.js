@@ -44,7 +44,7 @@ export default class Contact extends React.Component {
                     <AnimateScrollIn>
                         <p>
                             If you're looking for someone who loves what they do &amp; lays awake at night thinking about 
-                            what they're gonna build tomorrow then reach out to me and lets create something awesome!
+                            what they're gonna build tomorrow, then reach out to me and lets create something awesome!
                         </p>
                     </AnimateScrollIn>
 
