@@ -17,7 +17,7 @@ function sendEmail(name, email, message) {
         from: email, 
         to: 'gabewest16@gmail.com',
         subject: 'INTERESTED CLIENT/EMPLOYEER',
-        text: message,
+        text: `Message from <b>${email}: ${message}`,
     }
 
     transporter.sendMail(mailOptions, (error, info) => {
