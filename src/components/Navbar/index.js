@@ -48,7 +48,6 @@ class Navbar extends Component {
 		return true		
 	}
 	_collapseNavbarHandler = () => {
-		console.log("DOCUMENT_SCROLL_TOP VS WINDOW", DOCUMENT_SCROLL_TOP, window.innerHeight/2)
 		if (DOCUMENT_SCROLL_TOP > (window.innerHeight / 2)) {
 			this.setState({ isSetToCollapse: true })
 			this._collapseNavbar()
@@ -59,11 +58,8 @@ class Navbar extends Component {
 
 		this.setState({ shouldCancelCollapse: false })
 		
-		console.log("STARTING THE TIMER")
-
 		NAVBAR_TIMER = setTimeout(() => {
 			const { shouldCancelCollapse } = this.state
-			console.log("TIMER WENT OFF. shouldCancelCollapse:", shouldCancelCollapse)
 			
 			if (shouldCancelCollapse) {
 				this.setState({ shouldCancelCollapse: false })

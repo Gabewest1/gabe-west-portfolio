@@ -23,6 +23,6 @@ const AnimateScrollInView = styled.div`
     justify-content: center;
     flex-direction: column;
     opacity: ${({ isHidden }) => isHidden ? 0 : 1};
-    transition: opacity .7s ease-in-out ${({ isHidden, shouldDelay }) => { console.log(shouldDelay && shouldDelay(isHidden)); return shouldDelay && shouldDelay(isHidden)}};
+    transition: opacity .7s ease-in-out ${({ isHidden, shouldDelay }) => shouldDelay && shouldDelay(isHidden)};
 `
 export default AnimateScrollInHOC

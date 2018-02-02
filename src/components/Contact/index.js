@@ -154,7 +154,7 @@ export default class Contact extends React.Component {
         } else {
             this.setState({ loading: true, errors: {} })
 
-            fetch("/contact", {
+            fetch("https://cors-anywhere.herokuapp.com/gabe-west-portfolio.herokuapp.com/contact", {
                 method: "POST", 
                 body: JSON.stringify(data),
                 headers: { "Content-Type": "application/json" },
