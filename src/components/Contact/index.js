@@ -119,7 +119,11 @@ export default class Contact extends React.Component {
     }
     _renderSubmittedForm = () => {
         return (
-            <h1>Thank you for your message! I will get back with you shortly!</h1>
+            <ThankYouMessage style={{ textAlign: "center" }}>
+                Thank you for your message! 
+                <br />
+                I will get back with you shortly!
+            </ThankYouMessage>
         )
     }
     _handleSubmit = (e) => {
@@ -197,6 +201,12 @@ const INPUT_STYLES = `
 `
 const FORM_BACKGROUND_COLOR = colorer(SECONDARY_COLOR).light(-20)
 
+
+const ThankYouMessage = styled.h1`
+    @media (max-width: 767px) {
+        font-size: 24px;
+    }
+`
 const Container = styled.div`
     background: ${ PRIMARY_COLOR };
     color: ${ SECONDARY_COLOR };
