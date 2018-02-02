@@ -14,14 +14,14 @@ export default class Contact extends React.Component {
         
         this.state = {
             loading: false,
+            submitted: false,
             errors: {}
         }
 
         this.inputs = {}
     }
     render() {
-        const inputs = [{ name: "Name", type: "input" }, { name: "Email", type: "email" }, { name: "Message", type: "textArea" }]
-        const InputComponents = inputs.map(this._renderInput)
+        const { submitted } = this.state
 
         return (
             <Container id="contact">
@@ -36,7 +36,7 @@ export default class Contact extends React.Component {
                 <FormWrapper>
                     <AnimateScrollIn>
                         <p>
-                            I'm looking to start a career with a company that will provide
+                            I'm looking to work with an amazing company that will provide
                             new challenges, talented people to collaborate with, and the ability 
                             to grow as a developer.
                         </p>
@@ -56,12 +56,11 @@ export default class Contact extends React.Component {
                                 </div>
                             </Footer>
 
-                            { InputComponents }
-
-                            <SubmitButton onClick={ this._handleSubmit }>
-                                <SubmitIcon />
-                            </SubmitButton>
-
+                            { submitted 
+                                ? this._renderSubmittedForm() 
+                                : this._renderUnsubmittedForm() 
+                            }
+                            
                             <Footer>
                                 <div>
                                     <Text>
@@ -104,6 +103,25 @@ export default class Contact extends React.Component {
             </Field>
         )
     }
+    _renderUnsubmittedForm = () => {
+        const inputs = [{ name: "Name", type: "input" }, { name: "Email", type: "email" }, { name: "Message", type: "textArea" }]
+        const InputComponents = inputs.map(this._renderInput)
+
+        return (
+            <div>
+                { InputComponents }
+
+                <SubmitButton onClick={ this._handleSubmit }>
+                    <SubmitIcon />
+                </SubmitButton>
+            </div>
+        )
+    }
+    _renderSubmittedForm = () => {
+        return (
+            <h1>Thank you for your message! I will get back with you shortly!</h1>
+        )
+    }
     _handleSubmit = (e) => {
         e.preventDefault()
         
@@ -140,7 +158,12 @@ export default class Contact extends React.Component {
                 cache: "default"
             }).then(res => {
                 console.log("Request complete! response:", res)
-                this.setState({ loading: false })
+
+                this.setState({ loading: false })                
+
+                if (res.ok) {
+                    this.setState({ submitted: true })
+                }
             }).catch(err => {
                 console.log("Error submitting form:", err)
                 this.setState({ errors: { submit: "An error occured when trying to process your Email :(" }})
@@ -278,6 +301,7 @@ const FormWrapper = styled.div`
     width: 90%;    
 `
 const Footer = styled.div`
+    width: 100%;
     ${({ bottom }) => bottom ? "margin-bottom: 30px;" : "margin-top: 30px;"}
 
     ${Text} {
