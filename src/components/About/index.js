@@ -221,7 +221,7 @@ export default class About extends React.PureComponent {
 }
 
 const BAR_WIDTH = 5
-const BAR_HEIGHT = 120
+const BAR_HEIGHT = 127
 const BAR_OFFSET = 40
 
 const FrontendText = styled.span`
