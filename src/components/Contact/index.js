@@ -14,14 +14,14 @@ export default class Contact extends React.Component {
         
         this.state = {
             loading: false,
+            submitted: false,
             errors: {}
         }
 
         this.inputs = {}
     }
     render() {
-        const inputs = [{ name: "Name", type: "input" }, { name: "Email", type: "email" }, { name: "Message", type: "textArea" }]
-        const InputComponents = inputs.map(this._renderInput)
+        const { submitted } = this.state
 
         return (
             <Container id="contact">
@@ -36,7 +36,7 @@ export default class Contact extends React.Component {
                 <FormWrapper>
                     <AnimateScrollIn>
                         <p>
-                            I'm looking to start a career with a company that will provide
+                            I'm looking to work with an amazing company that will provide
                             new challenges, talented people to collaborate with, and the ability 
                             to grow as a developer.
                         </p>
@@ -44,7 +44,7 @@ export default class Contact extends React.Component {
                     <AnimateScrollIn>
                         <p>
                             If you're looking for someone who loves what they do &amp; lays awake at night thinking about 
-                            what they're gonna build tomorrow then reach out to me and lets create something awesome!
+                            what they're gonna build tomorrow, then reach out to me and lets create something awesome!
                         </p>
                     </AnimateScrollIn>
 
@@ -56,12 +56,11 @@ export default class Contact extends React.Component {
                                 </div>
                             </Footer>
 
-                            { InputComponents }
-
-                            <SubmitButton onClick={ this._handleSubmit }>
-                                <SubmitIcon />
-                            </SubmitButton>
-
+                            { submitted 
+                                ? this._renderSubmittedForm() 
+                                : this._renderUnsubmittedForm() 
+                            }
+                            
                             <Footer>
                                 <div>
                                     <Text>
@@ -104,6 +103,29 @@ export default class Contact extends React.Component {
             </Field>
         )
     }
+    _renderUnsubmittedForm = () => {
+        const inputs = [{ name: "Name", type: "input" }, { name: "Email", type: "email" }, { name: "Message", type: "textArea" }]
+        const InputComponents = inputs.map(this._renderInput)
+
+        return (
+            <div>
+                { InputComponents }
+
+                <SubmitButton onClick={ this._handleSubmit }>
+                    <SubmitIcon />
+                </SubmitButton>
+            </div>
+        )
+    }
+    _renderSubmittedForm = () => {
+        return (
+            <ThankYouMessage style={{ textAlign: "center" }}>
+                Thank you for your message! 
+                <br />
+                I will get back with you shortly!
+            </ThankYouMessage>
+        )
+    }
     _handleSubmit = (e) => {
         e.preventDefault()
         
@@ -132,7 +154,7 @@ export default class Contact extends React.Component {
         } else {
             this.setState({ loading: true, errors: {} })
 
-            fetch("/contact", {
+            fetch("https://cors-anywhere.herokuapp.com/gabe-west-portfolio.herokuapp.com/contact", {
                 method: "POST", 
                 body: JSON.stringify(data),
                 headers: { "Content-Type": "application/json" },
@@ -140,7 +162,12 @@ export default class Contact extends React.Component {
                 cache: "default"
             }).then(res => {
                 console.log("Request complete! response:", res)
-                this.setState({ loading: false })
+
+                this.setState({ loading: false })                
+
+                if (res.ok) {
+                    this.setState({ submitted: true })
+                }
             }).catch(err => {
                 console.log("Error submitting form:", err)
                 this.setState({ errors: { submit: "An error occured when trying to process your Email :(" }})
@@ -174,6 +201,12 @@ const INPUT_STYLES = `
 `
 const FORM_BACKGROUND_COLOR = colorer(SECONDARY_COLOR).light(-20)
 
+
+const ThankYouMessage = styled.h1`
+    @media (max-width: 767px) {
+        font-size: 24px;
+    }
+`
 const Container = styled.div`
     background: ${ PRIMARY_COLOR };
     color: ${ SECONDARY_COLOR };
@@ -278,6 +311,7 @@ const FormWrapper = styled.div`
     width: 90%;    
 `
 const Footer = styled.div`
+    width: 100%;
     ${({ bottom }) => bottom ? "margin-bottom: 30px;" : "margin-top: 30px;"}
 
     ${Text} {

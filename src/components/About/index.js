@@ -31,7 +31,7 @@ export default class About extends React.PureComponent {
                     <AnimateScrollIn>
                         <Description>
                             <div style={{ width: "80%", margin: "0 auto", textAlign: "center" }}>
-                                <AboutMeImg src="/assets/images/self_taught.jpg" />
+                                <AboutMeImg src="/assets/images/self_taught.png" />
                             </div>
                             <div>
                                 <h1 style={{ fontFamily: "raleway-bold", fontSize: 24, textAlign: "center" }}>
@@ -47,7 +47,7 @@ export default class About extends React.PureComponent {
                         </Description>
                     </AnimateScrollIn>
 
-                    <AboutMeHeader style={{ marginTop: "100px" }}>
+                    <AboutMeHeader style={{ marginTop: "60px", marginBottom: "60px" }}>
                         <SectionTitle secondary>The Process</SectionTitle>
                     </AboutMeHeader> 
 
@@ -73,7 +73,7 @@ export default class About extends React.PureComponent {
                                         <img src="/assets/images/wireframing_icon.png" alt="" style={{ maxWidth: "85%" }} />
                                     </Icon>
                                     <h3>
-                                        Rapid { window.innerWidth < 768 && <br /> } Prototyping</h3>
+                                        Rapid { window.innerWidth < 564 && <br /> } Prototyping</h3>
                                     <p>
                                         Quickly generate interactive mockups for user testing and 
                                         client feedback
@@ -142,7 +142,7 @@ export default class About extends React.PureComponent {
                         </OtherSkills>
 
                         <JavascriptSkill style={{ marginTop: `${ BAR_HEIGHT }px`, transform: "translateY(10px)" }}>
-                            <Skill>
+                            <Skill style={{ marginBottom: "80px" }}>
                                 <AnimateScrollIn>
                                     <Icon>
                                         <img src="/assets/images/node.png" alt="" onLoad={ this._positionBarComponent } style={{ maxWidth: "70%" }}/>
@@ -153,31 +153,23 @@ export default class About extends React.PureComponent {
                             </Skill>
                         </JavascriptSkill>
 
-                        <AnimateScrollInHOC 
-                            shouldDelay={ (isHidden) => isHidden ? ".7s" : "" }
-                            style={{ ...topBar, position: "absolute" }} 
-                            component={ BarConnectingSkills } 
-                        />
-                        <AnimateScrollInHOC 
-                            style={{ top: topBar.top + BAR_WIDTH, left: topBar.left, position: "absolute" }} 
-                            component={ VerticalBar2 } 
-                        />
-                        <AnimateScrollInHOC 
-                            style={{ top: topBar.top + BAR_WIDTH, left: topBar.left + topBar.width - BAR_WIDTH, position: "absolute" }} 
-                            component={ VerticalBar2 } 
-                        />
+                        <AnimateScrollInHOC shouldDelay={ (isHidden) => isHidden ? ".7s" : "" } style={{ ...topBar, position: "absolute" }} component={ BarConnectingSkills } />
+                        <AnimateScrollInHOC style={{ top: topBar.top + BAR_WIDTH, left: topBar.left, position: "absolute" }} component={ VerticalBar2 } />
+                        <AnimateScrollInHOC style={{ top: topBar.top + BAR_WIDTH, left: topBar.left + topBar.width - BAR_WIDTH, position: "absolute" }} component={ VerticalBar2 } />
 
-                        <AnimateScrollInHOC 
-                            shouldDelay={ (isHidden) => isHidden ? ".7s" : "" } 
-                            style={{ ...bottomBar, position: "absolute" }} 
-                            component={ BarConnectingSkills } 
-                        />
-                        <AnimateScrollInHOC
-                            style={{ top: bottomBar.top, left: topBar.left + (topBar.width / 2), position: "absolute" }} 
-                            component={ VerticalBar2 } 
-                        />
+                        <AnimateScrollInHOC shouldDelay={ (isHidden) => isHidden ? ".7s" : "" } style={{ ...bottomBar, position: "absolute" }} component={ BarConnectingSkills } />
+                        <AnimateScrollInHOC style={{ top: bottomBar.top, left: topBar.left + (topBar.width / 2), position: "absolute" }} component={ VerticalBar2 } />
 
-                        <FrontendText top={ topBar.top } left={ topBar.left } transform="translateY(-100%)">
+                        <FrontendText style={{
+                            backgroundColor: PRIMARY_COLOR,
+                            position: "absolute",
+                            top: topBar.top,
+                            left: topBar.left,
+                            transform: "translateY(-100%)",
+                            fontFamily: "raleway-bold",
+                            fontSize: "12px",
+                            zIndex: 1
+                        }}>
                             <AnimateScrollIn>
                                 FRONTEND
                             </AnimateScrollIn>
@@ -296,7 +288,7 @@ const JavascriptSkill = styled.div`
     width: 100%;
 
     ${Skill} {
-        min-width: 300px;
+        min-width: 250px;
     }
 
     ${Icon} {

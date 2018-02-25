@@ -73,6 +73,7 @@ const HeroText = styled.h1`
 	margin: 0;
 	text-align: center;
 	z-index: 1;
+	font-size: 48px;
 `
 const SubTitle = styled.p`
 	color: #efefef;
@@ -103,6 +104,7 @@ const HeaderView = styled.header`
 	flex-direction: column;
 	justify-content: center;
 	height: 100vh;
+	max-height: 1024px;
 	position: relative;
 
 	&:before {

@@ -35,16 +35,12 @@ class AnimateScrollIn extends React.Component {
     _shouldShowComponent = (e) => {
         const scrollTop = this._getScrollTop(this.component)
 
-        if (this.state.isHidden) {
-            if (window.scrollY + (window.innerHeight / 2) >= scrollTop) {
-                this.setState({ isHidden: false })
-            } else if (window.scrollY + window.innerHeight === document.body.scrollHeight) {
-                this.setState({ isHidden: false })                
-            }
-        } else {
-            if (window.scrollY + (window.innerHeight / 2) <= scrollTop) {
-                this.setState({ isHidden: true })
-            }
+        if (window.scrollY + (window.innerHeight / 2) >= scrollTop) {
+            this.setState({ isHidden: false })
+        } else if (window.scrollY + window.innerHeight >= document.body.scrollHeight) {
+            this.setState({ isHidden: false })                
+        } else if (window.scrollY + (window.innerHeight / 2) <= scrollTop) {                
+            this.setState({ isHidden: true })
         }
     }
 }

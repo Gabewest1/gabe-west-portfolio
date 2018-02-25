@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3001
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
-app.use(express.static(path.resolve(__dirname, "..", "public")))
+app.use(express.static(path.resolve(__dirname, "..", "build")))
 
 app.post("/contact", (req, res) => {
     console.log(req.body)
@@ -21,7 +21,7 @@ app.post("/contact", (req, res) => {
 })
 
 app.get("/", (req, res) => {
-    const html = path.resolve(__dirname, "..", "public", "index.html")
+    const html = path.resolve(__dirname, "..", "build", "index.html")
     res.sendFile(html)
 })
 
