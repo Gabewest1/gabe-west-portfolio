@@ -153,41 +153,40 @@ export default class About extends React.PureComponent {
                             </Skill>
                         </JavascriptSkill>
 
-                        <AnimateScrollInHOC shouldDelay={ (isHidden) => isHidden ? ".7s" : "" } style={{ ...topBar, position: "absolute" }} component={ BarConnectingSkills } />
-                        <AnimateScrollInHOC style={{ top: topBar.top + BAR_WIDTH, left: topBar.left, position: "absolute" }} component={ VerticalBar2 } />
-                        <AnimateScrollInHOC style={{ top: topBar.top, left: topBar.left + topBar.width - BAR_WIDTH, position: "absolute" }} component={ VerticalBar2 } />
+                        <AnimateScrollInHOC 
+                            shouldDelay={ (isHidden) => isHidden ? ".7s" : "" }
+                            style={{ ...topBar, position: "absolute" }} 
+                            component={ BarConnectingSkills } 
+                        />
+                        <AnimateScrollInHOC 
+                            style={{ top: topBar.top + BAR_WIDTH, left: topBar.left, position: "absolute" }} 
+                            component={ VerticalBar2 } 
+                        />
+                        <AnimateScrollInHOC 
+                            style={{ top: topBar.top + BAR_WIDTH, left: topBar.left + topBar.width - BAR_WIDTH, position: "absolute" }} 
+                            component={ VerticalBar2 } 
+                        />
 
-                        <AnimateScrollInHOC shouldDelay={ (isHidden) => isHidden ? ".7s" : "" } style={{ ...bottomBar, position: "absolute" }} component={ BarConnectingSkills } />
-                        <AnimateScrollInHOC style={{ top: bottomBar.top, left: topBar.left + (topBar.width / 2), position: "absolute" }} component={ VerticalBar2 } />
+                        <AnimateScrollInHOC 
+                            shouldDelay={ (isHidden) => isHidden ? ".7s" : "" } 
+                            style={{ ...bottomBar, position: "absolute" }} 
+                            component={ BarConnectingSkills } 
+                        />
+                        <AnimateScrollInHOC
+                            style={{ top: bottomBar.top, left: topBar.left + (topBar.width / 2), position: "absolute" }} 
+                            component={ VerticalBar2 } 
+                        />
 
-                        <span style={{
-                            backgroundColor: PRIMARY_COLOR,
-                            position: "absolute",
-                            top: topBar.top,
-                            left: topBar.left,
-                            transform: "translateY(-100%)",
-                            fontFamily: "raleway-bold",
-                            fontSize: "12px",
-                            zIndex: 1
-                        }}>
+                        <FrontendText top={ topBar.top } left={ topBar.left } transform="translateY(-100%)">
                             <AnimateScrollIn>
                                 FRONTEND
                             </AnimateScrollIn>
-                        </span>
-                        <span style={{
-                            backgroundColor: PRIMARY_COLOR,
-                            position: "absolute",
-                            top: topBar.top,
-                            left: parseInt(topBar.left) + parseInt(topBar.width) + 1 + "px",
-                            transform: "translate(-100%, -100%)",
-                            fontFamily: "raleway-bold",
-                            fontSize: "12px",
-                            zIndex: 1
-                        }}>
+                        </FrontendText>
+                        <BackendText top={ topBar.top } left={ topBar.left + topBar.width } transform="translate(-100%, -100%)">
                             <AnimateScrollIn>
                                 BACKEND
                             </AnimateScrollIn>
-                        </span>
+                        </BackendText>
                     </Skills>
 
                 </Main>                                                                                                                                                                                     
@@ -233,6 +232,17 @@ const BAR_WIDTH = 5
 const BAR_HEIGHT = 120
 const BAR_OFFSET = 40
 
+const FrontendText = styled.span`
+    backgroundColor: ${ PRIMARY_COLOR };
+    position: absolute;
+    top: ${({ top }) => top}px;
+    left: ${({ left }) => left}px;
+    transform: ${({ transform }) => transform};
+    font-family: raleway-bold;
+    font-size: 12px;
+    z-index: 1;
+`
+const BackendText = FrontendText
 const VerticalBar = styled.div`
     position: absolute;
     left: 50%;
