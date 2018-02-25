@@ -224,6 +224,7 @@ export const CardView = styled.article`
         
         .img-responsive {
             max-height: 100%;
+            height: 100%;
         }
     }
     &.mc-active {

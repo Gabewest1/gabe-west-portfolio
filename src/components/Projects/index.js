@@ -59,7 +59,6 @@ class Card extends React.PureComponent {
                     <h2>
                         <span>{ title }</span>
                         <strong>
-                            {/* <i class="fa fa-fw fa-star"></i> */}
                             { subTitle }
                         </strong>
                     </h2>
