@@ -238,7 +238,8 @@ const BackendText = FrontendText
 const VerticalBar = styled.div`
     position: absolute;
     left: 50%;
-    border: solid ${ BAR_WIDTH / 2 }px ${ SECONDARY_COLOR };
+    width: ${ BAR_WIDTH }px;
+    background-color: ${ SECONDARY_COLOR };
     ${({ top }) => top ? "top: 0; transform-origin: top;" : "bottom: 0; transform-origin: bottom;"}
     height: ${({ isHidden }) => isHidden ? 0 : BAR_HEIGHT }px;
     transform: translateY(${({ top }) => top ? -110 : 110}%);
@@ -248,10 +249,9 @@ const VerticalBar = styled.div`
 //This bar is used to connect the horizontal bar to the icons
 const VerticalBar2 = styled.div`
     position: static !important;
-    border: solid ${ BAR_WIDTH / 2 }px ${ SECONDARY_COLOR };
-    // ${({ top }) => top ? "top: 0; transform-origin: top;" : "bottom: 0; transform-origin: bottom;"}
+    width: ${ BAR_WIDTH }px;
+    background-color: ${ SECONDARY_COLOR };
     height: ${({ isHidden }) => isHidden ? 0 : BAR_HEIGHT }px;
-    // transform: translateY(${({ top }) => top ? -100 : 100}%);
     transition: height .7s linear ${({ isHidden }) => !isHidden ? ".7s" : ""};
 `
 const BarConnectingSkills = styled.div`
