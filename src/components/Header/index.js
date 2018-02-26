@@ -11,32 +11,56 @@ class Header extends Component {
 	render() {
 	  	return (
 			<HeaderView id="header">
+				<TintedBackground color={`
+					linear-gradient(45deg,
+						${"#000"} 0%,
+						${colorer("#000").light(5)} 25%,
+						${colorer("#000").light(10)} 50%,
+						${colorer("#000").light(15)} 75%
+					)`}
 
-				<HeaderContent>
-					
-					<Logo>
-						<img src="/assets/images/header_logo.png" alt="logo" />
-					</Logo>
+					opacity=".86"
+				>
+					<HeaderContent>
+						
+						<Logo>
+							<img src="/assets/images/header_logo.png" alt="logo" />
+						</Logo>
 
-					<HeroText>Gabe West</HeroText>
-					
-					<SubTitle>
-						<Descriptors>
-							FRONTEND<span style={{ margin: "0 7px" }}>•</span>
-							BACKEND<span style={{ margin: "0 7px" }}>•</span>
-							MOBILE
-						</Descriptors>
-						<Developer>JavaScript Developer</Developer>
-					</SubTitle>
+						<HeroText>Gabe West</HeroText>
+						
+						<SubTitle>
+							<Descriptors>
+								FRONTEND<span style={{ margin: "0 7px" }}>•</span>
+								BACKEND<span style={{ margin: "0 7px" }}>•</span>
+								MOBILE
+							</Descriptors>
+							<Developer>JavaScript Developer</Developer>
+						</SubTitle>
 
-				</HeaderContent>
-
+					</HeaderContent>
+				</TintedBackground>
 			</HeaderView>
 	  	)
 	}
 }
 
+const BackgroundStyles = `
+	height: 100vh;
+	max-height: 1024px;
+	width: 100vw;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	position: relative;
+`
 
+const TintedBackground = styled.div`
+	${ BackgroundStyles }
+	background: ${({ color }) => color};
+	opacity: ${({ opacity }) => opacity};
+`
 const Logo = styled.div`
 	width: 200px;
 	display: flex;
@@ -95,33 +119,11 @@ const HeaderContent = styled.div`
 	z-index: 1;
 `
 const HeaderView = styled.header`
-	align-items: center;
+	${ BackgroundStyles };
 	background: url(/assets/images/hero/hero_image.jpg) no-repeat;
 	background-attachment: fixed;
 	background-position: center right;
 	background-size: cover;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	height: 100vh;
-	max-height: 1024px;
-	position: relative;
-
-	&:before {
-		content: "";
-		display: block;
-		position: absolute;
-		height: 100%;
-		width: 100%;
-		background: linear-gradient(45deg,
-			${"#000"} 0%,
-			${colorer("#000").light(5)} 25%,
-			${colorer("#000").light(10)} 50%,
-			${colorer("#000").light(15)} 75%
-		);
-		// background-color: black;
-		opacity: .86;
-	}
 
 	@media (min-width: 768px) {
 		${ HeroText } {

@@ -36,7 +36,7 @@ export default class Contact extends React.Component {
                 <FormWrapper>
                     <AnimateScrollIn>
                         <p>
-                            I'm looking to work with an amazing company that will provide
+                            I'm looking to work with an awesome company that will provide
                             new challenges, talented people to collaborate with, and the ability 
                             to grow as a developer.
                         </p>
